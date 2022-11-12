@@ -1,0 +1,19 @@
+
+/**
+ * Admin CSS
+ */
+
+.csf-field-switcher .csf--switcher {
+  border-radius: 3rem;
+}
+
+i.mce-i-bootstrap:before {
+  content: "\f487"; /* выбираем иконку и узнаем ее код тут https://developer.wordpress.org/resource/dashicons/ */
+  font-family: 'dashicons';
+  font-size:20px; /* можно подкорректировать размер шрифта, если не устраивает*/
+}
+
+i.mce-i-ot {
+  display: inline-block;
+  background-color: #b0b0b0;
+}

@@ -1,0 +1,65 @@
+/**
+ * Front tinyMCE style
+ */
+
+$color: #008ee1;
+
+.list {
+  li{
+    list-style: none;
+    &:before {
+      width: 25px;
+      content: "\f00c";
+      display: inline-block;
+      font: 14px/1 FontAwesome;
+      font-size: inherit;
+      text-rendering: auto;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      position: initial;
+      margin-left: -20px;
+      top: 6px;
+    }
+  }
+}
+.list-style-star li {
+  &:before {
+    content: "\f005";
+    color: $color;
+    font: 14px/1 FontAwesome;
+  }
+}
+.list-style-check li{
+  &:before {
+    content: "\f00c";
+    color: $color;
+    font: 14px/1 FontAwesome;
+  }
+}
+
+hr {
+  height: 2px;
+  border-width: 0 0 2px;
+  border-style: solid;
+  border-color: #dbdbdb;
+  margin: 30px auto 28px;
+  position: relative;
+  width: 90%;
+
+  &.short{
+    width: 50%;
+  }
+  &.dashed{
+    height: 2px;
+    border-color: #dbdbdb;
+    margin: 30px auto 28px;
+
+    border-style: dashed;
+    border-width: 1px;
+    width: 90%;
+  }
+}
+
+.accordion{
+  margin-bottom: 40px;
+}

@@ -1,0 +1,578 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: #1 RW Wordpress Addon\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-05-29 09:48+0000\n"
+"PO-Revision-Date: 2022-11-12 17:53+0000\n"
+"Last-Translator: \n"
+"Language-Team: Русский\n"
+"Language: ru_RU\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
+"n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.3; wp-6.1"
+
+#. Name of the plugin
+msgid "#1 RW Wordpress AddOn"
+msgstr ""
+
+#: AdminWP.php:478
+msgid "Add all types at a glance widget"
+msgstr "Добавить все типы в виджет \"glance\""
+
+#: settings/general.php:141
+msgid "Add Bootsrtrap 3"
+msgstr "Добавить Bootsrtrap 3"
+
+#: settings/general.php:142
+msgid "Add Bootsrtrap 3 code to TinyMCE"
+msgstr "Добавить коды Bootsrtrap 3 в TinyMCE"
+
+#: AdminWP.php:313
+msgid "Add notice for posts if they have status \"pending\" "
+msgstr "Добавить уведомление для записей, если они имеют статус \"в ожидании\""
+
+#: settings/general.php:122
+msgid "Add platform color to tinyMCE"
+msgstr "Добавить цвета платформы в tinyMCE"
+
+#: settings/general.php:135
+msgid ""
+"Add third column and additional setting to tinyMCE (fonts, sizes, formats "
+"and backgrounds settings)"
+msgstr ""
+"Добавьте третий столбец и дополнительные настройки для tinyMCE (настройки "
+"шрифтов, размеров, форматов и фона)"
+
+#: settings/general.php:134
+msgid "Add TinyMCE Advanced functions"
+msgstr "Добавить расширенные функции TinyMCE"
+
+#: AdminWP.php:456
+msgid "Add to Dashboard additional widgets and other functional"
+msgstr "Добавление на дашборд дополнительных виджетов и прочего функционала"
+
+#: AdminWP.php:289
+msgid "Add VK and OK to user profile"
+msgstr "Добавить ВК и ОК в профиль пользователя"
+
+#: functions/cf7/contact-form7.php:19
+msgid "Additional shortcodes <b>email:</b>"
+msgstr "Дополнительные шорткоды <b>email:</b>"
+
+#: AdminWP.php:415 functions/widgets/add-sidebar.php:13
+#: functions/widgets/add-sidebar.php:15
+msgid "Additional sidebar 1"
+msgstr "Дополнительная боковая панель 1"
+
+#: AdminWP.php:421 functions/widgets/add-sidebar.php:32
+#: functions/widgets/add-sidebar.php:34
+msgid "Additional sidebar 2"
+msgstr "Дополнительная боковая панель 2"
+
+#: AdminWP.php:427 functions/widgets/add-sidebar.php:51
+#: functions/widgets/add-sidebar.php:53
+msgid "Additional sidebar 3"
+msgstr "Дополнительная боковая панель 3"
+
+#. Description of the plugin
+msgid "Addon for Wordpress, Contact Form 7 etc;"
+msgstr "Дополнительные функции для Wordpress, Contact Form 7  и т.д."
+
+#: AdminWP.php:451
+msgid "Admin Dashboard Settings"
+msgstr "Настройки панели администратора"
+
+#. Author of the plugin
+msgid "Aleksey Tikhomirov"
+msgstr "Aleksey Tikhomirov"
+
+#: AdminWP.php:271
+msgid "Allow download types file: SVG, DOC, djv .."
+msgstr "Разрешить загрузку типов файлов: SVG, DOC, djv.."
+
+#: AdminWP.php:343
+msgid "Allow shortcode in \"Text\" widget"
+msgstr "Разрешить шорткод в виджете «Текст»"
+
+#: AdminWP.php:383
+msgid "Any HTML code in footer."
+msgstr "Любой HTML-код в футере."
+
+#: AdminWP.php:373
+msgid "Any HTML code or Analytics code in header."
+msgstr "Любой HTML-код или код Analytics в header."
+
+#: functions/shortcodes/vc-support.php:5
+msgid "Any widgets"
+msgstr "Любые виджеты"
+
+#: functions/shortcodes/vc-support.php:31
+msgid "Args"
+msgstr "Аргументы"
+
+#: AdminWP.php:307
+msgid "AutoRemove readme.html and license.txt files"
+msgstr ""
+
+#: AdminWP.php:505
+msgid "Backup Settings"
+msgstr "Резервное копирование настроек"
+
+#: AdminWP.php:211
+msgid "Block http-requests by plugins/themes"
+msgstr ""
+
+#: AdminWP.php:88
+msgid "by Aleksey Tihomirov"
+msgstr "от Алексей Тихомиров"
+
+#: AdminWP.php:406
+msgid "Capability with WPBakery Page Builder"
+msgstr ""
+
+#: settings/general.php:64
+msgid "Change length post excerpt? To maximum 200 symbols."
+msgstr ""
+
+#: settings/general.php:155
+msgid ""
+"Cleanup daily options '_cache_validator'. D`ont touch it if you d`ont know "
+"how it work."
+msgstr ""
+
+#: functions/widgets/duplicate-widgets.php:23
+msgid "Clone"
+msgstr "клонировать"
+
+#: functions/widgets/duplicate-widgets.php:24
+msgid "Clone this Widget"
+msgstr ""
+
+#: settings/general.php:86
+msgid "Comment form"
+msgstr ""
+
+#: AdminWP.php:405
+msgid "Components"
+msgstr ""
+
+#: settings/general.php:15
+msgid "Contact Form 7 settings"
+msgstr ""
+
+#: AdminWP.php:363
+msgid "CSS Code in Header"
+msgstr ""
+
+#: AdminWP.php:357
+msgid "Custom code"
+msgstr ""
+
+#: functions/users/UserAvatar.php:33
+msgid "Custom Default Avatar"
+msgstr ""
+
+#: AdminWP.php:473
+msgid "Dashboard widgets"
+msgstr ""
+
+#: settings/general.php:189
+msgid "Data Base Optimization"
+msgstr ""
+
+#: AdminWP.php:247
+msgid "Disable agressive update"
+msgstr ""
+
+#: settings/general.php:91
+msgid "Disable all comments"
+msgstr ""
+
+#: settings/general.php:116
+msgid "Disable guttenber?"
+msgstr ""
+
+#: AdminWP.php:217
+msgid "Disable heartbeat"
+msgstr ""
+
+#: settings/general.php:97
+msgid "Disable link Nofollow in comment"
+msgstr ""
+
+#: AdminWP.php:229
+msgid "Disable new themes on major WP updates"
+msgstr ""
+
+#: AdminWP.php:277
+msgid "Disable pingback from this site to this site"
+msgstr ""
+
+#: AdminWP.php:319
+msgid "Disable select taxonomy in top of metabox in post-edit page."
+msgstr ""
+
+#: settings/general.php:173
+msgid "Disable site indexing."
+msgstr ""
+
+#: AdminWP.php:253
+msgid "Disable URL auto-linking in comments"
+msgstr ""
+
+#: AdminWP.php:235
+msgid "Disable XML-RPC"
+msgstr ""
+
+#: AdminWP.php:509
+msgid "Download settings now"
+msgstr ""
+
+#: functions/shortcodes/vc-support.php:8
+msgid "Elements"
+msgstr ""
+
+#: AdminWP.php:265
+msgid "Empty WP-Trash every 14 days"
+msgstr ""
+
+#: settings/general.php:128
+msgid "Enable \"Open Sans\" google font for tinyMCE."
+msgstr ""
+
+#: AdminWP.php:467
+msgid "Enable Duplicate widgets function"
+msgstr ""
+
+#: settings/general.php:181
+msgid "Enable redirect addon?"
+msgstr ""
+
+#: settings/general.php:167
+msgid "Enable transliteration?"
+msgstr ""
+
+#: settings/general.php:76
+msgid ""
+"Enter category IDs separated by commas. Before ID you need a minus sign."
+msgstr ""
+
+#: functions/shortcodes/vc-support.php:34
+msgid "Enter description."
+msgstr ""
+
+#: settings/general.php:174
+msgid ""
+"Exclude all pages from search. \n"
+"                                                    Enable it if your site "
+"is placement to Test host."
+msgstr ""
+
+#: functions/tweaks/wp-functions.php:351
+msgid "filter..."
+msgstr ""
+
+#: AdminWP.php:400
+msgid "Functional in development"
+msgstr ""
+
+#: settings/general.php:7
+msgid "General Settings"
+msgstr ""
+
+#: AdminWP.php:349
+msgid "Get jquery from google cloud"
+msgstr ""
+
+#: AdminWP.php:283
+msgid "Hide adminbar in frontend for contributors, authors and subscribers"
+msgstr ""
+
+#: settings/general.php:36
+msgid "Hide languages in wp Front. Enter lang slug, separated: \", \"."
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://rwsite.ru"
+msgstr ""
+
+#: AdminWP.php:325
+msgid "If posts have status \"pending\" show numbers it in menu"
+msgstr ""
+
+#: settings/general.php:206
+msgid ""
+"If you url is include %category%, %tag%, %author%, you can use this option "
+"for repair GUID(url) in your database."
+msgstr ""
+
+#: functions/shortcodes/vc-support.php:23
+msgid "Instance"
+msgstr ""
+
+#: functions/shortcodes/vc-support.php:26
+msgid "Instance Params"
+msgstr ""
+
+#: AdminWP.php:461
+msgid "Maintenance Mode"
+msgstr ""
+
+#: functions/dashboard-widget/siteinfo.php:38
+#: functions/dashboard-widget/siteinfo.php:43
+msgid "Off"
+msgstr ""
+
+#: functions/tweaks/wp-functions.php:258
+msgid "OK"
+msgstr ""
+
+#: functions/dashboard-widget/siteinfo.php:40
+#: functions/dashboard-widget/siteinfo.php:45
+msgid "On"
+msgstr ""
+
+#: functions/shortcodes/vc-support.php:17
+msgid ""
+"Paste Original Widget Class Name. See: https://codex.wordpress."
+"org/Template_Tags/the_widget"
+msgstr ""
+
+#: functions/dashboard-widget/plugins-list.php:46
+msgid "Plugin list of "
+msgstr ""
+
+#: AdminWP.php:484
+msgid "Plugins list"
+msgstr "Список плагинов сайта"
+
+#: settings/general.php:31
+msgid "Polylang settings"
+msgstr ""
+
+#: settings/general.php:47
+msgid "Posts and Page Settings"
+msgstr "Настройки постов и страниц"
+
+#: functions/tweaks/wp-functions.php:422
+msgid "Read more ..."
+msgstr ""
+
+#: AdminWP.php:199
+msgid "Remove adjacent links to posts in the header"
+msgstr ""
+
+#: AdminWP.php:223
+msgid "Remove jQuery Migrate"
+msgstr ""
+
+#: AdminWP.php:259
+msgid "Remove login-shake on errors"
+msgstr ""
+
+#: AdminWP.php:241
+msgid "Remove post by email function"
+msgstr ""
+
+#: AdminWP.php:181
+msgid "Remove RSD-Link"
+msgstr ""
+
+#: AdminWP.php:187
+msgid "Remove RSS links"
+msgstr ""
+
+#: AdminWP.php:193
+msgid "Remove shortlink in the header"
+msgstr ""
+
+#: settings/general.php:103
+msgid "Remove site field in comment"
+msgstr ""
+
+#: AdminWP.php:301
+msgid "Remove Standard WP widget"
+msgstr ""
+
+#: AdminWP.php:175
+msgid "Remove Windows Live Writer"
+msgstr ""
+
+#: AdminWP.php:163
+msgid "Remove WP-Version in Header"
+msgstr ""
+
+#: AdminWP.php:337
+msgid "Repalse [...] to \"Read more ...\" for posts"
+msgstr ""
+
+#: settings/general.php:150
+msgid "SEO Settings (Yoast required)"
+msgstr ""
+
+#: settings/general.php:78
+msgid "Separeted: \", \""
+msgstr ""
+
+#: AdminWP.php:490 functions/dashboard-widget/siteinfo.php:14
+msgid "Server info"
+msgstr "ИНФОРМАЦИЯ О СЕРВЕРЕ"
+
+#: settings/general.php:161
+msgid "Set Alt in updload from Title media"
+msgstr ""
+
+#: AdminWP.php:205
+msgid "Set limit post revisions to 5"
+msgstr ""
+
+#: AdminWP.php:395
+msgid "Shortcodes and Widgets"
+msgstr ""
+
+#: settings/general.php:20
+msgid "Show additional shortcode?"
+msgstr ""
+
+#: settings/general.php:215
+msgid "Show custom fields in categories"
+msgstr ""
+
+#: settings/general.php:52
+msgid "Show posts IDs"
+msgstr ""
+
+#: settings/general.php:58
+msgid "Show posts thumbnails"
+msgstr ""
+
+#: AdminWP.php:331
+msgid "Showing message \"Update wordpress\" only admin"
+msgstr ""
+
+#: AdminWP.php:295
+msgid "Showing usages memory and time generate site page"
+msgstr ""
+
+#: AdminWP.php:409
+msgid "Sidebars"
+msgstr "Сайдбары"
+
+#: settings/general.php:38
+msgid "Space must be entered!"
+msgstr ""
+
+#: functions/tweaks/wp-functions.php:269
+#, php-format
+msgid "SQL: %d за %s sec. %.2f MB "
+msgstr ""
+
+#: settings/general.php:200
+msgid "This option enable interface for replace wp guide to right GUID."
+msgstr ""
+
+#: settings/general.php:111
+msgid "TinyMCE Settings"
+msgstr ""
+
+#: AdminWP.php:157
+msgid "Tweaks"
+msgstr "Твики"
+
+#: functions/users/UserAvatar.php:53
+msgid "User avatar"
+msgstr ""
+
+#: AdminWP.php:496
+msgid "Users role info"
+msgstr ""
+
+#: functions/tweaks/wp-functions.php:257
+msgid "VK"
+msgstr ""
+
+#: functions/dashboard-widget/siteinfo.php:48
+msgid "Welcome to "
+msgstr ""
+
+#: functions/shortcodes/vc-support.php:14
+msgid "Widget Name"
+msgstr ""
+
+#: functions/shortcodes/widgets.php:35
+msgid "Widget not found!"
+msgstr ""
+
+#: AdminWP.php:122
+msgid "With love by <span style=\"color: #ED4301;\">A</span> Tikhomirov"
+msgstr ""
+
+#: AdminWP.php:39
+msgid "Wordpress Addon"
+msgstr "Расширение Wordpress"
+
+#: AdminWP.php:169
+msgid "WP-Emojis deacivation"
+msgstr ""
+
+#: settings/general.php:194
+msgid "Write right link to guid for New posts."
+msgstr ""
+
+#: AdminWP.php:439
+msgid "Yearly archive widget"
+msgstr ""
+
+#: settings/general.php:70
+msgid "You can exclude specific category in frontend"
+msgstr ""
+
+#: functions/MaintenanceMode.php:29
+msgid "Извините, в настоящий момент на сайте проводятся технические работы."
+msgstr ""
+
+#: settings/general.php:201
+msgid ""
+"Поле guid таблицы wp_posts создано для хранения там уникального значения - "
+"идентификатора записи. \n"
+"                                    Нужен он для идентификации записи в RSS "
+"ленте. GUID так и расшифровывается: Globally Unique Identifier - глобальный "
+"уникальный идентификатор. \n"
+"                                    По этому полю парсеры RSS определяют "
+"обрабатывали они запись или нет. \n"
+"                                    Именно поэтому разработчики не "
+"рекомендуют менять это поле, вообще никогда, даже если ваш сайт переехал на "
+"другой домен. \n"
+"                                    Если это поле изменить, то ваши читатели "
+"RSS, могут получить кучу уже опубликованных материалов."
+msgstr ""
+"Поле guid таблицы wp_posts создано для хранения там уникального значения - "
+"идентификатора записи. \n"
+"                                    Нужен он для идентификации записи в RSS "
+"ленте. GUID так и расшифровывается: Globally Unique Identifier - глобальный "
+"уникальный идентификатор. \n"
+"                                    По этому полю парсеры RSS определяют "
+"обрабатывали они запись или нет. \n"
+"                                    Именно поэтому разработчики не "
+"рекомендуют менять это поле, вообще никогда, даже если ваш сайт переехал на "
+"другой домен. \n"
+"                                    Если это поле изменить, то ваши читатели "
+"RSS, могут получить кучу уже опубликованных материалов."
+
+#: functions/MaintenanceMode.php:30
+msgid "Попробуйте зайти позднее."
+msgstr ""
+
+#: functions/MaintenanceMode.php:26
+msgid "Технические работы."
+msgstr ""
+
+#: functions/cf7/datetimepicker.php:79
+msgid ""
+"Укажите дату и время в формате: 00.00.0000 00:00 или воспользуйтесь "
+"календарем"
+msgstr ""

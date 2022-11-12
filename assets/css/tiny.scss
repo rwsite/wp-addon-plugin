@@ -1,0 +1,75 @@
+/**
+ * Admin Css style
+ */
+
+$color: #008ee1;
+
+#tinymce {
+
+    max-width: 819px;
+    border-right: 1px solid whitesmoke;
+    padding: 15px !important;
+
+    .col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto,
+    .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6,
+    .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2,
+    .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1,
+    .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8,
+    .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4,
+    .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+        border: 1px solid #dbdbdb;
+    }
+
+    .list {
+        li {
+            list-style: none;
+
+            &:before {
+                width: 25px;
+                content: "\f00c";
+                display: inline-block;
+                font: 14px/1 FontAwesome;
+                font-size: inherit;
+                text-rendering: auto;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                position: initial;
+                margin-left: -20px;
+                top: 6px;
+            }
+        }
+    }
+
+    .list-style-star li {
+        &:before {
+            content: "\f005";
+            color: $color;
+        }
+    }
+
+    .list-style-check li {
+        &:before {
+            content: "\f00c";
+            color: $color;
+        }
+    }
+
+    hr {
+        height: 2px;
+        border-width: 0 0 2px;
+        border-style: solid;
+        border-color: #dbdbdb;
+        margin: 30px auto 28px;
+        position: relative;
+
+        &.short {
+            width: 50%;
+        }
+
+        &.dashed {
+            border-style: dashed;
+            border-width: 1px;
+            width: 90%;
+        }
+    }
+}
