@@ -45,6 +45,15 @@ require_once 'autoloader.php';
 
 add_action( 'init', function () {
 	load_plugin_textdomain( 'wp-addon', false, dirname( plugin_basename( RW_FILE ) ) . '/languages/');
+
+	if ( !class_exists( 'CSF' ) ){
+		?>
+		<div id="message" class="updated notice is-dismissible"><p>
+                For work <b>#1 RW Wordpress AddOn</b> plugin, please download and install <a href="https://github.com/Codestar/codestar-framework" target="_blank">Codestar Framework</a>.
+		</p></div>
+		<?php
+		return;
+	}
 });
 
 // ControllerWP
