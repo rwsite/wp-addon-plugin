@@ -43,6 +43,7 @@ function dashboard_plugin_list()
         if (!current_user_can('manage_options')) {
             return;
         }
+
         wp_add_dashboard_widget('plugin_list_widget', __('Plugin list of ', 'wp-addon') . ' ' . get_bloginfo('name'),
                                 'echo_plugin_list');
     }

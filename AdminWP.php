@@ -345,6 +345,12 @@ class AdminWP {
 						'title'   => __( 'Get jquery from google cloud', 'wp-addon' ),
 						'default' => false,
 					],
+					[
+						'id'      => 'wptweaker_settimngs_33',
+						'type'    => 'switcher',
+						'title'   => __( 'Disable autoupdate core, themes and plugins', 'wp-addon' ),
+						'default' => false,
+					],
 				],
 			] );
 

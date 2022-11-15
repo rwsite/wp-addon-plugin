@@ -128,8 +128,7 @@ function wptweaker_setting_11()
     function rw_remove_jquery_migrate( $scripts ) {
         if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
             $script = $scripts->registered['jquery'];
-
-            if ( $script->deps ) { // Check whether the script has any dependencies
+            if ( $script->deps ) {
                 $script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
             }
         }
@@ -440,4 +439,36 @@ function wptweaker_setting_32()
         wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js', false, false);
         wp_enqueue_script('jquery');
     }
+}
+
+/**
+ * Remove auto update core theme ad plugins
+ * @return void
+ */
+function wptweaker_settimngs_33(){
+    $names = [
+	    'auto_update_core_dev', 'auto_update_core_minor', 'auto_update_core_major'
+    ];
+    foreach ($names as $option_name) {
+	    add_filter( "pre_site_option_{$option_name}", function (){
+            return 'disabled';
+        } );
+    }
+    $option_name = 'dismissed_update_core';
+	add_filter( "pre_site_option_{$option_name}", function (){
+		return false;
+	} );
+
+	add_filter( 'automatic_updater_disabled', '__return_true' );
+	add_filter( 'pre_site_transient_update_core',function (){
+        $obj = new stdClass();
+        $obj->response = 'autoupdate';
+		return (object) [
+			'updates'         => [
+                '0' => $obj
+			],
+			'version_checked' => get_bloginfo( 'version' ),
+			'version'         => get_bloginfo( 'version' ),
+		];
+    });
 }

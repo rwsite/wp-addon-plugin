@@ -16,8 +16,6 @@ function dashboard_server_info()
 
     function dash_server_info()
     {
-        $user_id       = get_current_user_id();
-        $user_info     = get_userdata($user_id);
         $indicesServer = [
             'SERVER_ADDR',
             'SERVER_NAME',
@@ -46,7 +44,7 @@ function dashboard_server_info()
         }
 
         $html = "<div class=\"bg-lighht\"><p>" . __('Welcome to ', 'wp-addon') . "<strong> $tname</strong> </p></div>";
-        $html .= '<table cellpadding="10" class="">';
+        $html .= '<table cellpadding="10" class="wp-list-table widefat fixed striped table-view-list">';
         foreach ($indicesServer as $arg) {
             if (isset($_SERVER[$arg])) {
                 $html .= '<tr><td>' . $arg . '</td><td>' . $_SERVER[$arg] . '</td></tr>';

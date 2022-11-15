@@ -14,10 +14,9 @@ function write_right_guid(){
         if( defined('DOING_AUTOSAVE') && DOING_AUTOSAVE  ){
             return false;
         }
-
         if( $id === (int)$id ){
             global $wpdb;
-            $wpdb->update( $wpdb->posts, ['guid' => get_permalink($id) ], ['ID'=>$id] );
+	        $wpdb->update( $wpdb->posts, [ 'guid' => get_permalink( $id ) ], [ 'ID' => $id ] );
         }
         clean_post_cache( $id );
     }
@@ -26,46 +25,82 @@ function write_right_guid(){
 
 function fix_guid()
 {
-    add_filter('admin_menu', 'krg_register_admin_page');
-    function krg_register_admin_page()
-    {
-        add_options_page('Ремонтируем Guid', 'Ремонт Guid', 'manage_options', __FILE__, 'krg_admin_page');
-    }
+    add_filter('admin_menu', function(){
+	    add_options_page(
+		    __( 'Guid repair', 'wp-addon' ),
+		    __( 'Guid repair', 'wp-addon' ),
+		    'manage_options',
+		    'krg_admin_page',
+		    'krg_admin_page'
+	    );
+    });
 
     function krg_admin_page()
     {
         $url = $_SERVER['REQUEST_URI'];
         $url = preg_replace('@&krg=.*@', '', $url);
+        $separator = ' | ';
+        $tab = $_GET['krg'] ?? '';
 
-        echo <<<html
-	<div class='wrap'>
-		<div id="icon-options-general" class="icon32"><br /></div>
-		<h2> Repair GUID </h2>
+        ?>
 
-		<a href='$url&krg=look_all_guide'>Посмотреть все guide</a> | 
-		<a href='$url&krg=update_all_guid' title='Обновить в БД в таблице "posts" все поля guide ( в них запишутся постоянные ссылки на страницы )'>Обновить все guide</a> <br> 
-		<a href='$url&krg=look_all_revision' title='Посмотреть все существующие в БД в таблице "posts" ревизии записей'>Все ревизии записей</a> | 
-		<a href='$url&krg=delete_all_revision' title='Удалить все ревизии и соответствующие им поля в таблицах term_relationships и postmeta'>Удалить все ревизии</a>
-		<br><hr />
-html;
+        <div class="wrap">
 
+            <div class="icon32"></div>
+            <h2><?= __( 'Guid repair', 'wp-addon' ); ?></h2>
 
-        switch ($_GET['krg']) {
-            case 'look_all_guide' :
-                krg_guid('look');
-                break;
-            case 'update_all_guid' :
-                krg_guid('update');
-                break;
-            case 'look_all_revision' :
-                look_all_revision();
-                break;
-            case 'delete_all_revision' :
-                delete_all_revision();
-                break;
-        }
+            <h1 class="screen-reader-text">GUID</h1>
 
-        echo "</div>";
+            <ul class="subsubsub">
+                <li>
+                    <a href='<?= $url ?>&krg=look_all_guide' class=" <?='look_all_guide' === $tab || '' === $tab ? 'bold' : ''; ?>">
+                        <?= __('View all GUID', 'wp-addon')?>
+                    </a> <?= $separator ?>
+                </li>
+                <li><a href='<?= $url ?>&krg=update_all_guid' class=" <?='update_all_guid' === $tab ? 'bold' : ''; ?>"
+                       title='Обновить в БД в таблице "posts" все поля guide ( в них запишутся постоянные ссылки на страницы )'>
+                        <?= __('Update all GUID','wp-addon')?>
+                    </a> <?= $separator ?>
+                </li>
+                <li><a href='<?= $url ?>&krg=look_all_revision' class=" <?='look_all_revision' === $tab ? 'bold' : ''; ?>"
+                       title='Посмотреть все существующие в БД в таблице "posts" ревизии записей'>
+		                <?= __('All revision','wp-addon')?>
+                    </a> <?= $separator ?>
+                </li>
+                <li><a href='<?= $url ?>&krg=delete_all_revision' class=" <?='delete_all_revision' === $tab ? 'bold' : ''; ?>"
+                       title='Удалить все ревизии и соответствующие им поля в таблицах term_relationships и postmeta'>
+		                <?= __('Remove all revision','wp-addon')?></a>
+                </li>
+            </ul>
+            <br class="clear">
+            <style>
+                .bold {
+                    font-weight: bold;
+                }
+                .subsubsub{
+                    text-transform: uppercase;
+                }
+            </style>
+
+            <?php
+            switch ( $_GET['krg'] ?? '' ) {
+
+                case 'update_all_guid' :
+                    krg_guid( 'update' );
+                    break;
+                case 'look_all_revision' :
+                    look_all_revision();
+                    break;
+                case 'delete_all_revision' :
+                    delete_all_revision();
+                    break;
+                default:
+                    krg_guid( 'look' );
+                    break;
+            }
+            ?>
+        </div>
+        <?php
     }
 
 
@@ -79,15 +114,15 @@ html;
 
         $post_types = get_post_types(['public' => true], 'names');
         if ( ! $post_types) {
-            return;
+            return null;
         }
         unset($post_types['attachment']);
 
         $post_types = "'" . implode("','", $post_types) . "'";
         $SQL        = "SELECT ID, post_date, post_title, guid
-		FROM $wpdb->posts p
-	WHERE p.post_type IN ($post_types)
-	AND p.post_status = 'publish'";
+        FROM $wpdb->posts p
+        WHERE p.post_type IN ($post_types)
+        AND p.post_status = 'publish'";
         $results    = $wpdb->get_results($SQL);
 
         if ( ! $results) {
@@ -164,7 +199,8 @@ html;
         if ( ! $results = $wpdb->get_results("SELECT ID, post_date, post_title, post_status, guid, post_type FROM $wpdb->posts WHERE post_type = 'revision'")) {
             return print("<font color='green'>Ревизий не найдено. Запрос вернул пустой результат</font>");
         }
-        $d = 0;
+
+        $d = 0; $rrr = '';
         foreach ($results as $reslt) {
             $rrr .= "<li><font color='green'>" . ++$d . ".</font> id: {$reslt->ID} | guid: <font color='red'>{$reslt->guid}</font> </li>";
         }

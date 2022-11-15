@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: #1 RW Wordpress Addon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-29 09:48+0000\n"
-"PO-Revision-Date: 2022-11-12 17:53+0000\n"
+"PO-Revision-Date: 2022-11-15 00:20+0000\n"
 "Last-Translator: \n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "#1 RW Wordpress AddOn"
 msgstr ""
 
-#: AdminWP.php:478
+#: AdminWP.php:474
 msgid "Add all types at a glance widget"
 msgstr "Добавить все типы в виджет \"glance\""
 
@@ -31,7 +31,7 @@ msgstr "Добавить Bootsrtrap 3"
 msgid "Add Bootsrtrap 3 code to TinyMCE"
 msgstr "Добавить коды Bootsrtrap 3 в TinyMCE"
 
-#: AdminWP.php:313
+#: AdminWP.php:309
 msgid "Add notice for posts if they have status \"pending\" "
 msgstr "Добавить уведомление для записей, если они имеют статус \"в ожидании\""
 
@@ -51,11 +51,11 @@ msgstr ""
 msgid "Add TinyMCE Advanced functions"
 msgstr "Добавить расширенные функции TinyMCE"
 
-#: AdminWP.php:456
+#: AdminWP.php:452
 msgid "Add to Dashboard additional widgets and other functional"
 msgstr "Добавление на дашборд дополнительных виджетов и прочего функционала"
 
-#: AdminWP.php:289
+#: AdminWP.php:285
 msgid "Add VK and OK to user profile"
 msgstr "Добавить ВК и ОК в профиль пользователя"
 
@@ -63,17 +63,17 @@ msgstr "Добавить ВК и ОК в профиль пользователя
 msgid "Additional shortcodes <b>email:</b>"
 msgstr "Дополнительные шорткоды <b>email:</b>"
 
-#: AdminWP.php:415 functions/widgets/add-sidebar.php:13
+#: AdminWP.php:411 functions/widgets/add-sidebar.php:13
 #: functions/widgets/add-sidebar.php:15
 msgid "Additional sidebar 1"
 msgstr "Дополнительная боковая панель 1"
 
-#: AdminWP.php:421 functions/widgets/add-sidebar.php:32
+#: AdminWP.php:417 functions/widgets/add-sidebar.php:32
 #: functions/widgets/add-sidebar.php:34
 msgid "Additional sidebar 2"
 msgstr "Дополнительная боковая панель 2"
 
-#: AdminWP.php:427 functions/widgets/add-sidebar.php:51
+#: AdminWP.php:423 functions/widgets/add-sidebar.php:51
 #: functions/widgets/add-sidebar.php:53
 msgid "Additional sidebar 3"
 msgstr "Дополнительная боковая панель 3"
@@ -82,7 +82,7 @@ msgstr "Дополнительная боковая панель 3"
 msgid "Addon for Wordpress, Contact Form 7 etc;"
 msgstr "Дополнительные функции для Wordpress, Contact Form 7  и т.д."
 
-#: AdminWP.php:451
+#: AdminWP.php:447
 msgid "Admin Dashboard Settings"
 msgstr "Настройки панели администратора"
 
@@ -90,19 +90,23 @@ msgstr "Настройки панели администратора"
 msgid "Aleksey Tikhomirov"
 msgstr "Aleksey Tikhomirov"
 
-#: AdminWP.php:271
+#: functions/fix_guid.php:67
+msgid "All revision"
+msgstr "Все ревизии"
+
+#: AdminWP.php:266
 msgid "Allow download types file: SVG, DOC, djv .."
 msgstr "Разрешить загрузку типов файлов: SVG, DOC, djv.."
 
-#: AdminWP.php:343
+#: AdminWP.php:339
 msgid "Allow shortcode in \"Text\" widget"
 msgstr "Разрешить шорткод в виджете «Текст»"
 
-#: AdminWP.php:383
+#: AdminWP.php:379
 msgid "Any HTML code in footer."
 msgstr "Любой HTML-код в футере."
 
-#: AdminWP.php:373
+#: AdminWP.php:369
 msgid "Any HTML code or Analytics code in header."
 msgstr "Любой HTML-код или код Analytics в header."
 
@@ -114,23 +118,23 @@ msgstr "Любые виджеты"
 msgid "Args"
 msgstr "Аргументы"
 
-#: AdminWP.php:307
+#: AdminWP.php:303
 msgid "AutoRemove readme.html and license.txt files"
-msgstr ""
+msgstr "Автоудаление readme.html and license.txt файлов"
 
-#: AdminWP.php:505
+#: AdminWP.php:501
 msgid "Backup Settings"
 msgstr "Резервное копирование настроек"
 
-#: AdminWP.php:211
+#: AdminWP.php:206
 msgid "Block http-requests by plugins/themes"
-msgstr ""
+msgstr "Блокировать http-запросы плагинов и тем"
 
-#: AdminWP.php:88
+#: AdminWP.php:81
 msgid "by Aleksey Tihomirov"
 msgstr "от Алексей Тихомиров"
 
-#: AdminWP.php:406
+#: AdminWP.php:402
 msgid "Capability with WPBakery Page Builder"
 msgstr ""
 
@@ -156,7 +160,7 @@ msgstr ""
 msgid "Comment form"
 msgstr ""
 
-#: AdminWP.php:405
+#: AdminWP.php:401
 msgid "Components"
 msgstr ""
 
@@ -164,55 +168,55 @@ msgstr ""
 msgid "Contact Form 7 settings"
 msgstr ""
 
-#: AdminWP.php:363
+#: AdminWP.php:359
 msgid "CSS Code in Header"
 msgstr ""
 
-#: AdminWP.php:357
+#: AdminWP.php:353
 msgid "Custom code"
-msgstr ""
+msgstr "Свой код"
 
 #: functions/users/UserAvatar.php:33
 msgid "Custom Default Avatar"
 msgstr ""
 
-#: AdminWP.php:473
+#: AdminWP.php:469
 msgid "Dashboard widgets"
 msgstr ""
 
 #: settings/general.php:189
 msgid "Data Base Optimization"
-msgstr ""
+msgstr "Оптимизая БД"
 
-#: AdminWP.php:247
+#: AdminWP.php:242
 msgid "Disable agressive update"
 msgstr ""
 
 #: settings/general.php:91
 msgid "Disable all comments"
-msgstr ""
+msgstr "Отключить все комментарии"
 
 #: settings/general.php:116
 msgid "Disable guttenber?"
-msgstr ""
+msgstr "Отключить Гуттенберг"
 
-#: AdminWP.php:217
+#: AdminWP.php:212
 msgid "Disable heartbeat"
-msgstr ""
+msgstr "Отключить сердцебиение"
 
 #: settings/general.php:97
 msgid "Disable link Nofollow in comment"
 msgstr ""
 
-#: AdminWP.php:229
+#: AdminWP.php:224
 msgid "Disable new themes on major WP updates"
 msgstr ""
 
-#: AdminWP.php:277
+#: AdminWP.php:272
 msgid "Disable pingback from this site to this site"
 msgstr ""
 
-#: AdminWP.php:319
+#: AdminWP.php:315
 msgid "Disable select taxonomy in top of metabox in post-edit page."
 msgstr ""
 
@@ -220,15 +224,15 @@ msgstr ""
 msgid "Disable site indexing."
 msgstr ""
 
-#: AdminWP.php:253
+#: AdminWP.php:248
 msgid "Disable URL auto-linking in comments"
 msgstr ""
 
-#: AdminWP.php:235
+#: AdminWP.php:230
 msgid "Disable XML-RPC"
 msgstr ""
 
-#: AdminWP.php:509
+#: AdminWP.php:505
 msgid "Download settings now"
 msgstr ""
 
@@ -236,7 +240,7 @@ msgstr ""
 msgid "Elements"
 msgstr ""
 
-#: AdminWP.php:265
+#: AdminWP.php:260
 msgid "Empty WP-Trash every 14 days"
 msgstr ""
 
@@ -244,7 +248,7 @@ msgstr ""
 msgid "Enable \"Open Sans\" google font for tinyMCE."
 msgstr ""
 
-#: AdminWP.php:467
+#: AdminWP.php:463
 msgid "Enable Duplicate widgets function"
 msgstr ""
 
@@ -276,19 +280,24 @@ msgstr ""
 msgid "filter..."
 msgstr ""
 
-#: AdminWP.php:400
+#: AdminWP.php:396
 msgid "Functional in development"
 msgstr ""
 
 #: settings/general.php:7
 msgid "General Settings"
-msgstr ""
+msgstr "Основные настройки"
 
-#: AdminWP.php:349
+#: AdminWP.php:345
 msgid "Get jquery from google cloud"
 msgstr ""
 
-#: AdminWP.php:283
+#: functions/fix_guid.php:30 functions/fix_guid.php:31
+#: functions/fix_guid.php:50
+msgid "Guid repair"
+msgstr ""
+
+#: AdminWP.php:278
 msgid "Hide adminbar in frontend for contributors, authors and subscribers"
 msgstr ""
 
@@ -300,7 +309,7 @@ msgstr ""
 msgid "https://rwsite.ru"
 msgstr ""
 
-#: AdminWP.php:325
+#: AdminWP.php:321
 msgid "If posts have status \"pending\" show numbers it in menu"
 msgstr ""
 
@@ -318,14 +327,14 @@ msgstr ""
 msgid "Instance Params"
 msgstr ""
 
-#: AdminWP.php:461
+#: AdminWP.php:457
 msgid "Maintenance Mode"
-msgstr ""
+msgstr "Режим тех. работ"
 
 #: functions/dashboard-widget/siteinfo.php:38
 #: functions/dashboard-widget/siteinfo.php:43
 msgid "Off"
-msgstr ""
+msgstr "Выкл"
 
 #: functions/tweaks/wp-functions.php:258
 msgid "OK"
@@ -334,7 +343,7 @@ msgstr ""
 #: functions/dashboard-widget/siteinfo.php:40
 #: functions/dashboard-widget/siteinfo.php:45
 msgid "On"
-msgstr ""
+msgstr "Вкл"
 
 #: functions/shortcodes/vc-support.php:17
 msgid ""
@@ -346,7 +355,7 @@ msgstr ""
 msgid "Plugin list of "
 msgstr ""
 
-#: AdminWP.php:484
+#: AdminWP.php:480
 msgid "Plugins list"
 msgstr "Список плагинов сайта"
 
@@ -362,31 +371,35 @@ msgstr "Настройки постов и страниц"
 msgid "Read more ..."
 msgstr ""
 
-#: AdminWP.php:199
+#: AdminWP.php:194
 msgid "Remove adjacent links to posts in the header"
 msgstr ""
 
-#: AdminWP.php:223
+#: functions/fix_guid.php:72
+msgid "Remove all revision"
+msgstr ""
+
+#: AdminWP.php:218
 msgid "Remove jQuery Migrate"
 msgstr ""
 
-#: AdminWP.php:259
+#: AdminWP.php:254
 msgid "Remove login-shake on errors"
 msgstr ""
 
-#: AdminWP.php:241
+#: AdminWP.php:236
 msgid "Remove post by email function"
 msgstr ""
 
-#: AdminWP.php:181
+#: AdminWP.php:176
 msgid "Remove RSD-Link"
 msgstr ""
 
-#: AdminWP.php:187
+#: AdminWP.php:182
 msgid "Remove RSS links"
 msgstr ""
 
-#: AdminWP.php:193
+#: AdminWP.php:188
 msgid "Remove shortlink in the header"
 msgstr ""
 
@@ -394,19 +407,19 @@ msgstr ""
 msgid "Remove site field in comment"
 msgstr ""
 
-#: AdminWP.php:301
+#: AdminWP.php:297
 msgid "Remove Standard WP widget"
 msgstr ""
 
-#: AdminWP.php:175
+#: AdminWP.php:170
 msgid "Remove Windows Live Writer"
 msgstr ""
 
-#: AdminWP.php:163
+#: AdminWP.php:158
 msgid "Remove WP-Version in Header"
 msgstr ""
 
-#: AdminWP.php:337
+#: AdminWP.php:333
 msgid "Repalse [...] to \"Read more ...\" for posts"
 msgstr ""
 
@@ -416,79 +429,87 @@ msgstr ""
 
 #: settings/general.php:78
 msgid "Separeted: \", \""
-msgstr ""
+msgstr "Разделитель \", \""
 
-#: AdminWP.php:490 functions/dashboard-widget/siteinfo.php:14
+#: AdminWP.php:486 functions/dashboard-widget/siteinfo.php:14
 msgid "Server info"
 msgstr "ИНФОРМАЦИЯ О СЕРВЕРЕ"
 
 #: settings/general.php:161
 msgid "Set Alt in updload from Title media"
-msgstr ""
+msgstr "Установите Alt при обновлении загрузки с заголовка медиа-файла"
 
-#: AdminWP.php:205
+#: AdminWP.php:200
 msgid "Set limit post revisions to 5"
-msgstr ""
+msgstr "Установить ограничение на ревизий постов в 5"
 
-#: AdminWP.php:395
+#: AdminWP.php:391
 msgid "Shortcodes and Widgets"
-msgstr ""
+msgstr "Шорткоды и виджеты"
 
 #: settings/general.php:20
 msgid "Show additional shortcode?"
-msgstr ""
+msgstr "Показать дополнительный шорткод?"
 
 #: settings/general.php:215
 msgid "Show custom fields in categories"
-msgstr ""
+msgstr "Показывать пользовательские поля в категориях"
 
 #: settings/general.php:52
 msgid "Show posts IDs"
-msgstr ""
+msgstr "Показывать ID"
 
 #: settings/general.php:58
 msgid "Show posts thumbnails"
-msgstr ""
+msgstr "Показывать миниатюры записей"
 
-#: AdminWP.php:331
+#: AdminWP.php:327
 msgid "Showing message \"Update wordpress\" only admin"
 msgstr ""
 
-#: AdminWP.php:295
+#: AdminWP.php:291
 msgid "Showing usages memory and time generate site page"
 msgstr ""
 
-#: AdminWP.php:409
+#: AdminWP.php:405
 msgid "Sidebars"
 msgstr "Сайдбары"
 
 #: settings/general.php:38
 msgid "Space must be entered!"
-msgstr ""
+msgstr "Пробел должен быть введен!"
 
 #: functions/tweaks/wp-functions.php:269
 #, php-format
 msgid "SQL: %d за %s sec. %.2f MB "
-msgstr ""
+msgstr "SQL: %d за %s sec. %.2f MB "
 
 #: settings/general.php:200
 msgid "This option enable interface for replace wp guide to right GUID."
-msgstr ""
+msgstr "Эта опция включает интерфейс для замены wp guide на правильный GUID."
 
 #: settings/general.php:111
 msgid "TinyMCE Settings"
-msgstr ""
+msgstr "Настройки TinyMCE"
 
-#: AdminWP.php:157
+#: AdminWP.php:152
 msgid "Tweaks"
 msgstr "Твики"
+
+#: functions/fix_guid.php:62
+msgid "Update all GUID"
+msgstr ""
 
 #: functions/users/UserAvatar.php:53
 msgid "User avatar"
 msgstr ""
 
-#: AdminWP.php:496
+#: AdminWP.php:492
 msgid "Users role info"
+msgstr ""
+
+#: functions/fix_guid.php:57
+msgid "View all GUID"
 msgstr ""
 
 #: functions/tweaks/wp-functions.php:257
@@ -507,15 +528,15 @@ msgstr ""
 msgid "Widget not found!"
 msgstr ""
 
-#: AdminWP.php:122
+#: AdminWP.php:116
 msgid "With love by <span style=\"color: #ED4301;\">A</span> Tikhomirov"
-msgstr ""
+msgstr "С любовью <span style=\"color: #ED4301;\">A</span> Tikhomirov"
 
-#: AdminWP.php:39
+#: AdminWP.php:68
 msgid "Wordpress Addon"
 msgstr "Расширение Wordpress"
 
-#: AdminWP.php:169
+#: AdminWP.php:164
 msgid "WP-Emojis deacivation"
 msgstr ""
 
@@ -523,7 +544,7 @@ msgstr ""
 msgid "Write right link to guid for New posts."
 msgstr ""
 
-#: AdminWP.php:439
+#: AdminWP.php:435
 msgid "Yearly archive widget"
 msgstr ""
 

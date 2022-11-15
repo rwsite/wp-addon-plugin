@@ -13,7 +13,10 @@ class ShowThumbnail{
         add_action('admin_head', [$this, 'admin_style']);
     }
 
-
+	/**
+     * Admin style
+	 * @return void
+	 */
     public function admin_style(){ ?>
         <style type="text/css" rel="stylesheet">
             .thumbnail .dashicons.dashicons-format-image {
@@ -33,11 +36,15 @@ class ShowThumbnail{
         <?php
     }
 
-
+	/**
+     * Post thumbnail
+     *
+	 * @return void
+	 */
     public function add_post_thumbs_in_post_list_table()
     {
         $supports = get_theme_support('post-thumbnails');
-        $ptype_names = array('post','page');
+        $ptype_names = ['post','page','block'];
 
         // Определяем типы записей автоматически
         if ( ! isset($ptype_names)) {

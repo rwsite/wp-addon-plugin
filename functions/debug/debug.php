@@ -20,16 +20,16 @@ function debug($data, $mode = 'log'){
 			error_log(print_r($wp_query->debug_data, true));
 			break;
 		default:
-			console_log($data);
-			break;
+			global $wp_query;
+			echo '<pre>';
+			print_r($data ?? $wp_query->debug_data);
+			echo '</pre>';
+		break;
 	}
 }
 
 function console_log($data = null){
-	global $wp_query;
-	echo '<pre>';
-	print_r($data ?? $wp_query->debug_data);
-	echo '</pre>';
+
 }
 
 function console($data = null){
