@@ -1,11 +1,11 @@
 <?php
 /**
- * Plugin Name:  #1 RW Wordpress AddOn
+ * Plugin Name:  #1 Wordpress AddOn
  * Plugin URL:   https://rwsite.ru
  * Description:  Addon for Wordpress, Contact Form 7 etc;
  * Version:      1.1.3
  * Text Domain:  wp-addon
- * Domain Path:  /languages/
+ * Domain Path:  /languages
  * Author:       Aleksey Tikhomirov
  * Author URI:   https://rwsite.ru
  *
@@ -40,21 +40,26 @@ if ( ! defined( 'RW_FILE' ) ) {
     define( 'RW_FILE', __FILE__);
 }
 
+
+add_action( 'plugins_loaded', function(){
+	load_plugin_textdomain( 'wp-addon', false, dirname( plugin_basename(__FILE__) ) . '/languages' );
+});
+
+add_action( 'init', function () {
+	if ( !class_exists( 'CSF' ) ){
+		?>
+        <div id="message" class="updated notice is-dismissible"><p>
+                For work <b>#1 RW Wordpress AddOn</b> plugin, please download and install <a href="https://github.com/Codestar/codestar-framework" target="_blank">Codestar Framework</a>.
+            </p></div>
+		<?php
+	}
+	return;
+});
+
+
 // simple autoloader
 require_once 'autoloader.php';
 
-add_action( 'init', function () {
-	load_plugin_textdomain( 'wp-addon', false, dirname( plugin_basename( RW_FILE ) ) . '/languages/');
-
-	if ( !class_exists( 'CSF' ) ){
-		?>
-		<div id="message" class="updated notice is-dismissible"><p>
-                For work <b>#1 RW Wordpress AddOn</b> plugin, please download and install <a href="https://github.com/Codestar/codestar-framework" target="_blank">Codestar Framework</a>.
-		</p></div>
-		<?php
-		return;
-	}
-});
 
 // ControllerWP
 require_once 'ControllerWP.php';

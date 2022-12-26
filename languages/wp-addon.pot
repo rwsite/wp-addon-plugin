@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: #1 RW Wordpress Addon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-11-15 00:14+0000\n"
+"POT-Creation-Date: 2022-12-26 01:12+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -19,7 +19,7 @@ msgstr ""
 msgid "#1 RW Wordpress AddOn"
 msgstr ""
 
-#: AdminWP.php:474
+#: AdminWP.php:482
 msgid "Add all types at a glance widget"
 msgstr ""
 
@@ -49,7 +49,7 @@ msgstr ""
 msgid "Add TinyMCE Advanced functions"
 msgstr ""
 
-#: AdminWP.php:452
+#: AdminWP.php:460
 msgid "Add to Dashboard additional widgets and other functional"
 msgstr ""
 
@@ -61,17 +61,17 @@ msgstr ""
 msgid "Additional shortcodes <b>email:</b>"
 msgstr ""
 
-#: AdminWP.php:411 functions/widgets/add-sidebar.php:13
+#: AdminWP.php:419 functions/widgets/add-sidebar.php:13
 #: functions/widgets/add-sidebar.php:15
 msgid "Additional sidebar 1"
 msgstr ""
 
-#: AdminWP.php:417 functions/widgets/add-sidebar.php:32
+#: AdminWP.php:425 functions/widgets/add-sidebar.php:32
 #: functions/widgets/add-sidebar.php:34
 msgid "Additional sidebar 2"
 msgstr ""
 
-#: AdminWP.php:423 functions/widgets/add-sidebar.php:51
+#: AdminWP.php:431 functions/widgets/add-sidebar.php:51
 #: functions/widgets/add-sidebar.php:53
 msgid "Additional sidebar 3"
 msgstr ""
@@ -80,7 +80,7 @@ msgstr ""
 msgid "Addon for Wordpress, Contact Form 7 etc;"
 msgstr ""
 
-#: AdminWP.php:447
+#: AdminWP.php:455
 msgid "Admin Dashboard Settings"
 msgstr ""
 
@@ -100,11 +100,11 @@ msgstr ""
 msgid "Allow shortcode in \"Text\" widget"
 msgstr ""
 
-#: AdminWP.php:379
+#: AdminWP.php:386
 msgid "Any HTML code in footer."
 msgstr ""
 
-#: AdminWP.php:369
+#: AdminWP.php:375
 msgid "Any HTML code or Analytics code in header."
 msgstr ""
 
@@ -120,7 +120,7 @@ msgstr ""
 msgid "AutoRemove readme.html and license.txt files"
 msgstr ""
 
-#: AdminWP.php:501
+#: AdminWP.php:509
 msgid "Backup Settings"
 msgstr ""
 
@@ -132,7 +132,7 @@ msgstr ""
 msgid "by Aleksey Tihomirov"
 msgstr ""
 
-#: AdminWP.php:402
+#: AdminWP.php:410
 msgid "Capability with WPBakery Page Builder"
 msgstr ""
 
@@ -158,7 +158,7 @@ msgstr ""
 msgid "Comment form"
 msgstr ""
 
-#: AdminWP.php:401
+#: AdminWP.php:409
 msgid "Components"
 msgstr ""
 
@@ -166,11 +166,11 @@ msgstr ""
 msgid "Contact Form 7 settings"
 msgstr ""
 
-#: AdminWP.php:359
+#: AdminWP.php:365
 msgid "CSS Code in Header"
 msgstr ""
 
-#: AdminWP.php:353
+#: AdminWP.php:359
 msgid "Custom code"
 msgstr ""
 
@@ -178,7 +178,7 @@ msgstr ""
 msgid "Custom Default Avatar"
 msgstr ""
 
-#: AdminWP.php:469
+#: AdminWP.php:477
 msgid "Dashboard widgets"
 msgstr ""
 
@@ -192,6 +192,10 @@ msgstr ""
 
 #: settings/general.php:91
 msgid "Disable all comments"
+msgstr ""
+
+#: AdminWP.php:351
+msgid "Disable autoupdate core, themes and plugins"
 msgstr ""
 
 #: settings/general.php:116
@@ -230,7 +234,7 @@ msgstr ""
 msgid "Disable XML-RPC"
 msgstr ""
 
-#: AdminWP.php:505
+#: AdminWP.php:513
 msgid "Download settings now"
 msgstr ""
 
@@ -246,7 +250,7 @@ msgstr ""
 msgid "Enable \"Open Sans\" google font for tinyMCE."
 msgstr ""
 
-#: AdminWP.php:463
+#: AdminWP.php:471
 msgid "Enable Duplicate widgets function"
 msgstr ""
 
@@ -274,11 +278,11 @@ msgid ""
 "is placement to Test host."
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:351
+#: functions/tweaks/wp-functions.php:350
 msgid "filter..."
 msgstr ""
 
-#: AdminWP.php:396
+#: AdminWP.php:404
 msgid "Functional in development"
 msgstr ""
 
@@ -325,21 +329,21 @@ msgstr ""
 msgid "Instance Params"
 msgstr ""
 
-#: AdminWP.php:457
+#: AdminWP.php:465
 msgid "Maintenance Mode"
+msgstr ""
+
+#: functions/dashboard-widget/siteinfo.php:36
+#: functions/dashboard-widget/siteinfo.php:41
+msgid "Off"
+msgstr ""
+
+#: functions/tweaks/wp-functions.php:257
+msgid "OK"
 msgstr ""
 
 #: functions/dashboard-widget/siteinfo.php:38
 #: functions/dashboard-widget/siteinfo.php:43
-msgid "Off"
-msgstr ""
-
-#: functions/tweaks/wp-functions.php:258
-msgid "OK"
-msgstr ""
-
-#: functions/dashboard-widget/siteinfo.php:40
-#: functions/dashboard-widget/siteinfo.php:45
 msgid "On"
 msgstr ""
 
@@ -349,11 +353,11 @@ msgid ""
 "org/Template_Tags/the_widget"
 msgstr ""
 
-#: functions/dashboard-widget/plugins-list.php:46
+#: functions/dashboard-widget/plugins-list.php:47
 msgid "Plugin list of "
 msgstr ""
 
-#: AdminWP.php:480
+#: AdminWP.php:488
 msgid "Plugins list"
 msgstr ""
 
@@ -365,7 +369,7 @@ msgstr ""
 msgid "Posts and Page Settings"
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:422
+#: functions/tweaks/wp-functions.php:421
 msgid "Read more ..."
 msgstr ""
 
@@ -429,7 +433,7 @@ msgstr ""
 msgid "Separeted: \", \""
 msgstr ""
 
-#: AdminWP.php:486 functions/dashboard-widget/siteinfo.php:14
+#: AdminWP.php:494 functions/dashboard-widget/siteinfo.php:14
 msgid "Server info"
 msgstr ""
 
@@ -441,7 +445,7 @@ msgstr ""
 msgid "Set limit post revisions to 5"
 msgstr ""
 
-#: AdminWP.php:391
+#: AdminWP.php:399
 msgid "Shortcodes and Widgets"
 msgstr ""
 
@@ -469,7 +473,7 @@ msgstr ""
 msgid "Showing usages memory and time generate site page"
 msgstr ""
 
-#: AdminWP.php:405
+#: AdminWP.php:413
 msgid "Sidebars"
 msgstr ""
 
@@ -477,7 +481,7 @@ msgstr ""
 msgid "Space must be entered!"
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:269
+#: functions/tweaks/wp-functions.php:268
 #, php-format
 msgid "SQL: %d за %s sec. %.2f MB "
 msgstr ""
@@ -502,7 +506,7 @@ msgstr ""
 msgid "User avatar"
 msgstr ""
 
-#: AdminWP.php:492
+#: AdminWP.php:500
 msgid "Users role info"
 msgstr ""
 
@@ -510,11 +514,11 @@ msgstr ""
 msgid "View all GUID"
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:257
+#: functions/tweaks/wp-functions.php:256
 msgid "VK"
 msgstr ""
 
-#: functions/dashboard-widget/siteinfo.php:48
+#: functions/dashboard-widget/siteinfo.php:46
 msgid "Welcome to "
 msgstr ""
 
@@ -542,7 +546,7 @@ msgstr ""
 msgid "Write right link to guid for New posts."
 msgstr ""
 
-#: AdminWP.php:435
+#: AdminWP.php:443
 msgid "Yearly archive widget"
 msgstr ""
 

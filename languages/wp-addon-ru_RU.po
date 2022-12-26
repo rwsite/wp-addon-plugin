@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: #1 RW Wordpress Addon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-29 09:48+0000\n"
-"PO-Revision-Date: 2022-11-15 00:20+0000\n"
+"PO-Revision-Date: 2022-12-26 01:35+0000\n"
 "Last-Translator: \n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -13,13 +13,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.3; wp-6.1"
+"X-Loco-Version: 2.6.3; wp-5.9"
 
 #. Name of the plugin
 msgid "#1 RW Wordpress AddOn"
-msgstr ""
+msgstr "RW Wordpress "
 
-#: AdminWP.php:474
+#: AdminWP.php:482
 msgid "Add all types at a glance widget"
 msgstr "Добавить все типы в виджет \"glance\""
 
@@ -51,7 +51,7 @@ msgstr ""
 msgid "Add TinyMCE Advanced functions"
 msgstr "Добавить расширенные функции TinyMCE"
 
-#: AdminWP.php:452
+#: AdminWP.php:460
 msgid "Add to Dashboard additional widgets and other functional"
 msgstr "Добавление на дашборд дополнительных виджетов и прочего функционала"
 
@@ -63,17 +63,17 @@ msgstr "Добавить ВК и ОК в профиль пользователя
 msgid "Additional shortcodes <b>email:</b>"
 msgstr "Дополнительные шорткоды <b>email:</b>"
 
-#: AdminWP.php:411 functions/widgets/add-sidebar.php:13
+#: AdminWP.php:419 functions/widgets/add-sidebar.php:13
 #: functions/widgets/add-sidebar.php:15
 msgid "Additional sidebar 1"
 msgstr "Дополнительная боковая панель 1"
 
-#: AdminWP.php:417 functions/widgets/add-sidebar.php:32
+#: AdminWP.php:425 functions/widgets/add-sidebar.php:32
 #: functions/widgets/add-sidebar.php:34
 msgid "Additional sidebar 2"
 msgstr "Дополнительная боковая панель 2"
 
-#: AdminWP.php:423 functions/widgets/add-sidebar.php:51
+#: AdminWP.php:431 functions/widgets/add-sidebar.php:51
 #: functions/widgets/add-sidebar.php:53
 msgid "Additional sidebar 3"
 msgstr "Дополнительная боковая панель 3"
@@ -82,9 +82,9 @@ msgstr "Дополнительная боковая панель 3"
 msgid "Addon for Wordpress, Contact Form 7 etc;"
 msgstr "Дополнительные функции для Wordpress, Contact Form 7  и т.д."
 
-#: AdminWP.php:447
+#: AdminWP.php:455
 msgid "Admin Dashboard Settings"
-msgstr "Настройки панели администратора"
+msgstr "Настройки Консоли"
 
 #. Author of the plugin
 msgid "Aleksey Tikhomirov"
@@ -102,11 +102,11 @@ msgstr "Разрешить загрузку типов файлов: SVG, DOC, d
 msgid "Allow shortcode in \"Text\" widget"
 msgstr "Разрешить шорткод в виджете «Текст»"
 
-#: AdminWP.php:379
+#: AdminWP.php:386
 msgid "Any HTML code in footer."
 msgstr "Любой HTML-код в футере."
 
-#: AdminWP.php:369
+#: AdminWP.php:375
 msgid "Any HTML code or Analytics code in header."
 msgstr "Любой HTML-код или код Analytics в header."
 
@@ -122,9 +122,9 @@ msgstr "Аргументы"
 msgid "AutoRemove readme.html and license.txt files"
 msgstr "Автоудаление readme.html and license.txt файлов"
 
-#: AdminWP.php:501
+#: AdminWP.php:509
 msgid "Backup Settings"
-msgstr "Резервное копирование настроек"
+msgstr "Бэкап"
 
 #: AdminWP.php:206
 msgid "Block http-requests by plugins/themes"
@@ -134,19 +134,21 @@ msgstr "Блокировать http-запросы плагинов и тем"
 msgid "by Aleksey Tihomirov"
 msgstr "от Алексей Тихомиров"
 
-#: AdminWP.php:402
+#: AdminWP.php:410
 msgid "Capability with WPBakery Page Builder"
-msgstr ""
+msgstr "Возможность использования конструктора страниц WPBakery Page Builder"
 
 #: settings/general.php:64
 msgid "Change length post excerpt? To maximum 200 symbols."
-msgstr ""
+msgstr "Изменить длину отрывка из поста? Максимум до 200 символов."
 
 #: settings/general.php:155
 msgid ""
 "Cleanup daily options '_cache_validator'. D`ont touch it if you d`ont know "
 "how it work."
 msgstr ""
+"Ежедневно очищайте параметры '_cache_validator'. Не трогайте его, если вы не "
+"знаете, как это работает."
 
 #: functions/widgets/duplicate-widgets.php:23
 msgid "Clone"
@@ -154,35 +156,35 @@ msgstr "клонировать"
 
 #: functions/widgets/duplicate-widgets.php:24
 msgid "Clone this Widget"
-msgstr ""
+msgstr "Клонирование виджетов"
 
 #: settings/general.php:86
 msgid "Comment form"
-msgstr ""
+msgstr "Форма комментариев"
 
-#: AdminWP.php:401
+#: AdminWP.php:409
 msgid "Components"
-msgstr ""
+msgstr "Компоненты"
 
 #: settings/general.php:15
 msgid "Contact Form 7 settings"
-msgstr ""
+msgstr "CF7 настройки"
+
+#: AdminWP.php:365
+msgid "CSS Code in Header"
+msgstr "CSS-код в Header"
 
 #: AdminWP.php:359
-msgid "CSS Code in Header"
-msgstr ""
-
-#: AdminWP.php:353
 msgid "Custom code"
 msgstr "Свой код"
 
 #: functions/users/UserAvatar.php:33
 msgid "Custom Default Avatar"
-msgstr ""
+msgstr "Аватар по умолчанию"
 
-#: AdminWP.php:469
+#: AdminWP.php:477
 msgid "Dashboard widgets"
-msgstr ""
+msgstr "Виджеты в Консоле"
 
 #: settings/general.php:189
 msgid "Data Base Optimization"
@@ -190,11 +192,15 @@ msgstr "Оптимизая БД"
 
 #: AdminWP.php:242
 msgid "Disable agressive update"
-msgstr ""
+msgstr "Отключить агрессивное обновление"
 
 #: settings/general.php:91
 msgid "Disable all comments"
 msgstr "Отключить все комментарии"
+
+#: AdminWP.php:351
+msgid "Disable autoupdate core, themes and plugins"
+msgstr "Отключить автоматическое обновление ядра, тем и плагинов"
 
 #: settings/general.php:116
 msgid "Disable guttenber?"
@@ -206,49 +212,51 @@ msgstr "Отключить сердцебиение"
 
 #: settings/general.php:97
 msgid "Disable link Nofollow in comment"
-msgstr ""
+msgstr "Отключить ссылку Nofollow в комментарии"
 
 #: AdminWP.php:224
 msgid "Disable new themes on major WP updates"
-msgstr ""
+msgstr "Отключайте новые темы в основных обновлениях WP"
 
 #: AdminWP.php:272
 msgid "Disable pingback from this site to this site"
-msgstr ""
+msgstr "Отключить pingbackи сайта"
 
 #: AdminWP.php:315
 msgid "Disable select taxonomy in top of metabox in post-edit page."
 msgstr ""
+"Отключите выбор таксономии в верхней части метабокса на странице "
+"постредактирования."
 
 #: settings/general.php:173
 msgid "Disable site indexing."
-msgstr ""
+msgstr "Отключить индексацию сайта."
 
 #: AdminWP.php:248
 msgid "Disable URL auto-linking in comments"
-msgstr ""
+msgstr "Отключить автоматическую привязку URL-адресов в комментариях"
 
 #: AdminWP.php:230
 msgid "Disable XML-RPC"
-msgstr ""
+msgstr "Отключить XML-RPC"
 
-#: AdminWP.php:505
+#: AdminWP.php:513
 msgid "Download settings now"
-msgstr ""
+msgstr "Скачать настройки"
 
 #: functions/shortcodes/vc-support.php:8
 msgid "Elements"
-msgstr ""
+msgstr "Элементы"
 
 #: AdminWP.php:260
 msgid "Empty WP-Trash every 14 days"
-msgstr ""
+msgstr "Очищать WP-корзину каждые 14 дней"
 
 #: settings/general.php:128
 msgid "Enable \"Open Sans\" google font for tinyMCE."
-msgstr ""
+msgstr "Включить шрифт Google \"Open Sans\" для TinyMCE."
 
-#: AdminWP.php:463
+#: AdminWP.php:471
 msgid "Enable Duplicate widgets function"
 msgstr ""
 
@@ -276,11 +284,11 @@ msgid ""
 "is placement to Test host."
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:351
+#: functions/tweaks/wp-functions.php:350
 msgid "filter..."
 msgstr ""
 
-#: AdminWP.php:396
+#: AdminWP.php:404
 msgid "Functional in development"
 msgstr ""
 
@@ -327,21 +335,21 @@ msgstr ""
 msgid "Instance Params"
 msgstr ""
 
-#: AdminWP.php:457
+#: AdminWP.php:465
 msgid "Maintenance Mode"
 msgstr "Режим тех. работ"
 
-#: functions/dashboard-widget/siteinfo.php:38
-#: functions/dashboard-widget/siteinfo.php:43
+#: functions/dashboard-widget/siteinfo.php:36
+#: functions/dashboard-widget/siteinfo.php:41
 msgid "Off"
 msgstr "Выкл"
 
-#: functions/tweaks/wp-functions.php:258
+#: functions/tweaks/wp-functions.php:257
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
-#: functions/dashboard-widget/siteinfo.php:40
-#: functions/dashboard-widget/siteinfo.php:45
+#: functions/dashboard-widget/siteinfo.php:38
+#: functions/dashboard-widget/siteinfo.php:43
 msgid "On"
 msgstr "Вкл"
 
@@ -351,45 +359,45 @@ msgid ""
 "org/Template_Tags/the_widget"
 msgstr ""
 
-#: functions/dashboard-widget/plugins-list.php:46
+#: functions/dashboard-widget/plugins-list.php:47
 msgid "Plugin list of "
-msgstr ""
+msgstr "Список плагинов"
 
-#: AdminWP.php:480
+#: AdminWP.php:488
 msgid "Plugins list"
 msgstr "Список плагинов сайта"
 
 #: settings/general.php:31
 msgid "Polylang settings"
-msgstr ""
+msgstr "Настройки Polylang"
 
 #: settings/general.php:47
 msgid "Posts and Page Settings"
 msgstr "Настройки постов и страниц"
 
-#: functions/tweaks/wp-functions.php:422
+#: functions/tweaks/wp-functions.php:421
 msgid "Read more ..."
-msgstr ""
+msgstr "Подробнее..."
 
 #: AdminWP.php:194
 msgid "Remove adjacent links to posts in the header"
-msgstr ""
+msgstr "Удалите смежные ссылки на посты в заголовке"
 
 #: functions/fix_guid.php:72
 msgid "Remove all revision"
-msgstr ""
+msgstr "Удалить все ревизии"
 
 #: AdminWP.php:218
 msgid "Remove jQuery Migrate"
-msgstr ""
+msgstr "Удалить jQuery Migrate"
 
 #: AdminWP.php:254
 msgid "Remove login-shake on errors"
-msgstr ""
+msgstr "Удалить логин-уведомления при ошибках"
 
 #: AdminWP.php:236
 msgid "Remove post by email function"
-msgstr ""
+msgstr "Функция удаления сообщения по электронной почте"
 
 #: AdminWP.php:176
 msgid "Remove RSD-Link"
@@ -425,13 +433,13 @@ msgstr ""
 
 #: settings/general.php:150
 msgid "SEO Settings (Yoast required)"
-msgstr ""
+msgstr "Настройки SEO (требуется Yoast)"
 
 #: settings/general.php:78
 msgid "Separeted: \", \""
 msgstr "Разделитель \", \""
 
-#: AdminWP.php:486 functions/dashboard-widget/siteinfo.php:14
+#: AdminWP.php:494 functions/dashboard-widget/siteinfo.php:14
 msgid "Server info"
 msgstr "ИНФОРМАЦИЯ О СЕРВЕРЕ"
 
@@ -443,7 +451,7 @@ msgstr "Установите Alt при обновлении загрузки с
 msgid "Set limit post revisions to 5"
 msgstr "Установить ограничение на ревизий постов в 5"
 
-#: AdminWP.php:391
+#: AdminWP.php:399
 msgid "Shortcodes and Widgets"
 msgstr "Шорткоды и виджеты"
 
@@ -465,13 +473,13 @@ msgstr "Показывать миниатюры записей"
 
 #: AdminWP.php:327
 msgid "Showing message \"Update wordpress\" only admin"
-msgstr ""
+msgstr "Отображение сообщения \"Обновить wordpress\" только для администратора"
 
 #: AdminWP.php:291
 msgid "Showing usages memory and time generate site page"
-msgstr ""
+msgstr "Отображение использования памяти и времени создания страницы сайта"
 
-#: AdminWP.php:405
+#: AdminWP.php:413
 msgid "Sidebars"
 msgstr "Сайдбары"
 
@@ -479,7 +487,7 @@ msgstr "Сайдбары"
 msgid "Space must be entered!"
 msgstr "Пробел должен быть введен!"
 
-#: functions/tweaks/wp-functions.php:269
+#: functions/tweaks/wp-functions.php:268
 #, php-format
 msgid "SQL: %d за %s sec. %.2f MB "
 msgstr "SQL: %d за %s sec. %.2f MB "
@@ -498,25 +506,25 @@ msgstr "Твики"
 
 #: functions/fix_guid.php:62
 msgid "Update all GUID"
-msgstr ""
+msgstr "Обновить все идентификаторы GUID"
 
 #: functions/users/UserAvatar.php:53
 msgid "User avatar"
-msgstr ""
+msgstr "Аватар пользователя"
 
-#: AdminWP.php:492
+#: AdminWP.php:500
 msgid "Users role info"
-msgstr ""
+msgstr "Информация о ролях"
 
 #: functions/fix_guid.php:57
 msgid "View all GUID"
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:257
+#: functions/tweaks/wp-functions.php:256
 msgid "VK"
 msgstr ""
 
-#: functions/dashboard-widget/siteinfo.php:48
+#: functions/dashboard-widget/siteinfo.php:46
 msgid "Welcome to "
 msgstr ""
 
@@ -534,7 +542,7 @@ msgstr "С любовью <span style=\"color: #ED4301;\">A</span> Tikhomirov"
 
 #: AdminWP.php:68
 msgid "Wordpress Addon"
-msgstr "Расширение Wordpress"
+msgstr "Дополнения WP"
 
 #: AdminWP.php:164
 msgid "WP-Emojis deacivation"
@@ -544,7 +552,7 @@ msgstr ""
 msgid "Write right link to guid for New posts."
 msgstr ""
 
-#: AdminWP.php:435
+#: AdminWP.php:443
 msgid "Yearly archive widget"
 msgstr ""
 
@@ -554,7 +562,7 @@ msgstr ""
 
 #: functions/MaintenanceMode.php:29
 msgid "Извините, в настоящий момент на сайте проводятся технические работы."
-msgstr ""
+msgstr "Извините, в настоящий момент на сайте проводятся технические работы."
 
 #: settings/general.php:201
 msgid ""
@@ -586,14 +594,16 @@ msgstr ""
 
 #: functions/MaintenanceMode.php:30
 msgid "Попробуйте зайти позднее."
-msgstr ""
+msgstr "Попробуйте зайти позднее."
 
 #: functions/MaintenanceMode.php:26
 msgid "Технические работы."
-msgstr ""
+msgstr "Технические работы."
 
 #: functions/cf7/datetimepicker.php:79
 msgid ""
 "Укажите дату и время в формате: 00.00.0000 00:00 или воспользуйтесь "
 "календарем"
 msgstr ""
+"Укажите дату и время в формате: 00.00.0000 00:00 или воспользуйтесь "
+"календарем"

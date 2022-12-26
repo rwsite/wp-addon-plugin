@@ -41,6 +41,8 @@ class AdminWP {
 		add_action( 'admin_notices', [ $this, 'admin_notices' ], 11 );
 		add_action( 'network_admin_notices', [ $this, 'admin_notices' ], 11 );
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_assets' ], 20 );
+
+		// languages
 	}
 
 
@@ -367,7 +369,7 @@ class AdminWP {
 							'theme' => 'mbo',
 							'mode'  => 'css',
 						],
-						// 'default'  => '.body{ background: rebeccapurple; }',
+						'sanitize' => false,
 					],
 					[
 						'id'       => 'rw_header_html',
@@ -375,9 +377,10 @@ class AdminWP {
 						'title'    => __( 'Any HTML code or Analytics code in header.', 'wp-addon' ),
 						'settings' => [
 							'theme' => 'monokai',
-							'mode'  => 'htmlmixed',
+							'mode'   => 'htmlmixed',
 						],
 						'default'  => '',
+						'sanitize' => false,
 					],
 					[
 						'id'       => 'rw_footer_html',
@@ -385,9 +388,10 @@ class AdminWP {
 						'title'    => __( 'Any HTML code in footer.', 'wp-addon' ),
 						'settings' => [
 							'theme' => 'monokai',
-							'mode'  => 'htmlmixed',
+							//'mode'  => 'php',
 						],
 						'default'  => '',
+						'sanitize' => false,
 					],
 				]// #fields
 			] );
@@ -518,4 +522,10 @@ class AdminWP {
 		endif;
 	}
 
+}
+
+
+function html_head_sanitize($html){
+	debug($html);
+	return $html;
 }
