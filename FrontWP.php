@@ -86,7 +86,6 @@ class FrontWP
 
     public function rw_header_html(){
         if(!empty($this->options['rw_header_html'])){
-	        console($this->options['rw_header_html']);
             echo $this->options['rw_header_html'];
         }
     }
