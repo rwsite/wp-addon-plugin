@@ -1,0 +1,437 @@
+[
+  {
+    "control": "newdocument",
+    "plugin": "core",
+    "description": "Creates a new document."
+  },
+  {
+    "control": "bold",
+    "plugin": "core",
+    "description": "Applies the bold format to the current selection."
+  },
+  {
+    "control": "italic",
+    "plugin": "core",
+    "description": "Applies the italic format to the current selection."
+  },
+  {
+    "control": "underline",
+    "plugin": "core",
+    "description": "Applies the underline format to the current selection."
+  },
+  {
+    "control": "strikethrough",
+    "plugin": "core",
+    "description": "Applies strike though format to the current selection."
+  },
+  {
+    "control": "alignleft",
+    "plugin": "core",
+    "description": "Left aligns the current block or image."
+  },
+  {
+    "control": "aligncenter",
+    "plugin": "core",
+    "description": "Left aligns the current block or image."
+  },
+  {
+    "control": "alignright",
+    "plugin": "core",
+    "description": "Right aligns the current block or image."
+  },
+  {
+    "control": "alignjustify",
+    "plugin": "core",
+    "description": "Full aligns the current block or image."
+  },
+  {
+    "control": "alignnone",
+    "plugin": "core",
+    "description": "Removes the alignment of the current block or image."
+  },
+  {
+    "control": "styleselect",
+    "plugin": "core",
+    "description": "Dropdown list with styles to apply to selection."
+  },
+  {
+    "control": "formatselect",
+    "plugin": "core",
+    "description": "Dropdown list with block formats to apply to selection."
+  },
+  {
+    "control": "fontselect",
+    "plugin": "core",
+    "description": "Dropdown list with font families to apply to selection."
+  },
+  {
+    "control": "fontsizeselect",
+    "plugin": "core",
+    "description": "Dropdown list with font sizes to apply to selection."
+  },
+  {
+    "control": "cut",
+    "plugin": "core",
+    "description": "Cuts the current selection into clipboard."
+  },
+  {
+    "control": "copy",
+    "plugin": "core",
+    "description": "Copies the current selection into clipboard."
+  },
+  {
+    "control": "paste",
+    "plugin": "core",
+    "description": "Pastes the current clipboard into the editor."
+  },
+  {
+    "control": "outdent",
+    "plugin": "core",
+    "description": "Outdents the current list item or block element."
+  },
+  {
+    "control": "indent",
+    "plugin": "core",
+    "description": "Indents the current list item or block element."
+  },
+  {
+    "control": "blockquote",
+    "plugin": "core",
+    "description": "Applies block quote format to the current block level element."
+  },
+  {
+    "control": "undo",
+    "plugin": "core",
+    "description": "To undo the last operation."
+  },
+  {
+    "control": "redo",
+    "plugin": "core",
+    "description": "To redo the last undone operation."
+  },
+  {
+    "control": "removeformat",
+    "plugin": "core",
+    "description": "Removes the formatting from the current selection."
+  },
+  {
+    "control": "subscript",
+    "plugin": "core",
+    "description": "Applies subscript format to the current selection."
+  },
+  {
+    "control": "superscript",
+    "plugin": "core",
+    "description": "Applies superscript format to the current selection."
+  },
+  {
+    "control": "insert",
+    "plugin": "core",
+    "description": "Groups various insert actions into one button."
+  },
+  {
+    "control": "hr",
+    "plugin": "hr",
+    "description": "Inserts a horizontal rule into the editor."
+  },
+  {
+    "control": "bullist",
+    "plugin": "lists",
+    "description": "Formats the current selection as a bullet list."
+  },
+  {
+    "control": "numlist",
+    "plugin": "lists",
+    "description": "Formats the current selection as a numbered list."
+  },
+  {
+    "control": "link",
+    "plugin": "link",
+    "description": "Creates/Edits links within the editor."
+  },
+  {
+    "control": "unlink",
+    "plugin": "link",
+    "description": "Removes links from the current selection."
+  },
+  {
+    "control": "openlink",
+    "plugin": "link",
+    "description": "Opens the selected link in a new tab."
+  },
+  {
+    "control": "image",
+    "plugin": "image",
+    "description": "Creates/Edits images within the editor."
+  },
+  {
+    "control": "charmap",
+    "plugin": "charmap",
+    "description": "Inserts custom characters into the editor."
+  },
+  {
+    "control": "pastetext",
+    "plugin": "paste",
+    "description": "Toggles plain text pasting mode on/off."
+  },
+  {
+    "control": "print",
+    "plugin": "print",
+    "description": "Prints the current editor contents."
+  },
+  {
+    "control": "preview",
+    "plugin": "preview",
+    "description": "Previews the current editor contents."
+  },
+  {
+    "control": "anchor",
+    "plugin": "anchor",
+    "description": "Creates/Edits anchor elements."
+  },
+  {
+    "control": "pagebreak",
+    "plugin": "pagebreak",
+    "description": "Inserts a pagebreak into the editor."
+  },
+  {
+    "control": "spellchecker",
+    "plugin": "spellchecker",
+    "description": "Spellchecks the current editor contents."
+  },
+  {
+    "control": "searchreplace",
+    "plugin": "searchreplace",
+    "description": "Searches and/or Replaces contents within the editor."
+  },
+  {
+    "control": "visualblocks",
+    "plugin": "visualblocks",
+    "description": "Toggles the visibility of block elements."
+  },
+  {
+    "control": "visualchars",
+    "plugin": "visualchars",
+    "description": "Toggles the visibility of non breaking character elements."
+  },
+  {
+    "control": "code",
+    "plugin": "code",
+    "description": "Opens the code dialog"
+  },
+  {
+    "control": "help",
+    "plugin": "help",
+    "description": "Opens the help dialog"
+  },
+  {
+    "control": "fullscreen",
+    "plugin": "fullscreen",
+    "description": "Toggles fullscreen mode"
+  },
+  {
+    "control": "insertdatetime",
+    "plugin": "insertdatetime",
+    "description": "Inserts the current date/time"
+  },
+  {
+    "control": "media",
+    "plugin": "media",
+    "description": "Creates/Edits embedded media elements."
+  },
+  {
+    "control": "nonbreaking",
+    "plugin": "nonbreaking",
+    "description": "Inserts a nonbreaking space into the editor."
+  },
+  {
+    "control": "save",
+    "plugin": "save",
+    "description": "Saves the current editor contents to a form or ajax call."
+  },
+  {
+    "control": "cancel",
+    "plugin": "save",
+    "description": "Cancels/Resets the editor contents to it's initial state."
+  },
+  {
+    "control": "table",
+    "plugin": "table",
+    "description": "Creates/Edits table elements."
+  },
+  {
+    "control": "tabledelete",
+    "plugin": "table",
+    "description": "Deletes table."
+  },
+  {
+    "control": "tablecellprops",
+    "plugin": "table",
+    "description": "Opens the Cell properties dialog."
+  },
+  {
+    "control": "tablemergecells",
+    "plugin": "table",
+    "description": "Merges the selected cells."
+  },
+  {
+    "control": "tablesplitcells",
+    "plugin": "table",
+    "description": "Splits the current merged cell."
+  },
+  {
+    "control": "tableinsertrowbefore",
+    "plugin": "table",
+    "description": "Inserts a new row before the current one."
+  },
+  {
+    "control": "tableinsertrowafter",
+    "plugin": "table",
+    "description": "Inserts a new row after the current one."
+  },
+  {
+    "control": "tabledeleterow",
+    "plugin": "table",
+    "description": "Deletes the current row row."
+  },
+  {
+    "control": "tablerowprops",
+    "plugin": "table",
+    "description": "Opens the Row properties dialog."
+  },
+  {
+    "control": "tablecutrow",
+    "plugin": "table",
+    "description": "Cuts the selected rows."
+  },
+  {
+    "control": "tablecopyrow",
+    "plugin": "table",
+    "description": "Copies the selected rows."
+  },
+  {
+    "control": "tablepasterowbefore",
+    "plugin": "table",
+    "description": "Pastes rows before the current one."
+  },
+  {
+    "control": "tablepasterowafter",
+    "plugin": "table",
+    "description": "Pastes rows after the current one."
+  },
+  {
+    "control": "tableinsertcolbefore",
+    "plugin": "table",
+    "description": "Inserts a column before the current one."
+  },
+  {
+    "control": "tableinsertcolafter",
+    "plugin": "table",
+    "description": "Inserts column after the current one."
+  },
+  {
+    "control": "tabledeletecol",
+    "plugin": "table",
+    "description": "Deletes the selected column."
+  },
+  {
+    "control": "rotateleft",
+    "plugin": "imagetools",
+    "description": "Rotates the current image counterclockwise."
+  },
+  {
+    "control": "rotateright",
+    "plugin": "imagetools",
+    "description": "Rotates the current image clockwise."
+  },
+  {
+    "control": "flipv",
+    "plugin": "imagetools",
+    "description": "Flips the current image vertically."
+  },
+  {
+    "control": "fliph",
+    "plugin": "imagetools",
+    "description": "Flips the current image horizontally."
+  },
+  {
+    "control": "editimage",
+    "plugin": "imagetools",
+    "description": "Edits the current image in the image dialog."
+  },
+  {
+    "control": "imageoptions",
+    "plugin": "imagetools",
+    "description": "Opens the image options dialog."
+  },
+  {
+    "control": "fullpage",
+    "plugin": "fullpage",
+    "description": "Documents properties for the full page."
+  },
+  {
+    "control": "ltr",
+    "plugin": "directionality",
+    "description": "Sets the directionality of contents to ltr."
+  },
+  {
+    "control": "rtl",
+    "plugin": "directionality",
+    "description": "Sets the directionality of contents to rtl."
+  },
+  {
+    "control": "emoticons",
+    "plugin": "emoticons",
+    "description": "Opens the emoticons dialog."
+  },
+  {
+    "control": "template",
+    "plugin": "template",
+    "description": "Inserts templates into the editor."
+  },
+  {
+    "control": "forecolor",
+    "plugin": "textcolor",
+    "description": "Applies foreground/text color to selection."
+  },
+  {
+    "control": "backcolor",
+    "plugin": "textcolor",
+    "description": "Applies background color to selection."
+  },
+  {
+    "control": "restoredraft",
+    "plugin": "restoredraft",
+    "description": "Restores to the latest auto saved draft."
+  },
+  {
+    "control": "insertfile",
+    "plugin": "moxiemanager",
+    "description": "Opens the MoxieManager dialog."
+  },
+  {
+    "control": "a11ycheck",
+    "plugin": "a11ychecker",
+    "description": "Opens the accessibility checker dialog."
+  },
+  {
+    "control": "toc",
+    "plugin": "toc",
+    "description": "Inserts a Table of Contents into the editor."
+  },
+  {
+    "control": "quickimage",
+    "plugin": "inlite",
+    "description": "Inserts an image from the local machine."
+  },
+  {
+    "control": "quicktable",
+    "plugin": "inlite",
+    "description": "Inserts an table 2x2."
+  },
+  {
+    "control": "quicklink",
+    "plugin": "inlite",
+    "description": "Inserts an link in a quicker way."
+  }
+]

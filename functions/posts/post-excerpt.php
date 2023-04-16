@@ -1,23 +1,30 @@
 <?php
-/**
- * @year: 2019-04-19
- */
+
 
 if(!function_exists('change_excerpt')):
 function change_excerpt()
 {
-    function change_excerpt_length($excerpt, $post)
+    /**
+     * Обрезка выдержки, если она больше 181 символов. (c точкой).
+     *
+     * @param string $excerpt
+     * @param WP_Post $post
+     * @return string
+     */
+    function change_excerpt_length( string $excerpt, WP_Post $post)
     {
-        $excerpt = preg_replace( ' ([.*?])','',$excerpt);
         $excerpt = strip_shortcodes($excerpt);
-        $excerpt = strip_tags($excerpt);
-        $excerpt = substr($excerpt, 0, 180);
-        $excerpt = substr($excerpt, 0, strripos($excerpt, ' ' ));
-        $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
-        $excerpt .= '...';
+        $excerpt = wp_strip_all_tags($excerpt);
+
+        if( 181 < mb_strlen($excerpt, 'UTF-8') ){
+            $excerpt = preg_replace( '( [.*?])','',$excerpt);
+            $excerpt = mb_substr($excerpt, 0, 180, 'UTF-8');
+            $excerpt = mb_substr($excerpt, 0, strripos($excerpt, ' ' ), 'UTF-8');
+            $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+            $excerpt .= '...';
+        }
         return $excerpt;
     }
-
     add_filter('get_the_excerpt', 'change_excerpt_length', 10, 2);
 }
 endif;

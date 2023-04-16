@@ -1,13 +1,11 @@
 <?php
 /**
- * @author: Aleksey Tikhomirov
- * @year: 2019-04-12
+ * Add additional sidebar
  */
 
 function add_sidebar_1()
 {
-    function additional_sidebar_1()
-    {
+    add_action('widgets_init', function (){
         register_sidebar(
             [
                 'name'          => __('Additional sidebar 1', 'wp-addon'),
@@ -19,14 +17,12 @@ function add_sidebar_1()
                 'after_title'   => '</h3>',
             ]
         );
-    }
-    add_action('widgets_init', 'additional_sidebar_1');
+    });
 }
 
 function add_sidebar_2()
 {
-    function additional_sidebar_2()
-    {
+    add_action('widgets_init', function (){
         register_sidebar(
             [
                 'name'          => __('Additional sidebar 2', 'wp-addon'),
@@ -38,14 +34,12 @@ function add_sidebar_2()
                 'after_title'   => '</h3>',
             ]
         );
-    }
-    add_action('widgets_init', 'additional_sidebar_2');
+    });
 }
 
 function add_sidebar_3()
 {
-    function additional_sidebar_3()
-    {
+    add_action('widgets_init', function (){
         register_sidebar(
             [
                 'name'          => __('Additional sidebar 3', 'wp-addon'),
@@ -57,6 +51,5 @@ function add_sidebar_3()
                 'after_title'   => '</h3>',
             ]
         );
-    }
-    add_action('widgets_init', 'additional_sidebar_3');
+    });
 }

@@ -1,7 +1,4 @@
 <?php
-/**
- * @year: 2019-03-27
- */
 
 
 ## Добавляет миниатюры записи в таблицу записей в админке
@@ -11,12 +8,44 @@ class ShowThumbnail{
     {
         add_action('init', [$this , 'add_post_thumbs_in_post_list_table'], 20);
         add_action('admin_head', [$this, 'admin_style']);
+
+        add_action('admin_footer', function () {
+            $theme = wp_get_theme();
+            $ver = defined('WP_DEBUG_SCRIPT') ? current_time('timestamp') : $theme->get( 'Version' );
+            $dir_uri = get_template_directory_uri();
+            $dir_path = get_template_directory();
+
+            // js
+            if( file_exists($dir_path . '/assets/js/plugins/lightcase.js') ) {
+                wp_register_script('lightcase', $dir_uri . '/assets/js/plugins/lightcase.js', ['jquery'], $ver, false);
+            } else {
+                wp_register_script('lightcase', 'https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.5.0/js/lightcase.min.js',  ['jquery'], $ver, false);
+            }
+            // css
+            if( file_exists($dir_path . '/assets/css/plugins/lightcase.min.css') ) {
+                wp_register_style('lightcase', $dir_uri . '/assets/css/plugins/lightcase.min.css', $ver);
+            } else {
+                wp_register_style('lightcase', 'https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.5.0/css/lightcase.min.css', $ver);
+            }
+
+            wp_enqueue_script('lightcase');
+            wp_enqueue_style('lightcase');
+
+            ?>
+            <script type="text/javascript">
+            jQuery(document).ready(function($){
+                $('a[data-rel^=lightcase]').lightcase({
+                    typeMapping: {
+                        'image': 'webp,jpg,jpeg,gif,png,bmp',
+                    },
+                });
+            });
+            </script>
+            <?php
+        });
     }
 
-	/**
-     * Admin style
-	 * @return void
-	 */
+
     public function admin_style(){ ?>
         <style type="text/css" rel="stylesheet">
             .thumbnail .dashicons.dashicons-format-image {
@@ -36,15 +65,13 @@ class ShowThumbnail{
         <?php
     }
 
-	/**
-     * Post thumbnail
-     *
-	 * @return void
-	 */
+
     public function add_post_thumbs_in_post_list_table()
     {
+        // проверим какие записи поддерживают миниатюры
         $supports = get_theme_support('post-thumbnails');
-        $ptype_names = ['post','page','block'];
+
+        $ptype_names = array('post','page'); // указывает типы для которых нужна колонка отдельно
 
         // Определяем типы записей автоматически
         if ( ! isset($ptype_names)) {
@@ -80,15 +107,23 @@ class ShowThumbnail{
         if ('thumbnail' === $colname) {
             $width = $height = 100;
 
-            // миниатюра
+            /*if( class_exists('\theme\Theme') ){
+                $thumb = Theme::get_post_thumb('gillion-square-micro', $post_id, 'a');
+            } */
+
             if ($thumbnail_id = get_post_meta($post_id, '_thumbnail_id', true)) {
                 if(function_exists( 'kama_thumb_img')){
-                    $thumb = kama_thumb_img( ['width' => $width, 'height' => $height, 'crop' => true], $thumbnail_id );
+                    $thumb = kama_thumb_a_img( [
+                            'width' => $width,
+                            'height'=> $height,
+                            'crop'  => true,
+                            'a_attr'  => 'data-rel="lightcase"',
+                    ], $thumbnail_id );
                 } else {
                     $thumb = wp_get_attachment_image( $thumbnail_id, [$width, $height], true );
                 }
-            } // из галереи...
-            else{
+            } else { // из галереи...
+
                 $attachments = get_children([
                     'post_parent'    => $post_id,
                     'post_mime_type' => 'image',
@@ -107,7 +142,6 @@ class ShowThumbnail{
                     }
                 }
             }
-
             echo $thumb ?? '<span class="dashicons dashicons-format-image"></span>';
         }
     }
@@ -119,5 +153,5 @@ class ShowThumbnail{
 
 function show_thumbnail()
 {
-    return new ShowThumbnail();
+    new ShowThumbnail();
 }

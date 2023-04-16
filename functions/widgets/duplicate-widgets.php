@@ -1,8 +1,5 @@
 <?php
-/**
- * @author: Aleksey Tikhomirov
- * @year: 2019-04-25
- */
+
 
 function add_clone_widget()
 {

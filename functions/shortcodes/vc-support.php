@@ -1,4 +1,8 @@
 <?php
+/**
+ * @year: 2019-04-12
+ */
+
 add_action( 'vc_before_init', 'widgets_support_vc' );
 function widgets_support_vc() {
     vc_map( array(

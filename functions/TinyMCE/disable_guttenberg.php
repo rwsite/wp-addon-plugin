@@ -1,10 +1,8 @@
 <?php
-/**
- * @author: Aleksey Tikhomirov
- */
 
 ## Отключает новый редактор блоков в WordPress (Гутенберг).
 ## ver: 1.0
+if(!function_exists('disable_guttenberg')):
 function disable_guttenberg()
 {
     add_filter('use_block_editor_for_post_type', '__return_false', 100);
@@ -15,3 +13,4 @@ function disable_guttenberg()
         add_action('edit_form_after_title', ['WP_Privacy_Policy_Content', 'notice']);
     });
 }
+endif;

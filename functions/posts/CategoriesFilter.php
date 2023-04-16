@@ -11,10 +11,10 @@ final class CategoriesFilter
 
     public static function getInstance()
     {
-        if (static::$instance === null) {
-            static::$instance = new static();
+        if (self::$instance === null) {
+            self::$instance = new self();
         }
-        return static::$instance;
+        return self::$instance;
     }
 
     public function __clone(){}
@@ -25,14 +25,15 @@ final class CategoriesFilter
      */
     private function __construct()
     {
-        add_action('wp',
-            [$this, 'wp_cat_filter']); // редирект на главную, если человек попал в запрещенную категорию
-        add_filter('get_next_post_excluded_terms',
-            [$this, 'exclude_cat'], 10, 1);// nex_post
-        add_filter('get_previous_post_excluded_terms',
-            [$this, 'exclude_cat'], 10, 1);// prev post
-        add_action( 'pre_get_posts',
-            [$this, 'filter_run'], 10 ); // Убираем категории по ID с фронта
+        // редирект на главную, если человек попал в запрещенную категорию
+        add_action('wp', [$this, 'wp_cat_filter']);
+
+        // nex_post // prev post
+        add_filter('get_next_post_excluded_terms', [$this, 'exclude_cat'], 10, 1);
+        add_filter('get_previous_post_excluded_terms', [$this, 'exclude_cat'], 10, 1);
+
+        // Убираем категории по ID с фронта
+        add_action( 'pre_get_posts', [$this, 'filter_run'], 10 );
     }
 
     /**

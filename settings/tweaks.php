@@ -1,0 +1,212 @@
+<?php
+
+
+return [
+    [
+        'id'      => 'wptweaker_setting_1',
+        'type'    => 'switcher',
+        'title'   => __('Remove WP-Version in Header', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_2',
+        'type'    => 'switcher',
+        'title'   => __('WP-Emojis deacivation', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_3',
+        'type'    => 'switcher',
+        'title'   => __('Remove Windows Live Writer', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_4',
+        'type'    => 'switcher',
+        'title'   => __('Remove RSD-Link', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_5',
+        'type'    => 'switcher',
+        'title'   => __('Remove RSS links', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_6',
+        'type'    => 'switcher',
+        'title'   => __('Remove shortlink in the header', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_7',
+        'type'    => 'switcher',
+        'title'   => __('Remove adjacent links to posts in the header', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_8',
+        'type'    => 'switcher',
+        'title'   => __('Set limit post revisions to 5', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_9',
+        'type'    => 'switcher',
+        'title'   => __('Block http-requests by plugins/themes', 'wp-addon'),
+        'default' => false,
+    ],
+    [
+        'id'      => 'wptweaker_setting_10',
+        'type'    => 'switcher',
+        'title'   => __('Disable heartbeat', 'wp-addon'),
+        'default' => false,
+    ],
+    [
+        'id'      => 'wptweaker_setting_11',
+        'type'    => 'switcher',
+        'title'   => __('Remove jQuery Migrate', 'wp-addon'),
+        'default' => false,
+    ],
+    [
+        'id'      => 'wptweaker_setting_12',
+        'type'    => 'switcher',
+        'title'   => __('Disable new themes on major WP updates', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_13',
+        'type'    => 'switcher',
+        'title'   => __('Disable XML-RPC', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_14',
+        'type'    => 'switcher',
+        'title'   => __('Remove post by email function', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_15',
+        'type'    => 'switcher',
+        'title'   => __('Disable agressive update', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_16',
+        'type'    => 'switcher',
+        'title'   => __('Disable URL auto-linking in comments', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_17',
+        'type'    => 'switcher',
+        'title'   => __('Remove login-shake on errors', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_18',
+        'type'    => 'switcher',
+        'title'   => __('Empty WP-Trash every 14 days', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_19',
+        'type'    => 'switcher',
+        'title'   => __('Allow download types file: SVG, DOC, djv ..', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_20',
+        'type'    => 'switcher',
+        'title'   => __('Disable pingback from this site to this site', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_21',
+        'type'    => 'switcher',
+        'title'   => __(
+            'Hide adminbar in frontend for contributors, authors and subscribers',
+            'wp-addon'
+        ),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_22',
+        'type'    => 'switcher',
+        'title'   => __('Add VK and OK to user profile', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_23',
+        'type'    => 'switcher',
+        'title'   => __('Showing usages memory and time generate site page', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_24',
+        'type'    => 'switcher',
+        'title'   => __('Remove Standard WP widget', 'wp-addon'),
+        'default' => false,
+    ],
+    [
+        'id'      => 'wptweaker_setting_25',
+        'type'    => 'switcher',
+        'title'   => __('AutoRemove readme.html and license.txt files', 'wp-addon'),
+        'default' => false,
+    ],
+    [
+        'id'      => 'wptweaker_setting_26',
+        'type'    => 'switcher',
+        'title'   => __('Add notice for posts if they have status "pending" ', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_27',
+        'type'    => 'switcher',
+        'title'   => __('Disable select taxonomy in top of metabox in post-edit page.', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_28',
+        'type'    => 'switcher',
+        'title'   => __('If posts have status "pending" show numbers it in menu', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_29',
+        'type'    => 'switcher',
+        'title'   => __('Showing message "Update wordpress" only admin', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_30',
+        'type'    => 'switcher',
+        'title'   => __('Repalse [...] to "Read more ..." for posts', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_31',
+        'type'    => 'switcher',
+        'title'   => __('Allow shortcode in "Text" widget', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_32',
+        'type'    => 'switcher',
+        'title'   => __('Get jquery from google cloud', 'wp-addon'),
+        'default' => false,
+    ],
+    [
+        'id'      => 'wptweaker_settimngs_33',
+        'type'    => 'switcher',
+        'title'   => __('Disable autoupdate core, themes and plugins', 'wp-addon'),
+        'default' => false,
+    ],
+    [
+        'id'      => 'wptweaker_setting_34',
+        'type'    => 'switcher',
+        'title'   => __('Remove autotop function. Remove <p></p> tags in post content.', 'wp-addon'),
+        'default' => false,
+    ],
+];

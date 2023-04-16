@@ -128,7 +128,8 @@ function wptweaker_setting_11()
     function rw_remove_jquery_migrate( $scripts ) {
         if ( ! is_admin() && isset( $scripts->registered['jquery'] ) ) {
             $script = $scripts->registered['jquery'];
-            if ( $script->deps ) {
+
+            if ( $script->deps ) { // Check whether the script has any dependencies
                 $script->deps = array_diff( $script->deps, array( 'jquery-migrate' ) );
             }
         }
@@ -215,6 +216,7 @@ function wptweaker_setting_19(){
         $mimes['psd']  = 'image/vnd.adobe.photoshop';
         $mimes['djv']  = 'image/vnd.djvu';
         $mimes['djvu'] = 'image/vnd.djvu';
+        $mimes['webp'] = 'image/webp';
         // отключаем имеющиеся
         unset( $mimes['mp4a'] );
         return $mimes;
@@ -263,9 +265,10 @@ function wptweaker_setting_23()
 {
     /* Выводит данные о кол-ве запросов к БД, время выполнения скрипта и размер затраченной памяти. */
     add_filter('admin_footer_text', 'performance'); // в подвале админки
-    add_filter('wp_footer', 'performance');
-    function performance(){
-        $stat = sprintf( __('SQL: %d за %s sec. %.2f MB ', 'wp-addon'), get_num_queries(), timer_stop( 0 ),
+    add_filter('wp_footer', 'performance'); // в подвале сайта
+    function performance()
+    {
+        $stat = sprintf(__('SQL: %d за %s sec. %.2f MB ', 'wp-addon'), get_num_queries(), timer_stop(),
             (memory_get_peak_usage() / 1024 / 1024));
         if (is_admin()) {
             echo $stat; // видно
@@ -277,7 +280,7 @@ function wptweaker_setting_23()
                         background: #222222;
                         width: 100%;
                         height: auto;
-                        padding: 20px;
+                        padding-bottom: 20px;
                         display: flex;
                         align-items: center;
                         justify-content: space-around;
@@ -441,34 +444,46 @@ function wptweaker_setting_32()
     }
 }
 
-/**
- * Remove auto update core theme ad plugins
- * @return void
- */
-function wptweaker_settimngs_33(){
-    $names = [
-	    'auto_update_core_dev', 'auto_update_core_minor', 'auto_update_core_major'
-    ];
-    foreach ($names as $option_name) {
-	    add_filter( "pre_site_option_{$option_name}", function (){
-            return 'disabled';
-        } );
-    }
-    $option_name = 'dismissed_update_core';
-	add_filter( "pre_site_option_{$option_name}", function (){
-		return false;
-	} );
+function wptweaker_setting_33()
+{
+    add_filter('mime_types', function ($existing_mimes) {
+        $existing_mimes['webp'] = 'image/webp';
+        return $existing_mimes;
+    }, 10, 1);
 
-	add_filter( 'automatic_updater_disabled', '__return_true' );
-	add_filter( 'pre_site_transient_update_core',function (){
-        $obj = new stdClass();
-        $obj->response = 'autoupdate';
-		return (object) [
-			'updates'         => [
-                '0' => $obj
-			],
-			'version_checked' => get_bloginfo( 'version' ),
-			'version'         => get_bloginfo( 'version' ),
-		];
-    });
+    add_filter('file_is_displayable_image', function($result, $path) {
+        if ($result === false) {
+            $displayable_image_types = array( IMAGETYPE_WEBP );
+            $info = @getimagesize( $path );
+            if (empty($info)) {
+                $result = false;
+            } elseif (!in_array($info[2], $displayable_image_types)) {
+                $result = false;
+            } else {
+                $result = true;
+            }
+        }
+        return $result;
+    }, 10, 2);
+}
+
+function wptweaker_setting_34()
+{
+    remove_filter('the_content', 'shortcode_unautop');
+
+    /* add_filter( 'the_content', function ($content){
+         preg_match_all('/<p>\[(.*?)\]<\/p>|\[(.*?)\]<\/p>/mu', $content, $m, PREG_SET_ORDER, 0);
+         if(!empty($m)){
+             foreach ($m as $item){
+                 $content = str_replace($item[0], '['. $item[1] .']', $content);
+             }
+         }
+         preg_match_all('/<p>\s*(<div(.*?))<\/p>|<p>(<\/div(.*?))<\/p>/mus', $content, $m, PREG_SET_ORDER, 0);
+         if(!empty($m)){
+             foreach ($m as $item){
+                 $content = str_replace($item[0], $item[1], $content);
+             }
+         }
+         return preg_replace('|<p>\s*<\/p>|', '', $content);
+     }, 1, 1);*/
 }
