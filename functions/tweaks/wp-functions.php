@@ -31,9 +31,6 @@
 
  */
 
-
-
-//Tweaks der eigentlichen Anpassungen
 function wptweaker_setting_1()
 {
     remove_action('wp_head', 'wp_generator'); // из заголовка
@@ -89,13 +86,13 @@ function wptweaker_setting_5()
 
 function wptweaker_setting_6()
 {
-    remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
-    remove_action('wp_head', 'wp_shortlink_header', 10, 0);
+    remove_action('wp_head', 'wp_shortlink_wp_head');
+    remove_action('wp_head', 'wp_shortlink_header');
 }
 
 function wptweaker_setting_7()
 {
-    remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
+    remove_action('wp_head', 'adjacent_posts_rel_link_wp_head');
 }
 
 function wptweaker_setting_8()
@@ -155,34 +152,16 @@ function wptweaker_setting_14()
 
 function wptweaker_setting_15()
 {
+    // disable aggressive update
     if (is_admin()) {
-        // отключим проверку обновлений при любом заходе в админку...
+
         remove_action('admin_init', '_maybe_update_core');
         remove_action('admin_init', '_maybe_update_plugins');
         remove_action('admin_init', '_maybe_update_themes');
 
-        // отключим проверку обновлений при заходе на специальную страницу в админке...
         remove_action('load-plugins.php', 'wp_update_plugins');
         remove_action('load-themes.php', 'wp_update_themes');
 
-        // оставим принудительную проверку при заходе на страницу обновлений...
-        //remove_action( 'load-update-core.php', 'wp_update_plugins' );
-        //remove_action( 'load-update-core.php', 'wp_update_themes' );
-
-        // внутренняя страница админки "Update/Install Plugin" или "Update/Install Theme" - оставим не мешает...
-        //remove_action( 'load-update.php', 'wp_update_plugins' );
-        //remove_action( 'load-update.php', 'wp_update_themes' );
-
-        // событие крона не трогаем, через него будет проверяться наличие обновлений - тут все отлично!
-        //remove_action( 'wp_version_check', 'wp_version_check' );
-        //remove_action( 'wp_update_plugins', 'wp_update_plugins' );
-        //remove_action( 'wp_update_themes', 'wp_update_themes' );
-
-        /**
-         * отключим проверку необходимости обновить браузер в консоли - мы всегда юзаем топовые браузеры!
-         * эта проверка происходит раз в неделю...
-         * @see https://wp-kama.ru/function/wp_check_browser_version
-         */
         add_filter('pre_site_transient_browser_' . md5($_SERVER['HTTP_USER_AGENT']), '__return_true');
     }
 }
@@ -224,15 +203,16 @@ function wptweaker_setting_19(){
     add_filter( 'upload_mimes', 'upload_allow_types' );
 }
 
-function wptweaker_setting_20(){
+function wptweaker_setting_20()
+{
     // Отключаем пинги на свои же посты
-    add_action('pre_ping', 'kama_disable_inner_ping');
-    function kama_disable_inner_ping( &$links ){
-        foreach( $links as $k => $val ){
-            if( false !== strpos( $val, str_replace('www.', '', $_SERVER['HTTP_HOST']) ) )
-                unset( $links[$k] );
+    add_action('pre_ping', function (&$links) {
+        foreach ($links as $k => $val) {
+            if (false !== strpos($val, str_replace('www.', '', $_SERVER['HTTP_HOST']))) {
+                unset($links[$k]);
+            }
         }
-    }
+    });
 }
 
 function wptweaker_setting_21()
@@ -446,6 +426,27 @@ function wptweaker_setting_32()
 
 function wptweaker_setting_33()
 {
+    remove_filter('the_content', 'shortcode_unautop');
+
+    /* add_filter( 'the_content', function ($content){
+         preg_match_all('/<p>\[(.*?)\]<\/p>|\[(.*?)\]<\/p>/mu', $content, $m, PREG_SET_ORDER, 0);
+         if(!empty($m)){
+             foreach ($m as $item){
+                 $content = str_replace($item[0], '['. $item[1] .']', $content);
+             }
+         }
+         preg_match_all('/<p>\s*(<div(.*?))<\/p>|<p>(<\/div(.*?))<\/p>/mus', $content, $m, PREG_SET_ORDER, 0);
+         if(!empty($m)){
+             foreach ($m as $item){
+                 $content = str_replace($item[0], $item[1], $content);
+             }
+         }
+         return preg_replace('|<p>\s*<\/p>|', '', $content);
+     }, 1, 1);*/
+}
+
+function wptweaker_setting_34()
+{
     add_filter('mime_types', function ($existing_mimes) {
         $existing_mimes['webp'] = 'image/webp';
         return $existing_mimes;
@@ -467,23 +468,27 @@ function wptweaker_setting_33()
     }, 10, 2);
 }
 
-function wptweaker_setting_34()
-{
-    remove_filter('the_content', 'shortcode_unautop');
+function wptweaker_setting_35(){
+    # Формирует данные для отображения SVG как изображения в медиабиблиотеке.
+    add_filter( 'wp_prepare_attachment_for_js', 'show_svg_in_media_library' );
+    function show_svg_in_media_library( $response ) {
+        if ( $response['mime'] === 'image/svg+xml' ) {
+            // Без вывода названия файла
+            $response['sizes'] = [
+                'medium' => [
+                    'url' => $response['url'],
+                ],
+                // при редактирования картинки
+                'full' => [
+                    'url' => $response['url'],
+                ],
+            ];
 
-    /* add_filter( 'the_content', function ($content){
-         preg_match_all('/<p>\[(.*?)\]<\/p>|\[(.*?)\]<\/p>/mu', $content, $m, PREG_SET_ORDER, 0);
-         if(!empty($m)){
-             foreach ($m as $item){
-                 $content = str_replace($item[0], '['. $item[1] .']', $content);
-             }
-         }
-         preg_match_all('/<p>\s*(<div(.*?))<\/p>|<p>(<\/div(.*?))<\/p>/mus', $content, $m, PREG_SET_ORDER, 0);
-         if(!empty($m)){
-             foreach ($m as $item){
-                 $content = str_replace($item[0], $item[1], $content);
-             }
-         }
-         return preg_replace('|<p>\s*<\/p>|', '', $content);
-     }, 1, 1);*/
+            /* С выводом названия файла
+            $response['image'] = [
+                'src' => $response['url'],
+            ]; */
+        }
+        return $response;
+    }
 }

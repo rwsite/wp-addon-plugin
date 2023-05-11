@@ -198,15 +198,21 @@ return [
         'default' => false,
     ],
     [
-        'id'      => 'wptweaker_settimngs_33',
+        'id'      => 'wptweaker_setting_33',
         'type'    => 'switcher',
-        'title'   => __('Disable autoupdate core, themes and plugins', 'wp-addon'),
+        'title'   => sprintf( __('Remove autotop function. Remove %s tags in post content.', 'wp-addon'), '<p></p>'),
         'default' => false,
     ],
     [
-        'id'      => 'wptweaker_setting_34',
+        'id'      => 'wptweaker_settimngs_34',
         'type'    => 'switcher',
-        'title'   => __('Remove autotop function. Remove <p></p> tags in post content.', 'wp-addon'),
-        'default' => false,
+        'title'   => __('Allow WEBP support for media', 'wp-addon'),
+        'default' => true,
+    ],
+    [
+        'id'      => 'wptweaker_setting_35',
+        'type'    => 'switcher',
+        'title'   => __('Allow SVG support for media', 'wp-addon'),
+        'default' => true,
     ],
 ];

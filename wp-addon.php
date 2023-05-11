@@ -3,7 +3,7 @@
  * Plugin Name:  #1 Wordpress AddOn
  * Plugin URL:   https://rwsite.ru
  * Description:  Addon for Wordpress, Contact Form 7 etc;
- * Version:      1.1.3
+ * Version:      1.1.4
  * Text Domain:  wp-addon
  * Domain Path:  /languages
  * Author:       Aleksey Tikhomirov
@@ -45,15 +45,16 @@ add_action( 'plugins_loaded', function(){
 	load_plugin_textdomain( 'wp-addon', false, dirname( plugin_basename(__FILE__) ) . '/languages' );
 });
 
-add_action( 'init', function () {
-	if ( !class_exists( 'CSF' ) ){
+add_action( 'admin_head', function () {
+
+	if ( 'plugins' === get_current_screen()->id && !class_exists( 'CSF' ) ){
 		?>
         <div id="message" class="updated notice is-dismissible"><p>
-                For work <b>#1 RW Wordpress AddOn</b> plugin, please download and install <a href="https://github.com/Codestar/codestar-framework" target="_blank">Codestar Framework</a>.
+                To work <b>#1 RW Wordpress AddOn</b> plugin, please download and install <a href="https://github.com/Codestar/codestar-framework" target="_blank">Codestar Framework</a>.
             </p></div>
 		<?php
 	}
-	return;
+
 });
 
 

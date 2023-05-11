@@ -23,6 +23,12 @@ $fields = [
         'title'   => __('Trace slow actions to log file', 'wp-addon'),
         'default' => false,
     ],
+    [
+        'id'      => 'disable_auto_update',
+        'type'    => 'switcher',
+        'title'   => __('Disable all updates.', 'wp-addon'),
+        'default' => false,
+    ],
 ];
 
 $fields['posts'] = [
