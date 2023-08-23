@@ -59,6 +59,9 @@ if ( ! function_exists( 'console_log' ) ) {
         if(!$wp_query->debug_showed) {
             echo '<script type="text/javascript" name="woo2iiko_debugger">console.log(\'wp debug\', ' . $wp_query->debug_log . '); </script>';
             $wp_query->debug_showed = true;
+
+            echo '<hr><h5 style="color:red;">DEBUG INFO</h5>';
+            echo '<pre style="color:white; background: #0a0a0a; padding: 20px;">' . $wp_query->debug_log . '</pre>';
         }
     }
 }
