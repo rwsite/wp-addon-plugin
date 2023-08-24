@@ -17,27 +17,12 @@ endif;
  */
 if ( ! function_exists( '_log' ) ) {
     function _log( $log ) {
-
-        if ( defined('WP_DEBUG') && WP_DEBUG ) {
-            if ( is_array( $log ) || is_object( $log ) ) {
-                error_log( print_r( $log, true ) );
-            } else {
-                error_log( $log );
-            }
-        } else {
-            ob_start();
-            echo '[' . date('d-M-Y h:i:s T') . '] ';
-            if ( is_array( $log ) || is_object( $log ) ) {
-                print_r( $log );
-            } else {
-                echo( $log );
-            }
-            echo "\r\n";
-            file_put_contents( ABSPATH . 'wp-content/log.log', $data = ob_get_contents(), FILE_APPEND );
-            ob_end_clean();
-        }
-
-        return $data ?? $log;
+        ob_start();
+        echo '[' . date('d-M-Y h:i:s T') . '] ';
+        var_export( $log );
+        echo "\r\n";
+        file_put_contents( ABSPATH . 'wp-content/debug.log', $data = ob_get_contents(), FILE_APPEND );
+        return ob_get_clean();
     }
 }
 
@@ -45,7 +30,17 @@ if ( ! function_exists( '_log' ) ) {
 if ( ! function_exists( 'console_log' ) ) {
     function console_log($data){
         global $wp_query, $current_user;
-        $wp_query->debug_log = _log($data);
+        _log($data);
+
+        if(is_bool($data)){
+            $data = (int)$data;
+        }
+
+        if(empty($data)){
+            $data = 'null';
+        }
+
+        $wp_query->debug_log = $data;
         $wp_query->debug_showed = false;
         if (isset($current_user) && $current_user instanceof WP_User && $current_user->has_cap('manage_options')) {
             add_action('admin_head', 'show_in_console');
@@ -57,7 +52,12 @@ if ( ! function_exists( 'console_log' ) ) {
     function show_in_console(){
         global $wp_query;
         if(!$wp_query->debug_showed) {
-            echo '<script type="text/javascript" name="woo2iiko_debugger">console.log(\'wp debug\', ' . $wp_query->debug_log . '); </script>';
+            if(!is_string($wp_query->debug_log)){
+                $wp_query->debug_log = print_r( $wp_query->debug_log, true);
+            } else {
+                $wp_query->debug_log = "'$wp_query->debug_log'";
+            }
+            echo '<script type="text/javascript" name="woo2iiko_debugger">console.log({debug: \'wp-addon\'}, ' . $wp_query->debug_log . ');</script>';
             $wp_query->debug_showed = true;
 
             echo '<hr><h5 style="color:red;">DEBUG INFO</h5>';
