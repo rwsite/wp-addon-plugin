@@ -31,7 +31,7 @@ function dashboard_server_info()
             $tname = $theme->name;
         } else {
             $tname = '';
-        };
+        }
         if ( ! defined('WP_DEBUG') or WP_DEBUG == 0) {
             $debug = __('Off', 'wp-addon');
         } else {

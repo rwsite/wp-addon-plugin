@@ -162,7 +162,7 @@ class MetaBox {
         $_opt = (array) clone $this->opt;
         // удалим (очистим) все closure
         array_walk_recursive( $_opt, function(&$val, $key){
-            if( $val instanceof \Closure ) $val = '';
+            if ($val instanceof Closure) $val = '';
         });
         $this->id = substr( md5(serialize($_opt)), 0, 7 ); // ID экземпляра
 

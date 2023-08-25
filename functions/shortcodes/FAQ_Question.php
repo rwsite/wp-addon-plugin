@@ -99,7 +99,7 @@ class FAQ_Question implements ShortcodeInterface
     /**
      * VC mapping. Render Admin Settings.
      *
-     * @throws \Exception
+     * @throws Exception
      */
     public function vc_support()
     {

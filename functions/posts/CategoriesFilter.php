@@ -48,7 +48,7 @@ final class CategoriesFilter
     /**
      * @param WP_Query $query
      */
-    public function filter_run( \WP_Query $query)
+    public function filter_run(WP_Query $query)
     {
         if (is_admin()) {
             return;

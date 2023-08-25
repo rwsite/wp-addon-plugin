@@ -67,10 +67,11 @@ class UserFilter
 
 
     /**
-     * @param \WP_User_Query $query
-     * @return \WP_User_Query $query
+     * @param WP_User_Query $query
+     *
+     * @return WP_User_Query $query
      */
-    public function filter_users_by_role_section( \WP_User_Query $query): WP_User_Query
+    public function filter_users_by_role_section(WP_User_Query $query): WP_User_Query
     {
         global $pagenow;
 

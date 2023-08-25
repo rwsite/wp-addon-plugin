@@ -1,6 +1,9 @@
 <?php
 
 namespace theme;
+
+use WP_Post;
+
 /**
  * Отображение всех метаполей поста
  *
@@ -24,7 +27,7 @@ class PostMetaHelper
         $screen = get_current_screen();
 
         global $post;
-        if (!isset($post) || !$post instanceof \WP_Post) {
+        if (!isset($post) || !$post instanceof WP_Post) {
             return;
         }
 

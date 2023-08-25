@@ -14,6 +14,7 @@
 namespace theme;
 
 use WP_Post;
+use WP_User;
 
 defined( 'ABSPATH' ) or die( 'Nothing here!' );
 
@@ -21,7 +22,7 @@ class DefaultPostAuthor
 {
     public $key = 'users';
 
-    /** @var \WP_User */
+    /** @var WP_User */
     public $user;
 
     /** @var int */
@@ -84,7 +85,7 @@ class DefaultPostAuthor
      * @param $user_id
      */
     public function show_warning($user_id){
-        $user = \WP_User::get_data_by('ID', $user_id);
+        $user = WP_User::get_data_by('ID', $user_id);
         ?>
         <div id="message" class="notice notice-warning is-dismissible">
             <p><?php echo esc_html__('The author of the post will be changed to ', 'wp-addon') . $user->display_name; ?></p>

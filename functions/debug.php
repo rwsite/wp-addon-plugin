@@ -57,7 +57,7 @@ if ( ! function_exists( 'console_log' ) ) {
             } else {
                 $wp_query->debug_log = "'$wp_query->debug_log'";
             }
-            echo '<script type="text/javascript" name="woo2iiko_debugger">console.log({debug: \'wp-addon\'}, ' . $wp_query->debug_log . ');</script>';
+            echo '<script type="text/javascript" name="woo2iiko_debugger">console.log({debug: \'wp-addon\'}, ' . $wp_query->debug_log . ')</script>';
             $wp_query->debug_showed = true;
 
             echo '<hr><h5 style="color:red;">DEBUG INFO</h5>';
