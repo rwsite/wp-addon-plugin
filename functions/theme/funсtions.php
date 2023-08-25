@@ -35,11 +35,11 @@ function the_subtitle($before, $after)
  *  Get thumbnail
  */
 if(!function_exists('thumbnail')):
-function thumbnail($width = '150', $height = '150', $crop = true, $post_id = null, $show_placeholder = true)
+    function thumbnail($width = '420', $height = '280', $crop = true, $post_id = null, $show_placeholder = true)
 {
     $thumb = null;
     if($show_placeholder) {
-        $thumb = get_option('kama_thumbnail', ['no_photo_url' => RW_PLUGIN_URL . 'assets/images/no-photo.webp'])['no_photo_url'];
+        $thumb = get_option('kama_thumbnail', ['no_photo_url' => RW_PLUGIN_URL . '/wp-content/uploads/2023/08/no_img.jpg'])['no_photo_url'];
     }
 
     $attachments = get_children([
@@ -50,11 +50,22 @@ function thumbnail($width = '150', $height = '150', $crop = true, $post_id = nul
         'order'          => 'DESC',
     ]);
 
-    $attach = array_shift($attachments);
+    $attach = get_post_thumbnail_id($post_id ?? get_the_ID());
+    if (empty($attach) && !empty($attachments)) {
+        $attach = array_values($attachments)[0]->ID;
+    }
+
     if (function_exists( 'kama_thumb_img' ) && $show_placeholder) {
-        $thumb = kama_thumb_img( ['width' => $width, 'height' => $height, 'crop' => $crop, 'class' => 'rounded', 'stub_url' => $thumb], $attach->ID ?? 'notset' );
+        $thumb = kama_thumb_img([
+            'width'     => $width,
+            'height'    => $height,
+            'crop'      => $crop,
+            'class'     => 'rounded',
+            'stub_url'  => $thumb,
+            'attach_id' => $attach ?: null
+        ]);
     } else {
-        $thumb = isset($attach) ? wp_get_attachment_image( $attach->ID, [$width, $height], true ) : null;
+        $thumb = !empty($attach) ? wp_get_attachment_image($attach, [$width, $height], true) : null;
     }
 
     return $thumb;

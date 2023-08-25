@@ -13,7 +13,7 @@ class DashboardWidget
 
     protected $atts;
 
-    public function __construct( string $key, string $title = '', string $desc = '', $capability = '', $atts = [])
+    public function __construct(string $key, string $title = '', string $desc = '', $capability = '', $atts = [])
     {
         $this->key = sanitize_key($key);
         $this->title = $title ?: esc_html__('Dashboard Widget', 'rw-addon');
@@ -22,25 +22,26 @@ class DashboardWidget
 
         $this->atts = $atts ?: [];
 
-        add_shortcode( $this->key,        [$this, 'add_shortcode'] );
-        add_action( 'wp_dashboard_setup', [$this, 'dash_widget_init'] );
+        add_shortcode($this->key, [$this, 'add_shortcode']);
+        add_action('wp_dashboard_setup', [$this, 'DashboardWidgetInit']);
     }
 
     /**
      * Shortcode in admin panel
      *
      * @param $atts
+     *
      * @return bool|string
      */
-    public function add_shortcode($atts)
+    public function add_shortcode($atts): bool|string
     {
-        if ( ! is_admin() || ! current_user_can( $this->capability )) {
+        if (!is_admin() || !current_user_can($this->capability)) {
             return false;
         }
 
-        $atts = shortcode_atts( $this->atts, $atts, $this->key );
+        $atts = shortcode_atts($this->atts, $atts, $this->key);
 
-        if(!isset($atts['html'])) {
+        if (!isset($atts['html'])) {
             $html = '<ol>';
             foreach ($atts as $key => $val) {
                 $html .= '<li>' . $key . ' - ' . $val . '</li>';
@@ -55,9 +56,9 @@ class DashboardWidget
 
 
     ## Произвольный виджет в консоли в админ-панели
-    public function dash_widget_init()
+    public function DashboardWidgetInit()
     {
-        if ( ! current_user_can( $this->capability )) {
+        if (!current_user_can($this->capability)) {
             return false;
         }
 
@@ -70,6 +71,6 @@ class DashboardWidget
     public function inc_html()
     {
         echo "<h3>$this->desc</h3>";
-        echo do_shortcode( "[$this->key]" );
+        echo do_shortcode("[$this->key]");
     }
 }

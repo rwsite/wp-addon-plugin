@@ -31,6 +31,7 @@ final class PostViews
         add_action( 'wp_ajax_nopriv_' . $this->action,  [$this, 'update_post_views_count'] );
         add_action( 'wp_enqueue_scripts',               [$this, 'ajax_data'], 99 );
         add_action( 'post_submitbox_misc_actions',      [$this, 'show_likes'] );
+        add_shortcode('most_viewed', [$this, 'get_most_viewed']);
     }
 
     public function add_view()
@@ -240,7 +241,9 @@ final class PostViews
             return false;
         }
 
-        $out = $x = ''; $psts = array();
+        $out = '<ul class="most-viewed">';
+        $x = '';
+        $psts = array();
         preg_match( '!{date:(.*?)}!', $format, $date_m );
 
         foreach( $results as $pst ){
@@ -279,6 +282,7 @@ final class PostViews
 
             $out .= "<li class=\"$x\">$Sformat</li>";
         }
+        $out .= '</ul>';
 
         if(0 === $echo) {
             switch ($return_type) {
@@ -326,7 +330,6 @@ final class PostViews
         }
 
         $count = get_post_meta($id, self::KEY, true);
-
         return ( $count && $count > 0 ) ? $count : '0';
     }
 

@@ -9,14 +9,18 @@
  */
 function hide_email_shortcode($atts, $content = null)
 {
-    if ( ! is_email($content)) {
+    if (!is_email($content)) {
         return false;
     }
 
-    $content    = antispambot($content);
+    $content = antispambot($content);
     $email_link = sprintf('mailto:%s', $content);
 
-    return sprintf('<a href="%s" class="mail"><i class="fa fa-envelope">%s</i></a>',
-        esc_url($email_link, ['mailto']), esc_html($content));
+    return sprintf(
+        '<a href="%s" class="mail"><i class="fa fa-envelope"></i> %s</a>',
+        esc_url($email_link, ['mailto']),
+        esc_html($content)
+    );
 }
+
 add_shortcode('email', 'hide_email_shortcode');

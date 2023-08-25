@@ -15,7 +15,7 @@ class CustomTags
     {
         add_shortcode('show_customtags', [$this, 'show']);
         add_action('init', [$this, 'register_taxonomy']);
-        add_action('init', [$this, 'remove_tags']);
+        //add_action('init', [$this, 'remove_tags']);
         add_filter('get_the_tags', [__CLASS__, 'get_the_tags']);
     }
 
