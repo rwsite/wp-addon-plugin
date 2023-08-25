@@ -26,6 +26,10 @@ class ThemeFeatures
                 update_option('medium_large_size_w', 0);
             }
 
+            # Отменим `-scaled` размер - ограничение максимального размера картинки
+            add_filter( 'big_image_size_threshold', '__return_zero' );
+
+            // 2x medium_large size.
             remove_image_size('1536x1536');
             // 2x large size.
             remove_image_size('2048x2048');

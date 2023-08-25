@@ -50,22 +50,22 @@ if(!function_exists('thumbnail')):
         'order'          => 'DESC',
     ]);
 
-    $attach = get_post_thumbnail_id($post_id ?? get_the_ID());
-    if (empty($attach) && !empty($attachments)) {
-        $attach = array_values($attachments)[0]->ID;
+    $attach_id = get_post_thumbnail_id($post_id ?? get_the_ID());
+    if (empty($attach_id) && !empty($attachments)) {
+        $attach_id = array_values($attachments)[0]->ID;
     }
 
-    if (function_exists( 'kama_thumb_img' ) && $show_placeholder) {
+    if (function_exists( 'kama_thumb_img' )) {
         $thumb = kama_thumb_img([
             'width'     => $width,
             'height'    => $height,
             'crop'      => $crop,
             'class'     => 'rounded',
-            'stub_url'  => $thumb,
-            'attach_id' => $attach ?: null
+            'stub_url'  => $show_placeholder ? $thumb : '',
+            'attach_id' => $attach_id ?: null
         ]);
     } else {
-        $thumb = !empty($attach) ? wp_get_attachment_image($attach, [$width, $height], true) : null;
+        $thumb = !empty($attach_id) ? wp_get_attachment_image($attach_id, [$width, $height], true) : null;
     }
 
     return $thumb;
