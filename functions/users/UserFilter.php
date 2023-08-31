@@ -76,7 +76,7 @@ class UserFilter
         global $pagenow;
 
         if ( is_admin() && isset($_GET["role_filter"]) && 'users.php' === $pagenow ) {
-            // figure out which button was clicked. The $which in filter_by_job_role()
+
             if ( !empty($_GET['role_filter']) ) {
                 $query->set('role', $_GET['role_filter']);
                 $query->set('role__in', [$_GET['role_filter']]);

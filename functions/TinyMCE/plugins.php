@@ -118,7 +118,7 @@ function tiny_advanced()
         }*/
         $in['toolbar2'] = 'formatselect fontselect fontsizeselect | table | subscript superscript removeformat | insert unlink openlink charmap code | cut copy paste pastetext';
 
-        $in['fontsize_formats'] = '12px 14px 15px 18px 20px 24px 28px 30px 32px 36px 48px';
+        $in['fontsize_formats'] = '10px 12px 14px 15px 18px 20px 24px 28px 30px 32px 36px 48px';
         $in['font_formats'] .= 'Open Sans=Open Sans,sans-serif;';
         $in['menubar'] = 'file edit insert view format table tools help';
 

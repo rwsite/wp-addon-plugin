@@ -53,7 +53,7 @@ if ( ! function_exists( 'console_log' ) ) {
         global $wp_query;
         if(!$wp_query->debug_showed) {
             if(!is_string($wp_query->debug_log)){
-                $wp_query->debug_log = print_r( $wp_query->debug_log, true);
+                $wp_query->debug_log = json_encode( $wp_query->debug_log, true);
             } else {
                 $wp_query->debug_log = "'$wp_query->debug_log'";
             }

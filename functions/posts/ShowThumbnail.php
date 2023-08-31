@@ -7,64 +7,55 @@ class ShowThumbnail{
     public function __construct()
     {
         add_action('init', [$this , 'add_post_thumbs_in_post_list_table'], 20);
-        add_action('admin_head', [$this, 'admin_style']);
-
-        add_action('admin_footer', function () {
-            $theme = wp_get_theme();
-            $ver = defined('WP_DEBUG_SCRIPT') ? current_time('timestamp') : $theme->get( 'Version' );
-            $dir_uri = get_template_directory_uri();
-            $dir_path = get_template_directory();
-
-            // js
-            if( file_exists($dir_path . '/assets/js/plugins/lightcase.js') ) {
-                wp_register_script('lightcase', $dir_uri . '/assets/js/plugins/lightcase.js', ['jquery'], $ver, false);
-            } else {
-                wp_register_script('lightcase', 'https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.5.0/js/lightcase.min.js',  ['jquery'], $ver, false);
-            }
-            // css
-            if( file_exists($dir_path . '/assets/css/plugins/lightcase.min.css') ) {
-                wp_register_style('lightcase', $dir_uri . '/assets/css/plugins/lightcase.min.css', $ver);
-            } else {
-                wp_register_style('lightcase', 'https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.5.0/css/lightcase.min.css', $ver);
-            }
-
-            wp_enqueue_script('lightcase');
-            wp_enqueue_style('lightcase');
-
-            ?>
-            <script type="text/javascript">
-            jQuery(document).ready(function($){
-                $('a[data-rel^=lightcase]').lightcase({
-                    typeMapping: {
-                        'image': 'webp,jpg,jpeg,gif,png,bmp',
-                    },
-                });
-            });
-            </script>
-            <?php
-        });
+        add_action('admin_enqueue_scripts', [$this, 'admin_enqueue_scripts'],99);
     }
 
+    public function admin_enqueue_scripts(){
 
-    public function admin_style(){ ?>
-        <style type="text/css" rel="stylesheet">
-            .thumbnail .dashicons.dashicons-format-image {
-                width: 80px;
-                height: 80px;
+        $theme = wp_get_theme();
+        $ver = defined('WP_DEBUG_SCRIPT') ? current_time('timestamp') : $theme->get( 'Version' );
+        $dir_uri = get_template_directory_uri();
+        $dir_path = get_template_directory();
+
+        // js
+        if( file_exists($dir_path . '/assets/js/plugins/lightcase.js') ) {
+            wp_register_script('lightcase', $dir_uri . '/assets/js/plugins/lightcase.js', ['jquery'], $ver, false);
+        } else {
+            wp_register_script('lightcase', 'https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.5.0/js/lightcase.min.js',  ['jquery'], $ver, false);
+        }
+        // css
+        if( file_exists($dir_path . '/assets/css/plugins/lightcase.min.css') ) {
+            wp_register_style('lightcase', $dir_uri . '/assets/css/plugins/lightcase.min.css', $ver);
+        } else {
+            wp_register_style('lightcase', 'https://cdnjs.cloudflare.com/ajax/libs/lightcase/2.5.0/css/lightcase.min.css', $ver);
+        }
+
+        wp_enqueue_script('lightcase');
+        wp_enqueue_style('lightcase');
+
+        wp_add_inline_script('lightcase', 'jQuery(document).ready(function($){
+            $("a[data-rel^=lightcase]").lightcase({
+                typeMapping: {
+                    "image": "webp,jpg,jpeg,gif,png,bmp",
+                },
+            });
+        });');
+
+        wp_add_inline_style('lightcase', '
+        .thumbnail .dashicons.dashicons-format-image {
+                width: 90px;
+                height: 90px;
                 font-size: 90px;
                 text-align: center;
             }
-            .thumbnail img{
+            .thumbnail img {
                 border-radius: 8px;
             }
             .manage-column.column-thumbnail {
                 width: 110px;
                 text-align: center;
-            }
-        </style>
-        <?php
+        }');
     }
-
 
     public function add_post_thumbs_in_post_list_table()
     {
@@ -105,7 +96,7 @@ class ShowThumbnail{
     public function add_thumb_value($colname, $post_id)
     {
         if ('thumbnail' === $colname) {
-            $width = $height = 100;
+            $width = $height = 90;
 
             /*if( class_exists('\theme\Theme') ){
                 $thumb = Theme::get_post_thumb('gillion-square-micro', $post_id, 'a');
