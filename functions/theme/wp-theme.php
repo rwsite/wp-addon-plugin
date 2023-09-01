@@ -44,7 +44,7 @@ class ThemeFeatures
 
         $permalink = esc_url( get_permalink( (int) get_the_ID() ) ); // @phpstan-ignore-line -- post exists
 
-        return $text . ' ... <p><a class="btn btn-outline understrap-read-more-link" href="' . $permalink . '">' . __(
+        return $text . ' ... <p><a class="btn btn-outline-primary understrap-read-more-link" href="' . $permalink . '">' . __(
                 'Read More...',
                 'understrap'
             ) . '<span class="screen-reader-text"> from ' . get_the_title( get_the_ID() ) . '</span></a></p>';
