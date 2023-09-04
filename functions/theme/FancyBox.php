@@ -1,14 +1,12 @@
 <?php
 /**
- * FancyBox for post images
- * Скрипт для увеличения картинок в посте. Не используется в Гиллион.
+ * FancyBox for post images.Скрипт для увеличения картинок в посте
  *
- * @unused
- * @author: Aleksey Tikhomirov <a.tihomirov@dataduck.com>
+ * @author: Aleksey Tikhomirov
  * @year: 2019-06-25
  */
 
-namespace theme\features;
+namespace theme;
 
 class FancyBox{
 

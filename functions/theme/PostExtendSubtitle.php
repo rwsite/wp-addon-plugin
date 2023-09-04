@@ -1,7 +1,11 @@
 <?php
 /**
+ * Add subtitle and post excerpt on your theme
+ *
  * @author: Aleksey Tikhomirov
  * @year: 2019-12-10
+ *
+ * How enable it: add_theme_support('subtitle');
  */
 
 namespace theme;
@@ -29,18 +33,31 @@ class PostExtendSubtitle
             return;
         }
 
-        add_filter( 'hidden_meta_boxes',    [$this, 'default_metabox_settings'], 10, 3 );
-        add_action( 'edit_form_after_title',[$this, 'edit_subtitle'], 10, 1 );
+        add_action('init', function () {
 
-        // обновление полей при сохранении
-        add_action( 'save_post',            [$this, 'post_fields_update'], 10, 3 );
+            if (!get_theme_support('subtitle')) {
+                return;
+            }
 
-/*        add_action( 'admin_init', function() {
-            $post_id = $_GET['post'] ?? $_POST['post_id'] ?? $_POST['post_ID'] ?? null ;
-            if( !isset( $post_id ) ){ return; }
-            remove_post_type_support('page', 'revisions');
-            remove_post_type_support('page', 'trackbacks');
-        });*/
+            add_filter('hidden_meta_boxes', [$this, 'default_metabox_settings'], 10, 3);
+            add_action('edit_form_after_title', [$this, 'edit_subtitle'], 10, 1);
+
+            // обновление полей при сохранении
+            add_action('save_post', [$this, 'post_fields_update'], 10, 3);
+        });
+    }
+
+    public static function the_subtitle($before, $after){
+        $string = self::get_post_subtitle();
+        if ($string) {
+            echo $before . $string . $after;
+        }
+    }
+
+    public static function get_post_subtitle($post = null){
+        $post = get_post($post);
+        $post = $post instanceof WP_Post ? $post->ID : get_the_ID();
+        return get_post_meta($post, 'subtitle', true);
     }
 
     /**
@@ -145,5 +162,6 @@ class PostExtendSubtitle
         return $hidden;
     }
 }
+
 
 new PostExtendSubtitle();

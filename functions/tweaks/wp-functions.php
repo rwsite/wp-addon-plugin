@@ -419,7 +419,7 @@ function wptweaker_setting_32()
     add_action('rw_enqueue_scripts', 'jquery_enqueue_func');
     function jquery_enqueue_func(){
         wp_deregister_script('jquery');
-        wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js', false, false);
+        wp_register_script('jquery', 'https://ajax.googleapis.com/ajax/libs/jquery/3.7.0/jquery.min.js', false, false);
         wp_enqueue_script('jquery');
     }
 }

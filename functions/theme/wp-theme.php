@@ -12,12 +12,14 @@ class ThemeFeatures
         add_filter('excerpt_more', function (){
             return '';
         }, 100);
+
         add_filter('wp_trim_excerpt', [$this, 'wp_trim_excerpt'], 99, 2);
 
+        /* title_reply_before title_reply_after
         add_filter('comment_form_defaults', function ($defaults){
-            $defaults['title_reply'] = '<span class="lnr lnr-bubble"></span> '. $defaults['title_reply'];
+            $defaults['title_reply'] = '<i class="icon-arrow-down"></i> ' . $defaults['title_reply'];
             return $defaults;
-        });
+        }); **/
 
         // 0 to all image size
         add_action('after_setup_theme', function (){
