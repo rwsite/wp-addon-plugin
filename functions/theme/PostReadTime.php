@@ -30,14 +30,7 @@ class PostReadTime
             return;
         }
 
-        add_action('init', function () {
-
-            if (!get_theme_support('read_time')) {
-                return;
-            }
-
-            add_shortcode('read_time', [$this, 'add_shortcode']);
-        });
+        add_shortcode('read_time', [$this, 'add_shortcode']);
     }
 
     public function add_shortcode($args = null){
@@ -56,21 +49,17 @@ class PostReadTime
     {
         $post = get_post($post_id ?? get_the_ID());
         $string = !empty($string) ? $string : $post->post_content; // без фильтров, что бы сделать работы быстрее
+        $wordsPerMinute = 150;
 
         $string = strip_tags($string);
-        $string = preg_replace('/\s+/', ' ', trim($string));
-        $words = explode(" ", $string);
-        $words = count($words);
+        $wordCount = str_word_count($string);
+        $minutesToRead = round($wordCount / $wordsPerMinute);
 
-        $min = floor($words / 200);
-        $sec = floor($words % 200 / (200 / 60));
-        if ($min < 1) {
+        if($minutesToRead < 1){// if the time is less than a minute
             return sprintf(esc_html__('%s min', 'theme'), 1);
         }
-        if ($sec >= 20) {
-            $min++;
-        }
-        return sprintf(esc_html__('%s min', 'theme'), $min);
+
+        return sprintf(esc_html__('%s min', 'theme'), $minutesToRead);
     }
 }
 

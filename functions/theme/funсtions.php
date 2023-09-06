@@ -80,3 +80,10 @@ function get_post_thumbnail($attr = null)
 
     return $thumbnail;
 }
+
+function get_post_likes($post = null)
+{
+    if(class_exists('\theme\PostLike')){
+        return (new \theme\PostLike())->get_post_likes($post);
+    }
+}
