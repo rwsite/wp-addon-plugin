@@ -42,7 +42,9 @@ if ( ! function_exists( 'console_log' ) ) {
 
         $wp_query->debug_log = $data;
         $wp_query->debug_showed = false;
-        if (isset($current_user) && $current_user instanceof WP_User && $current_user->has_cap('manage_options')) {
+        if ( (defined('WP_DEBUG') && WP_DEBUG) ||
+            ( isset($current_user) && $current_user instanceof WP_User && $current_user->has_cap('manage_options') )
+        ) {
             add_action('admin_head', 'show_in_console');
             add_action('admin_footer', 'show_in_console', 99);
             add_action('wp_head', 'show_in_console', 99);
