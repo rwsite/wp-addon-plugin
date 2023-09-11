@@ -120,7 +120,7 @@ $fields['tiny-mce'] = [
         [
             'id'      => 'tiny_custom_colors',
             'type'    => 'switcher',
-            'title'   => __('Add platform color to tinyMCE', 'wp-addon'),
+            'title'   => __('Add a pack color to tinyMCE', 'wp-addon'),
             'default' => true,
         ],
         [
@@ -144,6 +144,12 @@ $fields['tiny-mce'] = [
             'type'    => 'switcher',
             'title'   => __('Add Bootsrtrap 3', 'wp-addon'),
             'label'   => __('Add Bootsrtrap 3 code to TinyMCE', 'wp-addon'),
+            'default' => true,
+        ],
+        [
+            'id'      => 'tiny_table_plugin',
+            'type'    => 'switcher',
+            'title'   => __('Add table plugin', 'wp-addon'),
             'default' => true,
         ],
     ],

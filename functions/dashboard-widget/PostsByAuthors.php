@@ -110,7 +110,7 @@ class PostsByAuthors
     public static function metrics_posts_data($request)
     {
         $data = self::get_data();
-        return new \WP_REST_Response($data);
+        return new WP_REST_Response($data);
     }
 
     public static function add_widget()

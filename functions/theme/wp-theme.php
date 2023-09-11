@@ -15,22 +15,14 @@ class ThemeFeatures
 
         add_filter('wp_trim_excerpt', [$this, 'wp_trim_excerpt'], 99, 2);
 
-        /* title_reply_before title_reply_after
-        add_filter('comment_form_defaults', function ($defaults){
-            $defaults['title_reply'] = '<i class="icon-arrow-down"></i> ' . $defaults['title_reply'];
-            return $defaults;
-        }); **/
 
         // 0 to all image size
         add_action('after_setup_theme', function (){
-
             if(0 != get_option('medium_large_size_w')) {
                 update_option('medium_large_size_w', 0);
             }
-
             # Отменим `-scaled` размер - ограничение максимального размера картинки
             add_filter( 'big_image_size_threshold', '__return_zero' );
-
             // 2x medium_large size.
             remove_image_size('1536x1536');
             // 2x large size.
