@@ -40,6 +40,10 @@ if ( ! function_exists( 'console_log' ) ) {
             $data = 'null';
         }
 
+        if(!$wp_query){
+            return;
+        }
+
         $wp_query->debug_log = $data;
         $wp_query->debug_showed = false;
         if ( (defined('WP_DEBUG') && WP_DEBUG) ||
