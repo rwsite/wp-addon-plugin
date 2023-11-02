@@ -33,7 +33,7 @@ class DashboardWidget
      *
      * @return bool|string
      */
-    public function add_shortcode($atts): bool|string
+    public function add_shortcode($atts)
     {
         if (!is_admin() || !current_user_can($this->capability)) {
             return false;

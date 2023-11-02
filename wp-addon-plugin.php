@@ -1,8 +1,8 @@
 <?php
-/**
- * Plugin Name:  #1 Wordpress AddOn
+/*
+ * Plugin Name:  #1 WordPress AddOn
  * Plugin URL:   https://rwsite.ru
- * Description:  Addon for Wordpress, Contact Form 7 etc;
+ * Description:  Addon for WordPress, Contact Form 7 etc;
  * Version:      1.1.4
  * Text Domain:  wp-addon
  * Domain Path:  /languages
@@ -11,11 +11,9 @@
  *
  * Tags: wordpress, addon, wp-addon, rw-addon
  * Requires at least: 4.6
- * Tested up to: 5.3.0
- * Requires PHP: 7.0+
+ * Tested up to: 5.6.0
+ * Requires PHP: 7.4+
  *
- * @package WordPress Addon
- * docs:
  */
 
 // Exit if accessed directly
