@@ -24,7 +24,7 @@ function transliteration_enable()
     function cyr_to_lat($title) {
         global $wpdb;
 
-        $iso9_table = array(
+        $iso9_table = [
             'А' => 'A', 'Б' => 'B', 'В' => 'V', 'Г' => 'G', 'Ѓ' => 'G',
             'Ґ' => 'G', 'Д' => 'D', 'Е' => 'E', 'Ё' => 'YO', 'Є' => 'YE',
             'Ж' => 'ZH', 'З' => 'Z', 'Ѕ' => 'Z', 'И' => 'I', 'Й' => 'J',
@@ -43,15 +43,15 @@ function transliteration_enable()
             'у' => 'u', 'ў' => 'u', 'ф' => 'f', 'х' => 'h', 'ц' => 'ts',
             'ч' => 'ch', 'џ' => 'dh', 'ш' => 'sh', 'щ' => 'shh', 'ъ' => '',
             'ы' => 'y', 'ь' => '', 'э' => 'e', 'ю' => 'yu', 'я' => 'ya'
-        );
-        $geo2lat = array(
+        ];
+        $geo2lat = [
             'ა' => 'a', 'ბ' => 'b', 'გ' => 'g', 'დ' => 'd', 'ე' => 'e', 'ვ' => 'v',
             'ზ' => 'z', 'თ' => 'th', 'ი' => 'i', 'კ' => 'k', 'ლ' => 'l', 'მ' => 'm',
             'ნ' => 'n', 'ო' => 'o', 'პ' => 'p','ჟ' => 'zh','რ' => 'r','ს' => 's',
             'ტ' => 't','უ' => 'u','ფ' => 'ph','ქ' => 'q','ღ' => 'gh','ყ' => 'qh',
             'შ' => 'sh','ჩ' => 'ch','ც' => 'ts','ძ' => 'dz','წ' => 'ts','ჭ' => 'tch',
             'ხ' => 'kh','ჯ' => 'j','ჰ' => 'h'
-        );
+        ];
         $iso9_table = array_merge($iso9_table, $geo2lat);
 
         $locale = get_locale();
@@ -80,18 +80,20 @@ function transliteration_enable()
         }
 
         $term = $is_term ? $wpdb->get_var("SELECT slug FROM {$wpdb->terms} WHERE name = '$title'") : '';
-        if ( empty($term) ) {
-            $title = strtr($title, apply_filters('ctl_table', $iso9_table));
-            if (function_exists('iconv')){
-                $title = iconv('UTF-8', 'UTF-8//TRANSLIT//IGNORE', $title);
-            }
-            $title = preg_replace("/[^A-Za-z0-9'_\-\.]/", '-', $title);
-            $title = preg_replace('/\-+/', '-', $title);
-            $title = preg_replace('/^-+/', '', $title);
-            $title = preg_replace('/-+$/', '', $title);
-        } else {
+
+		if ( !empty($term) ) {
             $title = $term;
-        }
+        } else {
+			$title = strtr($title, apply_filters('ctl_table', $iso9_table));
+			if (function_exists('iconv')){
+				$title = iconv('UTF-8', 'UTF-8//TRANSLIT//IGNORE', $title);
+			}
+			$title = preg_replace("/[^A-Za-z0-9'_\-\.]/", '-', $title);
+			$title = preg_replace('/\-+/', '-', $title);
+			$title = preg_replace('/^-+/', '', $title);
+			$title = preg_replace('/-+$/', '', $title);
+			$title = strtolower($title);
+		}
 
         return $title;
     }
@@ -126,10 +128,9 @@ function transliteration_enable()
 
 
 /**
- * Disable site index
+ * Выключить индексацию. Убирает страницы из поисковой выдачи.
  */
 function index_disable(){
-    // выключить индексацию. Убирает страницы из поисковой выдачи
     add_action('wp_head', static function (){
         echo '<meta name="robots" content="noindex">';
     });

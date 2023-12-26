@@ -4,7 +4,7 @@
 return [
     [
         'type'    => 'content',
-        'content' => __('Functional in development', 'wp-addon'),
+        'content' => '',
     ],
 
     [
@@ -16,9 +16,15 @@ return [
     [
         'id'      => 'add_clone_widget',
         'type'    => 'switcher',
-        'title'   => __( 'Enable Duplicate widgets function', 'wp-addon' ),
+        'title'   => __( 'Enable Duplicate widgets', 'wp-addon' ),
         'default' => true,
     ],
+	[
+		'id'      => 'custom_sidebars',
+		'type'    => 'switcher',
+		'title'   => __( 'Enable Dynamic sidebars', 'wp-addon' ),
+		'default' => true,
+	],
 
     [   // Shortcodes
         'id'       => 'components',
@@ -27,56 +33,37 @@ return [
         'subtitle' => '',
         'tabs'     => [
             [
-                'title'  => __('Sidebars', 'wp-addon'),
-                'icon'   => 'fa fa-desktop',
+                'title'  => __('Shortcodes', 'rw-addon'),
+                'icon'   => '',
                 'fields' => [
-                    [
-                        'id'      => 'add_sidebar_1',
-                        'type'    => 'switcher',
-                        'title'   => __('Additional sidebar 1', 'wp-addon'),
-                        'default' => true,
-                    ],
-                    [
-                        'id'      => 'add_sidebar_2',
-                        'type'    => 'switcher',
-                        'title'   => __('Additional sidebar 2', 'wp-addon'),
-                        'default' => true,
-                    ],
-                    [
-                        'id'      => 'add_sidebar_3',
-                        'type'    => 'switcher',
-                        'title'   => __('Additional sidebar 3', 'wp-addon'),
-                        'default' => true,
-                    ],
+	                [
+		                'id'      => 'faq_shortcode',
+		                'type'    => 'switcher',
+		                'title'   => __('Enable FAQ shortcode', 'wp-addon'),
+		                'desc'   => __('WPBakery Page Builder support ', 'wp-addon'),
+		                'default' => true,
+	                ],
+	                [
+		                'id'      => 'table_of_contents',
+		                'type'    => 'switcher',
+		                'title'   => __('Enable Table of Content shortcode', 'wp-addon'),
+		                'desc'   => __('WPBakery Page Builder support ', 'wp-addon'),
+		                'default' => true,
+	                ],
                 ],
             ],
-            [
-                'title'  => __('Widgets', 'rw-addon'),
-                'icon'   => 'fa fa-connectdevelop',
-                'fields' => [
-                    [
-                        'id'      => 'archive_widget',
-                        'type'    => 'switcher',
-                        'title'   => __('Yearly archive widget', 'wp-addon'),
-                        'default' => true,
-                    ],
-                ],
-            ],
+	        [
+		        'title'  => __('Widgets', 'rw-addon'),
+		        'icon'   => 'fa fa-connectdevelop',
+		        'fields' => [
+			        [
+				        'id'      => 'archive_widget',
+				        'type'    => 'switcher',
+				        'title'   => __('Yearly archive widget', 'wp-addon'),
+				        'default' => true,
+			        ],
+		        ],
+	        ],
         ],
-    ],
-
-    [
-        'id'      => 'faq_shortcode',
-        'type'    => 'switcher',
-        'title'   => __('Enable FAQ shortcode', 'wp-addon'),
-        'desc'   => __('WPBakery Page Builder support ', 'wp-addon'),
-        'default' => true,
-    ],
-    [
-        'id'      => 'table_of_contents',
-        'type'    => 'switcher',
-        'title'   => __('Enable Table of Content shortcode', 'wp-addon'),
-        'desc'   => __('WPBakery Page Builder support ', 'wp-addon'),
-        'default' => true,
     ],
 ];

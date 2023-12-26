@@ -215,4 +215,10 @@ return [
         'title'   => __('Allow SVG support for media', 'wp-addon'),
         'default' => true,
     ],
+	[
+		'id'      => 'wptweaker_setting_36',
+		'type'    => 'switcher',
+		'title'   => __('Disable browser checking in dashboard', 'wp-addon'),
+		'default' => true,
+	],
 ];

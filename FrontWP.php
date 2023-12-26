@@ -106,11 +106,4 @@ class FrontWP
         do_action( 'add_front');
     }
 
-/*    public function add_post_code($post){
-        if(!empty($this->options['post_code']) and get_queried_object_id() == $post->ID ){
-            echo $this->options['post_code'];
-        }
-        return $post;
-    }*/
-
 }

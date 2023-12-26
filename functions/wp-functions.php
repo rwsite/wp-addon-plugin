@@ -35,8 +35,9 @@ function wptweaker_setting_1()
 {
     remove_action('wp_head', 'wp_generator'); // из заголовка
     add_filter('the_generator', '__return_empty_string'); // из фидов и URL
-    if ( file_exists( ABSPATH . '/readme.txt'  ) )
-        unlink ( ABSPATH . '/readme.txt' );
+    if ( file_exists( ABSPATH . '/readme.txt'  ) ) {
+	    unlink( ABSPATH . '/readme.txt' );
+    }
 }
 
 /** Disable Emo */
@@ -102,7 +103,7 @@ function wptweaker_setting_8()
 
 function wptweaker_setting_9()
 {
-    add_filter( 'pre_http_request', '__return_true', 100 );
+   add_filter( 'pre_http_request', '__return_true', 100 );
 }
 
 function wptweaker_setting_10()
@@ -154,15 +155,12 @@ function wptweaker_setting_15()
 {
     // disable aggressive update
     if (is_admin()) {
-
         remove_action('admin_init', '_maybe_update_core');
         remove_action('admin_init', '_maybe_update_plugins');
         remove_action('admin_init', '_maybe_update_themes');
 
         remove_action('load-plugins.php', 'wp_update_plugins');
         remove_action('load-themes.php', 'wp_update_themes');
-
-        add_filter('pre_site_transient_browser_' . md5($_SERVER['HTTP_USER_AGENT']), '__return_true');
     }
 }
 
@@ -427,22 +425,6 @@ function wptweaker_setting_32()
 function wptweaker_setting_33()
 {
     remove_filter('the_content', 'shortcode_unautop');
-
-    /* add_filter( 'the_content', function ($content){
-         preg_match_all('/<p>\[(.*?)\]<\/p>|\[(.*?)\]<\/p>/mu', $content, $m, PREG_SET_ORDER, 0);
-         if(!empty($m)){
-             foreach ($m as $item){
-                 $content = str_replace($item[0], '['. $item[1] .']', $content);
-             }
-         }
-         preg_match_all('/<p>\s*(<div(.*?))<\/p>|<p>(<\/div(.*?))<\/p>/mus', $content, $m, PREG_SET_ORDER, 0);
-         if(!empty($m)){
-             foreach ($m as $item){
-                 $content = str_replace($item[0], $item[1], $content);
-             }
-         }
-         return preg_replace('|<p>\s*<\/p>|', '', $content);
-     }, 1, 1);*/
 }
 
 function wptweaker_setting_34()
@@ -468,17 +450,14 @@ function wptweaker_setting_34()
     }, 10, 2);
 }
 
-function wptweaker_setting_35(){
+function wptweaker_setting_35() {
     # Формирует данные для отображения SVG как изображения в медиабиблиотеке.
-    add_filter( 'wp_prepare_attachment_for_js', 'show_svg_in_media_library' );
-    function show_svg_in_media_library( $response ) {
+    add_filter( 'wp_prepare_attachment_for_js', function ( $response ) {
         if ( $response['mime'] === 'image/svg+xml' ) {
-            // Без вывода названия файла
             $response['sizes'] = [
                 'medium' => [
                     'url' => $response['url'],
                 ],
-                // при редактирования картинки
                 'full' => [
                     'url' => $response['url'],
                 ],
@@ -490,5 +469,9 @@ function wptweaker_setting_35(){
             ]; */
         }
         return $response;
-    }
+    });
+}
+
+function wptweaker_setting_36() {
+	add_filter( 'pre_site_transient_browser_' . md5( $_SERVER['HTTP_USER_AGENT'] ), '__return_null' );
 }

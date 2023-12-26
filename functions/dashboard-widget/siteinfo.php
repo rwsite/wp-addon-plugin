@@ -11,6 +11,7 @@ function dashboard_server_info()
         if ( ! current_user_can('manage_options')) {
             return;
         }
+
         wp_add_dashboard_widget('custom_help_widget', __('Server info', 'wp-addon'), 'dash_server_info');
     }
 

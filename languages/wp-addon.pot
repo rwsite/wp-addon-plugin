@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: #1 RW Wordpress Addon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-12-26 01:12+0000\n"
+"POT-Creation-Date: 2023-12-26 03:16+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,44 +16,48 @@ msgstr ""
 "X-Loco-Version: 2.2.2; wp-5.2.1"
 
 #. Name of the plugin
-msgid "#1 RW Wordpress AddOn"
+msgid "# WordPress дополнение"
 msgstr ""
 
-#: AdminWP.php:482
+#: settings/main.php:123
+msgid "Add a pack color to tinyMCE"
+msgstr ""
+
+#: settings/main.php:235
 msgid "Add all types at a glance widget"
 msgstr ""
 
-#: settings/general.php:141
+#: functions/posts/Advertising.php:345
+msgid "Add Banner Image"
+msgstr ""
+
+#: settings/main.php:145
 msgid "Add Bootsrtrap 3"
 msgstr ""
 
-#: settings/general.php:142
+#: settings/main.php:146
 msgid "Add Bootsrtrap 3 code to TinyMCE"
 msgstr ""
 
-#: AdminWP.php:309
+#: settings/tweaks.php:161
 msgid "Add notice for posts if they have status \"pending\" "
 msgstr ""
 
-#: settings/general.php:122
-msgid "Add platform color to tinyMCE"
+#: settings/main.php:152
+msgid "Add table plugin"
 msgstr ""
 
-#: settings/general.php:135
+#: settings/main.php:136
 msgid ""
 "Add third column and additional setting to tinyMCE (fonts, sizes, formats "
 "and backgrounds settings)"
 msgstr ""
 
-#: settings/general.php:134
+#: settings/main.php:135
 msgid "Add TinyMCE Advanced functions"
 msgstr ""
 
-#: AdminWP.php:460
-msgid "Add to Dashboard additional widgets and other functional"
-msgstr ""
-
-#: AdminWP.php:285
+#: settings/tweaks.php:137
 msgid "Add VK and OK to user profile"
 msgstr ""
 
@@ -61,249 +65,322 @@ msgstr ""
 msgid "Additional shortcodes <b>email:</b>"
 msgstr ""
 
-#: AdminWP.php:419 functions/widgets/add-sidebar.php:13
-#: functions/widgets/add-sidebar.php:15
+#: settings/widgets.php:36 functions/widgets/add-sidebar.php:11
+#: functions/widgets/add-sidebar.php:13
 msgid "Additional sidebar 1"
 msgstr ""
 
-#: AdminWP.php:425 functions/widgets/add-sidebar.php:32
-#: functions/widgets/add-sidebar.php:34
+#: settings/widgets.php:42 functions/widgets/add-sidebar.php:28
+#: functions/widgets/add-sidebar.php:30
 msgid "Additional sidebar 2"
 msgstr ""
 
-#: AdminWP.php:431 functions/widgets/add-sidebar.php:51
-#: functions/widgets/add-sidebar.php:53
+#: settings/widgets.php:48 functions/widgets/add-sidebar.php:45
+#: functions/widgets/add-sidebar.php:47
 msgid "Additional sidebar 3"
 msgstr ""
 
 #. Description of the plugin
-msgid "Addon for Wordpress, Contact Form 7 etc;"
+msgid "Addon for WordPress;"
 msgstr ""
 
-#: AdminWP.php:455
-msgid "Admin Dashboard Settings"
+#: settings/main.php:230
+msgid "Admin dashboard widgets"
+msgstr ""
+
+#: functions/posts/Advertising.php:166
+msgid "Ads in content"
+msgstr ""
+
+#: functions/posts/Advertising.php:132
+msgid "Ads manager"
+msgstr ""
+
+#: functions/posts/Advertising.php:176 functions/posts/Advertising.php:227
+#: functions/posts/Advertising.php:278
+msgid "ADs Mode"
+msgstr ""
+
+#: functions/posts/Advertising.php:329
+msgid "Advanced Advertising mode. For developers."
+msgstr ""
+
+#: functions/posts/Advertising.php:272
+msgid "After content"
 msgstr ""
 
 #. Author of the plugin
 msgid "Aleksey Tikhomirov"
 msgstr ""
 
-#: functions/fix_guid.php:67
+#: functions/posts/fix_guid.php:67
 msgid "All revision"
 msgstr ""
 
-#: AdminWP.php:266
+#: settings/tweaks.php:116
 msgid "Allow download types file: SVG, DOC, djv .."
 msgstr ""
 
-#: AdminWP.php:339
+#: settings/tweaks.php:191
 msgid "Allow shortcode in \"Text\" widget"
 msgstr ""
 
-#: AdminWP.php:386
+#: settings/tweaks.php:215
+msgid "Allow SVG support for media"
+msgstr ""
+
+#: settings/tweaks.php:209
+msgid "Allow WEBP support for media"
+msgstr ""
+
+#: wp-addon-settings.php:137
 msgid "Any HTML code in footer."
 msgstr ""
 
-#: AdminWP.php:375
+#: wp-addon-settings.php:126
 msgid "Any HTML code or Analytics code in header."
 msgstr ""
 
-#: functions/shortcodes/vc-support.php:5
+#: functions/shortcodes/vc-support.php:9
 msgid "Any widgets"
 msgstr ""
 
-#: functions/shortcodes/vc-support.php:31
+#: functions/shortcodes/vc-support.php:35
 msgid "Args"
 msgstr ""
 
-#: AdminWP.php:303
+#: settings/tweaks.php:155
 msgid "AutoRemove readme.html and license.txt files"
 msgstr ""
 
-#: AdminWP.php:509
+#: wp-addon-settings.php:150
 msgid "Backup Settings"
 msgstr ""
 
-#: AdminWP.php:206
+#: functions/posts/Advertising.php:358
+msgid "Banner code"
+msgstr ""
+
+#: functions/posts/Advertising.php:199 functions/posts/Advertising.php:250
+#: functions/posts/Advertising.php:301
+msgid "Banner html code"
+msgstr ""
+
+#: functions/posts/Advertising.php:170
+msgid "Before content"
+msgstr ""
+
+#: settings/tweaks.php:56
 msgid "Block http-requests by plugins/themes"
 msgstr ""
 
-#: AdminWP.php:81
+#: settings/_options.php:7
 msgid "by Aleksey Tihomirov"
 msgstr ""
 
-#: AdminWP.php:410
-msgid "Capability with WPBakery Page Builder"
-msgstr ""
-
-#: settings/general.php:64
+#: settings/main.php:60
 msgid "Change length post excerpt? To maximum 200 symbols."
 msgstr ""
 
-#: settings/general.php:155
-msgid ""
-"Cleanup daily options '_cache_validator'. D`ont touch it if you d`ont know "
-"how it work."
+#: functions/posts/Advertising.php:159
+msgid "Change to On for enable this."
 msgstr ""
 
-#: functions/widgets/duplicate-widgets.php:23
+#: functions/widgets/duplicate-widgets.php:26
 msgid "Clone"
 msgstr ""
 
-#: functions/widgets/duplicate-widgets.php:24
+#: functions/widgets/duplicate-widgets.php:27
 msgid "Clone this Widget"
 msgstr ""
 
-#: settings/general.php:86
+#: settings/main.php:86
 msgid "Comment form"
 msgstr ""
 
-#: AdminWP.php:409
+#: settings/widgets.php:26
 msgid "Components"
 msgstr ""
 
-#: settings/general.php:15
+#: settings/main.php:263
 msgid "Contact Form 7 settings"
 msgstr ""
 
-#: AdminWP.php:365
+#: wp-addon-settings.php:116
 msgid "CSS Code in Header"
 msgstr ""
 
-#: AdminWP.php:359
+#: wp-addon-settings.php:110
 msgid "Custom code"
 msgstr ""
 
-#: functions/users/UserAvatar.php:33
+#: functions/users/UserAvatar.php:31
 msgid "Custom Default Avatar"
 msgstr ""
 
-#: AdminWP.php:477
-msgid "Dashboard widgets"
-msgstr ""
-
-#: settings/general.php:189
+#: settings/main.php:197
 msgid "Data Base Optimization"
 msgstr ""
 
-#: AdminWP.php:242
+#: settings/tweaks.php:92
 msgid "Disable agressive update"
 msgstr ""
 
-#: settings/general.php:91
+#: settings/main.php:91
 msgid "Disable all comments"
 msgstr ""
 
-#: AdminWP.php:351
-msgid "Disable autoupdate core, themes and plugins"
+#: settings/main.php:29
+msgid "Disable all updates."
 msgstr ""
 
-#: settings/general.php:116
+#: settings/tweaks.php:221
+msgid "Disable browser checking in dashboard"
+msgstr ""
+
+#: settings/main.php:117
 msgid "Disable guttenber?"
 msgstr ""
 
-#: AdminWP.php:212
+#: settings/widgets.php:13
+msgid "Disable guttenberg for widgets"
+msgstr ""
+
+#: settings/tweaks.php:62
 msgid "Disable heartbeat"
 msgstr ""
 
-#: settings/general.php:97
+#: settings/main.php:97
 msgid "Disable link Nofollow in comment"
 msgstr ""
 
-#: AdminWP.php:224
+#: settings/tweaks.php:74
 msgid "Disable new themes on major WP updates"
 msgstr ""
 
-#: AdminWP.php:272
+#: settings/tweaks.php:122
 msgid "Disable pingback from this site to this site"
 msgstr ""
 
-#: AdminWP.php:315
+#: settings/tweaks.php:167
 msgid "Disable select taxonomy in top of metabox in post-edit page."
 msgstr ""
 
-#: settings/general.php:173
+#: settings/main.php:178
 msgid "Disable site indexing."
 msgstr ""
 
-#: AdminWP.php:248
+#: settings/tweaks.php:98
 msgid "Disable URL auto-linking in comments"
 msgstr ""
 
-#: AdminWP.php:230
+#: settings/tweaks.php:80
 msgid "Disable XML-RPC"
 msgstr ""
 
-#: AdminWP.php:513
+#: settings/main.php:66
+msgid "Don`t allow to show specific categories in frontend."
+msgstr ""
+
+#: wp-addon-settings.php:154
 msgid "Download settings now"
 msgstr ""
 
-#: functions/shortcodes/vc-support.php:8
+#: functions/shortcodes/FAQ.php:78 functions/shortcodes/FAQ_Question.php:111
+#: functions/shortcodes/vc-support.php:12
 msgid "Elements"
 msgstr ""
 
-#: AdminWP.php:260
+#: settings/tweaks.php:110
 msgid "Empty WP-Trash every 14 days"
 msgstr ""
 
-#: settings/general.php:128
+#: settings/main.php:129
 msgid "Enable \"Open Sans\" google font for tinyMCE."
 msgstr ""
 
-#: AdminWP.php:471
+#: settings/main.php:188
+msgid "Enable 301 redirect addon?"
+msgstr ""
+
+#: settings/main.php:54
+msgid "Enable duplicate post and page"
+msgstr ""
+
+#: settings/widgets.php:19
 msgid "Enable Duplicate widgets function"
 msgstr ""
 
-#: settings/general.php:181
-msgid "Enable redirect addon?"
+#: settings/widgets.php:71
+msgid "Enable FAQ shortcode"
 msgstr ""
 
-#: settings/general.php:167
+#: functions/posts/Advertising.php:328
+msgid "Enable jQuery ADs mode"
+msgstr ""
+
+#: settings/widgets.php:78
+msgid "Enable Table of Content shortcode"
+msgstr ""
+
+#: functions/posts/Advertising.php:158
+msgid "Enable this extension?"
+msgstr ""
+
+#: settings/main.php:172
 msgid "Enable transliteration?"
 msgstr ""
 
-#: settings/general.php:76
-msgid ""
-"Enter category IDs separated by commas. Before ID you need a minus sign."
-msgstr ""
-
-#: functions/shortcodes/vc-support.php:34
+#: functions/shortcodes/vc-support.php:38
 msgid "Enter description."
 msgstr ""
 
-#: settings/general.php:174
-msgid ""
-"Exclude all pages from search. \n"
-"                                                    Enable it if your site "
-"is placement to Test host."
+#: functions/posts/Advertising.php:352
+msgid "Example: #div"
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:350
+#: settings/main.php:179
+msgid ""
+"Exclude all pages from search. Enable it if your site is placement to Test "
+"host."
+msgstr ""
+
+#: settings/main.php:72
+msgid ""
+"Exclude specific categories of posts. Enter categories ID, separated by "
+"commas. Before ID you need a minus sign."
+msgstr ""
+
+#: functions/shortcodes/FAQ.php:29 functions/shortcodes/FAQ.php:30
+msgid "FAQ"
+msgstr ""
+
+#: functions/wp-functions.php:331
 msgid "filter..."
 msgstr ""
 
-#: AdminWP.php:404
+#: settings/widgets.php:7
 msgid "Functional in development"
 msgstr ""
 
-#: settings/general.php:7
+#: wp-addon-settings.php:87
 msgid "General Settings"
 msgstr ""
 
-#: AdminWP.php:345
+#: settings/tweaks.php:197
 msgid "Get jquery from google cloud"
 msgstr ""
 
-#: functions/fix_guid.php:30 functions/fix_guid.php:31
-#: functions/fix_guid.php:50
+#: functions/posts/fix_guid.php:30 functions/posts/fix_guid.php:31
+#: functions/posts/fix_guid.php:50
 msgid "Guid repair"
 msgstr ""
 
-#: AdminWP.php:278
+#: settings/tweaks.php:128
 msgid "Hide adminbar in frontend for contributors, authors and subscribers"
 msgstr ""
 
-#: settings/general.php:36
+#: settings/main.php:284
 msgid "Hide languages in wp Front. Enter lang slug, separated: \", \"."
 msgstr ""
 
@@ -311,43 +388,61 @@ msgstr ""
 msgid "https://rwsite.ru"
 msgstr ""
 
-#: AdminWP.php:321
+#: settings/tweaks.php:173
 msgid "If posts have status \"pending\" show numbers it in menu"
 msgstr ""
 
-#: settings/general.php:206
+#: settings/main.php:217
 msgid ""
 "If you url is include %category%, %tag%, %author%, you can use this option "
 "for repair GUID(url) in your database."
 msgstr ""
 
-#: functions/shortcodes/vc-support.php:23
+#: functions/posts/Advertising.php:221
+msgid "In content"
+msgstr ""
+
+#: functions/shortcodes/vc-support.php:27
 msgid "Instance"
 msgstr ""
 
-#: functions/shortcodes/vc-support.php:26
+#: functions/shortcodes/vc-support.php:30
 msgid "Instance Params"
 msgstr ""
 
-#: AdminWP.php:465
+#: functions/posts/Advertising.php:351
+msgid "jQuery selector"
+msgstr ""
+
+#: functions/posts/Advertising.php:193 functions/posts/Advertising.php:244
+#: functions/posts/Advertising.php:295
+msgid "Link"
+msgstr ""
+
+#: settings/main.php:11
 msgid "Maintenance Mode"
 msgstr ""
 
-#: functions/dashboard-widget/siteinfo.php:36
-#: functions/dashboard-widget/siteinfo.php:41
+#: functions/dashboard-widget/siteinfo.php:37
+#: functions/dashboard-widget/siteinfo.php:42
 msgid "Off"
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:257
+#: functions/posts/Advertising.php:177 functions/posts/Advertising.php:228
+#: functions/posts/Advertising.php:279
+msgid "Off to run html mode"
+msgstr ""
+
+#: functions/wp-functions.php:237
 msgid "OK"
 msgstr ""
 
-#: functions/dashboard-widget/siteinfo.php:38
-#: functions/dashboard-widget/siteinfo.php:43
+#: functions/dashboard-widget/siteinfo.php:39
+#: functions/dashboard-widget/siteinfo.php:44
 msgid "On"
 msgstr ""
 
-#: functions/shortcodes/vc-support.php:17
+#: functions/shortcodes/vc-support.php:21
 msgid ""
 "Paste Original Widget Class Name. See: https://codex.wordpress."
 "org/Template_Tags/the_widget"
@@ -357,208 +452,241 @@ msgstr ""
 msgid "Plugin list of "
 msgstr ""
 
-#: AdminWP.php:488
+#: settings/main.php:241
 msgid "Plugins list"
 msgstr ""
 
-#: settings/general.php:31
+#: settings/main.php:279
 msgid "Polylang settings"
 msgstr ""
 
-#: settings/general.php:47
+#: settings/main.php:37
 msgid "Posts and Page Settings"
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:421
+#: functions/shortcodes/FAQ_Question.php:35
+#: functions/shortcodes/FAQ_Question.php:36
+#: functions/shortcodes/FAQ_Question.php:125
+msgid "Question"
+msgstr ""
+
+#: functions/shortcodes/FAQ_Question.php:127
+msgid "Question for answer"
+msgstr ""
+
+#: functions/wp-functions.php:402
 msgid "Read more ..."
 msgstr ""
 
-#: AdminWP.php:194
+#: settings/tweaks.php:44
 msgid "Remove adjacent links to posts in the header"
 msgstr ""
 
-#: functions/fix_guid.php:72
+#: functions/posts/fix_guid.php:72
 msgid "Remove all revision"
 msgstr ""
 
-#: AdminWP.php:218
+#: settings/tweaks.php:203
+#, php-format
+msgid "Remove autotop function. Remove %s tags in post content."
+msgstr ""
+
+#: functions/posts/Advertising.php:346
+msgid "Remove Image"
+msgstr ""
+
+#: settings/tweaks.php:68
 msgid "Remove jQuery Migrate"
 msgstr ""
 
-#: AdminWP.php:254
+#: settings/tweaks.php:104
 msgid "Remove login-shake on errors"
 msgstr ""
 
-#: AdminWP.php:236
+#: settings/tweaks.php:86
 msgid "Remove post by email function"
 msgstr ""
 
-#: AdminWP.php:176
+#: settings/tweaks.php:26
 msgid "Remove RSD-Link"
 msgstr ""
 
-#: AdminWP.php:182
+#: settings/tweaks.php:32
 msgid "Remove RSS links"
 msgstr ""
 
-#: AdminWP.php:188
+#: settings/tweaks.php:38
 msgid "Remove shortlink in the header"
 msgstr ""
 
-#: settings/general.php:103
+#: settings/main.php:103
 msgid "Remove site field in comment"
 msgstr ""
 
-#: AdminWP.php:297
+#: settings/tweaks.php:149
 msgid "Remove Standard WP widget"
 msgstr ""
 
-#: AdminWP.php:170
+#: settings/tweaks.php:20
 msgid "Remove Windows Live Writer"
 msgstr ""
 
-#: AdminWP.php:158
+#: settings/tweaks.php:8
 msgid "Remove WP-Version in Header"
 msgstr ""
 
-#: AdminWP.php:333
+#: settings/tweaks.php:185
 msgid "Repalse [...] to \"Read more ...\" for posts"
 msgstr ""
 
-#: settings/general.php:150
-msgid "SEO Settings (Yoast required)"
+#: functions/posts/Advertising.php:211 functions/posts/Advertising.php:214
+#: functions/posts/Advertising.php:262 functions/posts/Advertising.php:265
+#: functions/posts/Advertising.php:313 functions/posts/Advertising.php:316
+msgid "Select post type"
 msgstr ""
 
-#: settings/general.php:78
+#: settings/main.php:161
+msgid "SEO Settings"
+msgstr ""
+
+#: settings/main.php:77
 msgid "Separeted: \", \""
 msgstr ""
 
-#: AdminWP.php:494 functions/dashboard-widget/siteinfo.php:14
+#: settings/main.php:247
 msgid "Server info"
 msgstr ""
 
-#: settings/general.php:161
+#: settings/main.php:166
 msgid "Set Alt in updload from Title media"
 msgstr ""
 
-#: AdminWP.php:200
+#: settings/tweaks.php:50
 msgid "Set limit post revisions to 5"
 msgstr ""
 
-#: AdminWP.php:399
+#: wp-addon-settings.php:101
 msgid "Shortcodes and Widgets"
 msgstr ""
 
-#: settings/general.php:20
+#: settings/main.php:268
 msgid "Show additional shortcode?"
 msgstr ""
 
-#: settings/general.php:215
-msgid "Show custom fields in categories"
+#: settings/main.php:17
+msgid "Show custom fields for categories and posts"
 msgstr ""
 
-#: settings/general.php:52
+#: settings/main.php:42
 msgid "Show posts IDs"
 msgstr ""
 
-#: settings/general.php:58
+#: settings/main.php:48
 msgid "Show posts thumbnails"
 msgstr ""
 
-#: AdminWP.php:327
+#: settings/tweaks.php:179
 msgid "Showing message \"Update wordpress\" only admin"
 msgstr ""
 
-#: AdminWP.php:291
+#: settings/tweaks.php:143
 msgid "Showing usages memory and time generate site page"
 msgstr ""
 
-#: AdminWP.php:413
+#: settings/widgets.php:30
 msgid "Sidebars"
 msgstr ""
 
-#: settings/general.php:38
+#: settings/main.php:286
 msgid "Space must be entered!"
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:268
+#: functions/wp-functions.php:249
 #, php-format
 msgid "SQL: %d за %s sec. %.2f MB "
 msgstr ""
 
-#: settings/general.php:200
+#: settings/main.php:208
 msgid "This option enable interface for replace wp guide to right GUID."
 msgstr ""
 
-#: settings/general.php:111
+#: settings/main.php:112
 msgid "TinyMCE Settings"
 msgstr ""
 
-#: AdminWP.php:152
+#: settings/main.php:23
+msgid "Trace slow actions to log file"
+msgstr ""
+
+#: wp-addon-settings.php:94
 msgid "Tweaks"
 msgstr ""
 
-#: functions/fix_guid.php:62
+#: functions/posts/fix_guid.php:62
 msgid "Update all GUID"
 msgstr ""
 
-#: functions/users/UserAvatar.php:53
+#: functions/users/UserAvatar.php:50
 msgid "User avatar"
 msgstr ""
 
-#: AdminWP.php:500
+#: settings/main.php:253
 msgid "Users role info"
 msgstr ""
 
-#: functions/fix_guid.php:57
+#: functions/posts/fix_guid.php:57
 msgid "View all GUID"
 msgstr ""
 
-#: functions/tweaks/wp-functions.php:256
+#: functions/wp-functions.php:236
 msgid "VK"
 msgstr ""
 
-#: functions/dashboard-widget/siteinfo.php:46
+#: functions/dashboard-widget/siteinfo.php:47
 msgid "Welcome to "
 msgstr ""
 
-#: functions/shortcodes/vc-support.php:14
+#: functions/shortcodes/vc-support.php:18
 msgid "Widget Name"
 msgstr ""
 
-#: functions/shortcodes/widgets.php:35
+#: functions/shortcodes/widget_shortcode.php:33
 msgid "Widget not found!"
 msgstr ""
 
-#: AdminWP.php:116
+#: settings/_options.php:44
 msgid "With love by <span style=\"color: #ED4301;\">A</span> Tikhomirov"
 msgstr ""
 
-#: AdminWP.php:68
+#: wp-addon-settings.php:73
 msgid "Wordpress Addon"
 msgstr ""
 
-#: AdminWP.php:164
+#: settings/tweaks.php:14
 msgid "WP-Emojis deacivation"
 msgstr ""
 
-#: settings/general.php:194
+#: settings/widgets.php:72 settings/widgets.php:79
+msgid "WPBakery Page Builder support "
+msgstr ""
+
+#: settings/main.php:202
 msgid "Write right link to guid for New posts."
 msgstr ""
 
-#: AdminWP.php:443
+#: settings/widgets.php:60
 msgid "Yearly archive widget"
 msgstr ""
 
-#: settings/general.php:70
-msgid "You can exclude specific category in frontend"
+#: functions/posts/Advertising.php:167
+msgid "Выводит html содержимое в выбранном месте поста"
 msgstr ""
 
 #: functions/MaintenanceMode.php:29
 msgid "Извините, в настоящий момент на сайте проводятся технические работы."
 msgstr ""
 
-#: settings/general.php:201
+#: settings/main.php:209
 msgid ""
 "Поле guid таблицы wp_posts создано для хранения там уникального значения - "
 "идентификатора записи. \n"

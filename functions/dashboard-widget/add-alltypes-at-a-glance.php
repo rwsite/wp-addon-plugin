@@ -8,7 +8,7 @@
 function change_glance_widget()
 {
     ## Добавляем все типы записей в виджет "Прямо сейчас" в консоли
-    add_action('dashboard_glance_items', 'add_right_now_info');
+    // add_action('dashboard_glance_items', 'add_right_now_info');
     function add_right_now_info($items)
     {
         if ( ! current_user_can('edit_posts')) {

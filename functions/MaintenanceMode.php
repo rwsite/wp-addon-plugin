@@ -34,6 +34,7 @@ final class MaintenanceMode {
            } else {
                echo $template;
            }
+
            wp_die();
         }
     }

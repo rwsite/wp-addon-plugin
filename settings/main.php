@@ -1,6 +1,6 @@
 <?php
 /**
- * @year: 2019-06-26
+ *
  */
 
 
@@ -15,12 +15,6 @@ $fields = [
         'id'      => 'show_all_custom_fields',
         'type'    => 'switcher',
         'title'   => __('Show custom fields for categories and posts', 'wp-addon'),
-        'default' => false,
-    ],
-    [
-        'id'      => 'trace_slow_actions',
-        'type'    => 'switcher',
-        'title'   => __('Trace slow actions to log file', 'wp-addon'),
         'default' => false,
     ],
     [
@@ -154,6 +148,7 @@ $fields['tiny-mce'] = [
         ],
     ],
 ];
+
 $fields['seo'] = [
     'id'     => 'seo',
     'type'   => 'fieldset',
@@ -189,6 +184,7 @@ $fields['seo'] = [
         ],
     ],
 ];
+
 $fields['guid'] = [
     'id'     => 'guid',
     'type'   => 'fieldset',
