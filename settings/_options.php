@@ -4,10 +4,7 @@
 return [
 
     // framework title
-    'framework_title'    => $this->wp_plugin_name . ' <small>' . __(
-            'by Aleksey Tihomirov',
-            'wp-addon'
-        ) . '</small>',
+    'framework_title'    => $this->wp_plugin_name . ' <small>' . __('by Aleksey Tihomirov', 'wp-addon') . '</small>',
     'framework_class'    => 'wp-addon',
 
     // menu settings

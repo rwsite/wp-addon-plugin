@@ -1,24 +1,5 @@
 <?php
 /**
- * Post metabox class
- *  How to use:
- * class_exists( 'Kama_Post_Meta_Box' ) && new Kama_Post_Meta_Box(
- * [
- * 'id'    => 'my',
- * 'title' => 'My arbitrary fields',
- * 'fields' => [
- * 'text_field'     => [
- * 'type' => 'my_field',
- * 'title' => 'Text field',
- * ],
- * ],
- * ]
- * );
- */
-
-
-
-/**
  * Создает блок произвольных полей для указанных типов записей.
  *
  * Возможные параметры класса, смотрите в: MetaBox::__construct()
@@ -34,6 +15,7 @@
  *
  * PHP: 7.0+
  */
+
 class MetaBox {
 
     public $opt;

@@ -1,20 +1,11 @@
 <?php
 /**
  * Lightcase.js for all post images
- *
- * Скрипт для увеличения картинок в посте, встроен в Гиллион
- *
- * @author: Aleksey Tikhomirov <a.tihomirov@dataduck.com>
- * @year: 2019-08-05
- * @example https://cornel.bopp-art.com/lightcase/documentation/
- * @see https://cornel.bopp-art.com/lightcase/
  */
-
 
 
 class Lightcase
 {
-
     public function __construct()
     {
         add_action( 'wp_enqueue_scripts',   [$this, 'enqueue'] );

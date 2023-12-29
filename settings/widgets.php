@@ -19,12 +19,12 @@ return [
         'title'   => __( 'Enable Duplicate widgets', 'wp-addon' ),
         'default' => true,
     ],
-	[
+	/*[
 		'id'      => 'custom_sidebars',
 		'type'    => 'switcher',
-		'title'   => __( 'Enable Dynamic sidebars', 'wp-addon' ),
+		'title'   => __( 'Enable custom Dynamic sidebars', 'wp-addon' ),
 		'default' => true,
-	],
+	],*/
 
     [   // Shortcodes
         'id'       => 'components',
