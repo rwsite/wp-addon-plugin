@@ -4,16 +4,16 @@ class ThemeFeatures
 {
     public function add_actions(){
 
-        add_filter( 'excerpt_length', function ($excerpt_length){
+       /* add_filter( 'excerpt_length', function ($excerpt_length){
             return '20';
         } );
 
         # Читать далее
         add_filter('excerpt_more', function (){
             return '';
-        }, 100);
+        }, 100);*/
 
-        add_filter('wp_trim_excerpt', [$this, 'wp_trim_excerpt'], 99, 2);
+        add_filter('get_the_excerpt', [$this, 'wp_trim_excerpt'], 99, 2);
 
 
         // 0 to all image size
@@ -30,15 +30,28 @@ class ThemeFeatures
         });
     }
 
-    public function wp_trim_excerpt($text, $raw_excerpt)
+    public function wp_trim_excerpt($excerpt, $post)
     {
         if ( is_admin() || ! get_the_ID() ) {
-            return $text;
+            return $excerpt;
         }
 
-        $permalink = esc_url( get_permalink( (int) get_the_ID() ) ); // @phpstan-ignore-line -- post exists
+        $excerpt_max_length = 180;
 
-        return $text . ' ... <p><a class="btn btn-outline-primary understrap-read-more-link" href="' . $permalink . '">' . __(
+        //$excerpt = $post->post_excerpt;
+        $excerpt = strip_shortcodes($excerpt);
+        $excerpt = wp_strip_all_tags($excerpt);
+
+        if( ($excerpt_max_length + 1) < mb_strlen($excerpt, 'UTF-8') ){
+            $excerpt = preg_replace( '( [.*?])','',$excerpt);
+            $excerpt = mb_substr($excerpt, 0, $excerpt_max_length, 'UTF-8');
+            $excerpt = mb_substr($excerpt, 0, strripos($excerpt, ' ' ), 'UTF-8');
+            $excerpt = trim(preg_replace( '/\s+/', ' ', $excerpt));
+            $excerpt .= '...';
+        }
+
+        $permalink = esc_url( get_permalink( (int) get_the_ID() ) );
+        return $excerpt . ' <p><a class="btn btn-outline-primary understrap-read-more-link" href="' . $permalink . '">' . __(
                 'Read More...',
                 'understrap'
             ) . '<span class="screen-reader-text"> from ' . get_the_title( get_the_ID() ) . '</span></a></p>';
