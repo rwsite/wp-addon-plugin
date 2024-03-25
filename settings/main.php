@@ -49,6 +49,12 @@ $fields['posts'] = [
             'default' => true,
         ],
         [
+            'id'      => 'remove_category_url',
+            'type'    => 'switcher',
+            'title'   => __('Enable duplicate post and page', 'wp-addon'),
+            'default' => true,
+        ],
+        [
             'id'      => 'change_excerpt',
             'type'    => 'switcher',
             'title'   => __('Change length post excerpt? To maximum 200 symbols.', 'wp-addon'),
