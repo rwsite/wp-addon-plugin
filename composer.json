@@ -1,0 +1,14 @@
+{
+  "name": "rwsite/wp-addon-plugin",
+  "description": "Massive Addon for WordPress;",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Aleksei Tikhomirov",
+      "email": "alex@rwsite.ru"
+    }
+  ],
+  "require": {
+  }
+}
