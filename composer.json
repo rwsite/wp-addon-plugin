@@ -3,6 +3,7 @@
   "description": "Massive Addon for WordPress;",
   "minimum-stability": "stable",
   "license": "proprietary",
+  "type": "wordpress-plugin",
   "authors": [
     {
       "name": "Aleksei Tikhomirov",
