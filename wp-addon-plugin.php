@@ -2,8 +2,8 @@
 /*
  * Plugin Name:  # WordPress Addon
  * Plugin URL:   https://rwsite.ru
- * Description:  Addon for WordPress;
- * Version:      1.2.0
+ * Description:  Massive addon for WordPress;
+ * Version:      1.2.1
  * Text Domain:  wp-addon
  * Domain Path:  /languages
  * Author:       Aleksey Tikhomirov
