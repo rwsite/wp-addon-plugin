@@ -45,10 +45,10 @@ return [
     'footer_after'            => '',
     'footer_credit'           => '',
 
-    'theme'                   => 'dark',
+    'theme'                   => 'light',
 
     // database model
-    'database'                => 'options', // options, transient, theme_mod, network
+    'database'                => '', // options, transient, theme_mod, network
     'transient_time'          => 0,
 
     // contextual help

@@ -97,12 +97,7 @@ class FrontWP
     }
 
     public function rw_enqueue_scripts(){
-        if(is_admin()){
-            return;
-        }
-
         wp_enqueue_style( $this->name, $this->url . 'assets/css/min/wp-addon.min.css', false, $this->ver );
-
         do_action( 'rw_enqueue_scripts');
     }
 

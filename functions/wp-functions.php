@@ -462,12 +462,16 @@ function wptweaker_setting_35() {
                     'url' => $response['url'],
                 ],
             ];
+
+            /* С выводом названия файла
+            $response['image'] = [
+                'src' => $response['url'],
+            ]; */
         }
         return $response;
     });
 }
 
 function wptweaker_setting_36() {
-    $agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36';
-	add_filter( 'pre_site_transient_browser_' . md5( $agent ), '__return_null' );
+	add_filter( 'pre_site_transient_browser_' . md5( $_SERVER['HTTP_USER_AGENT'] ), '__return_null' );
 }
