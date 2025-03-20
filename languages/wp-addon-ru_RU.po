@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: #1 RW Wordpress Addon\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2019-05-29 09:48+0000\n"
-"PO-Revision-Date: 2023-12-26 03:27+0000\n"
+"PO-Revision-Date: 2025-03-20 22:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: Русский\n"
 "Language: ru_RU\n"
@@ -16,8 +16,8 @@ msgstr ""
 "X-Loco-Version: 2.6.3; wp-5.9"
 
 #. Name of the plugin
-msgid "# WordPress дополнение"
-msgstr ""
+msgid "# WordPress Addon"
+msgstr "# Аддон WordPress"
 
 #: settings/main.php:123
 msgid "Add a pack color to tinyMCE"
@@ -27,7 +27,7 @@ msgstr "Добавьте пак цветов в tinyMCE"
 msgid "Add all types at a glance widget"
 msgstr "Добавить все типы в виджет \"glance\""
 
-#: functions/posts/Advertising.php:345
+#: functions/posts/Advertising.php:347
 msgid "Add Banner Image"
 msgstr "Добавить изображение баннера"
 
@@ -67,18 +67,15 @@ msgstr "Добавить ВК и ОК в профиль пользователя
 msgid "Additional shortcodes <b>email:</b>"
 msgstr "Дополнительные шорткоды <b>email:</b>"
 
-#: settings/widgets.php:36 functions/widgets/add-sidebar.php:11
-#: functions/widgets/add-sidebar.php:13
+#: functions/widgets/add-sidebar.php:11 functions/widgets/add-sidebar.php:13
 msgid "Additional sidebar 1"
 msgstr "Дополнительная боковая панель 1"
 
-#: settings/widgets.php:42 functions/widgets/add-sidebar.php:28
-#: functions/widgets/add-sidebar.php:30
+#: functions/widgets/add-sidebar.php:28 functions/widgets/add-sidebar.php:30
 msgid "Additional sidebar 2"
 msgstr "Дополнительная боковая панель 2"
 
-#: settings/widgets.php:48 functions/widgets/add-sidebar.php:45
-#: functions/widgets/add-sidebar.php:47
+#: functions/widgets/add-sidebar.php:45 functions/widgets/add-sidebar.php:47
 msgid "Additional sidebar 3"
 msgstr "Дополнительная боковая панель 3"
 
@@ -90,24 +87,24 @@ msgstr "Аддон для WordPress;"
 msgid "Admin dashboard widgets"
 msgstr "Виджеты панели администратора"
 
-#: functions/posts/Advertising.php:166
+#: functions/posts/Advertising.php:168
 msgid "Ads in content"
 msgstr "Реклама в контенте"
 
-#: functions/posts/Advertising.php:132
+#: functions/posts/Advertising.php:134
 msgid "Ads manager"
 msgstr "Менеджер рекламы"
 
-#: functions/posts/Advertising.php:176 functions/posts/Advertising.php:227
-#: functions/posts/Advertising.php:278
+#: functions/posts/Advertising.php:178 functions/posts/Advertising.php:229
+#: functions/posts/Advertising.php:280
 msgid "ADs Mode"
-msgstr ""
+msgstr "Режим рекламы"
 
-#: functions/posts/Advertising.php:329
+#: functions/posts/Advertising.php:331
 msgid "Advanced Advertising mode. For developers."
 msgstr "Режим расширенной рекламы. Для разработчиков."
 
-#: functions/posts/Advertising.php:272
+#: functions/posts/Advertising.php:274
 msgid "After content"
 msgstr "После контента"
 
@@ -135,11 +132,11 @@ msgstr "Разрешить поддержку SVG для мультимедиа"
 msgid "Allow WEBP support for media"
 msgstr "Разрешить поддержку WEBP для мультимедиа"
 
-#: wp-addon-settings.php:137
+#: settings/wp-addon-settings.php:137
 msgid "Any HTML code in footer."
 msgstr "Любой HTML-код в футере."
 
-#: wp-addon-settings.php:126
+#: settings/wp-addon-settings.php:125
 msgid "Any HTML code or Analytics code in header."
 msgstr "Любой HTML-код или код Analytics в header."
 
@@ -155,20 +152,20 @@ msgstr "Аргументы"
 msgid "AutoRemove readme.html and license.txt files"
 msgstr "Автоудаление readme.html and license.txt файлов"
 
-#: wp-addon-settings.php:150
+#: settings/wp-addon-settings.php:150
 msgid "Backup Settings"
 msgstr "Бэкап"
 
-#: functions/posts/Advertising.php:358
+#: functions/posts/Advertising.php:360
 msgid "Banner code"
 msgstr "Код баннера"
 
-#: functions/posts/Advertising.php:199 functions/posts/Advertising.php:250
-#: functions/posts/Advertising.php:301
+#: functions/posts/Advertising.php:201 functions/posts/Advertising.php:252
+#: functions/posts/Advertising.php:303
 msgid "Banner html code"
 msgstr "HTML-код баннера"
 
-#: functions/posts/Advertising.php:170
+#: functions/posts/Advertising.php:172
 msgid "Before content"
 msgstr "До контента"
 
@@ -184,7 +181,7 @@ msgstr "от Алексей Тихомиров"
 msgid "Change length post excerpt? To maximum 200 symbols."
 msgstr "Изменить длину отрывка из поста? Максимум до 200 символов."
 
-#: functions/posts/Advertising.php:159
+#: functions/posts/Advertising.php:161
 msgid "Change to On for enable this."
 msgstr "Измените значение на «Вкл.», чтобы включить это."
 
@@ -200,7 +197,7 @@ msgstr "Клонирование виджетов"
 msgid "Comment form"
 msgstr "Форма комментариев"
 
-#: settings/widgets.php:26
+#: settings/wp-widgets.php:32
 msgid "Components"
 msgstr "Компоненты"
 
@@ -208,11 +205,11 @@ msgstr "Компоненты"
 msgid "Contact Form 7 settings"
 msgstr "CF7 настройки"
 
-#: wp-addon-settings.php:116
+#: settings/wp-addon-settings.php:115
 msgid "CSS Code in Header"
 msgstr "CSS-код в Header"
 
-#: wp-addon-settings.php:110
+#: settings/wp-addon-settings.php:109
 msgid "Custom code"
 msgstr "Свой код"
 
@@ -232,7 +229,7 @@ msgstr "Отключить агрессивное обновление"
 msgid "Disable all comments"
 msgstr "Отключить все комментарии"
 
-#: settings/main.php:29
+#: settings/main.php:23
 msgid "Disable all updates."
 msgstr "Отключить все обновления"
 
@@ -244,7 +241,7 @@ msgstr "Отключить проверку браузера в панели у�
 msgid "Disable guttenber?"
 msgstr "Отключить Гуттенберг"
 
-#: settings/widgets.php:13
+#: settings/wp-widgets.php:13
 msgid "Disable guttenberg for widgets"
 msgstr "Отключить Гуттенберг для виджетов"
 
@@ -286,12 +283,12 @@ msgstr "Отключить XML-RPC"
 msgid "Don`t allow to show specific categories in frontend."
 msgstr "Запретить отображение определенных категорий во внешнем интерфейсе."
 
-#: wp-addon-settings.php:154
+#: settings/wp-addon-settings.php:154
 msgid "Download settings now"
 msgstr "Скачать настройки"
 
-#: functions/shortcodes/FAQ.php:78 functions/shortcodes/FAQ_Question.php:111
-#: functions/shortcodes/vc-support.php:12
+#: functions/shortcodes/FAQ.php:78 functions/shortcodes/vc-support.php:12
+#: functions/shortcodes/FAQ_Question.php:111
 msgid "Elements"
 msgstr "Элементы"
 
@@ -305,29 +302,29 @@ msgstr "Включить шрифт Google \"Open Sans\" для TinyMCE."
 
 #: settings/main.php:188
 msgid "Enable 301 redirect addon?"
-msgstr ""
+msgstr "Включить надстройку 301 редиректа?"
 
-#: settings/main.php:54
+#: settings/main.php:48 settings/main.php:54
 msgid "Enable duplicate post and page"
-msgstr ""
+msgstr "Включить дублирование поста и страницы"
 
-#: settings/widgets.php:19
-msgid "Enable Duplicate widgets function"
-msgstr ""
+#: settings/wp-widgets.php:19
+msgid "Enable Duplicate widgets"
+msgstr "Включить дублирование виджетов"
 
-#: settings/widgets.php:71
+#: settings/wp-widgets.php:42
 msgid "Enable FAQ shortcode"
-msgstr ""
+msgstr "Включить шорткод FAQ"
 
-#: functions/posts/Advertising.php:328
+#: functions/posts/Advertising.php:330
 msgid "Enable jQuery ADs mode"
-msgstr ""
+msgstr "Включить режим jQuery AD"
 
-#: settings/widgets.php:78
+#: settings/wp-widgets.php:49
 msgid "Enable Table of Content shortcode"
 msgstr ""
 
-#: functions/posts/Advertising.php:158
+#: functions/posts/Advertising.php:160
 msgid "Enable this extension?"
 msgstr ""
 
@@ -339,7 +336,7 @@ msgstr ""
 msgid "Enter description."
 msgstr ""
 
-#: functions/posts/Advertising.php:352
+#: functions/posts/Advertising.php:354
 msgid "Example: #div"
 msgstr ""
 
@@ -357,17 +354,13 @@ msgstr ""
 
 #: functions/shortcodes/FAQ.php:29 functions/shortcodes/FAQ.php:30
 msgid "FAQ"
-msgstr ""
+msgstr "Часто задаваемые вопросы"
 
 #: functions/wp-functions.php:331
 msgid "filter..."
 msgstr ""
 
-#: settings/widgets.php:7
-msgid "Functional in development"
-msgstr ""
-
-#: wp-addon-settings.php:87
+#: settings/wp-addon-settings.php:86
 msgid "General Settings"
 msgstr "Основные настройки"
 
@@ -383,6 +376,8 @@ msgstr ""
 #: settings/tweaks.php:128
 msgid "Hide adminbar in frontend for contributors, authors and subscribers"
 msgstr ""
+"Скрыть панель администратора в интерфейсе для участников, авторов и "
+"подписчиков"
 
 #: settings/main.php:284
 msgid "Hide languages in wp Front. Enter lang slug, separated: \", \"."
@@ -402,7 +397,7 @@ msgid ""
 "for repair GUID(url) in your database."
 msgstr ""
 
-#: functions/posts/Advertising.php:221
+#: functions/posts/Advertising.php:223
 msgid "In content"
 msgstr ""
 
@@ -414,12 +409,12 @@ msgstr ""
 msgid "Instance Params"
 msgstr ""
 
-#: functions/posts/Advertising.php:351
+#: functions/posts/Advertising.php:353
 msgid "jQuery selector"
 msgstr ""
 
-#: functions/posts/Advertising.php:193 functions/posts/Advertising.php:244
-#: functions/posts/Advertising.php:295
+#: functions/posts/Advertising.php:195 functions/posts/Advertising.php:246
+#: functions/posts/Advertising.php:297
 msgid "Link"
 msgstr ""
 
@@ -432,8 +427,8 @@ msgstr "Режим тех. работ"
 msgid "Off"
 msgstr "Выкл"
 
-#: functions/posts/Advertising.php:177 functions/posts/Advertising.php:228
-#: functions/posts/Advertising.php:279
+#: functions/posts/Advertising.php:179 functions/posts/Advertising.php:230
+#: functions/posts/Advertising.php:281
 msgid "Off to run html mode"
 msgstr "Выключите, чтобы запустить режим HTML"
 
@@ -466,7 +461,7 @@ msgstr "Список плагинов сайта"
 msgid "Polylang settings"
 msgstr "Настройки Polylang"
 
-#: settings/main.php:37
+#: settings/main.php:31
 msgid "Posts and Page Settings"
 msgstr "Настройки постов и страниц"
 
@@ -497,7 +492,7 @@ msgstr "Удалить все ревизии"
 msgid "Remove autotop function. Remove %s tags in post content."
 msgstr "Удалить функцию отступов. Удалить теги %s из содержимого публикации."
 
-#: functions/posts/Advertising.php:346
+#: functions/posts/Advertising.php:348
 msgid "Remove Image"
 msgstr "Удалить изображение"
 
@@ -545,9 +540,9 @@ msgstr "Удалить WP-версию в шапке"
 msgid "Repalse [...] to \"Read more ...\" for posts"
 msgstr "Заменить [...] на «Читать далее...» для сообщений"
 
-#: functions/posts/Advertising.php:211 functions/posts/Advertising.php:214
-#: functions/posts/Advertising.php:262 functions/posts/Advertising.php:265
-#: functions/posts/Advertising.php:313 functions/posts/Advertising.php:316
+#: functions/posts/Advertising.php:213 functions/posts/Advertising.php:216
+#: functions/posts/Advertising.php:264 functions/posts/Advertising.php:267
+#: functions/posts/Advertising.php:315 functions/posts/Advertising.php:318
 msgid "Select post type"
 msgstr "Выбор post type"
 
@@ -559,7 +554,7 @@ msgstr "Настройки SEO"
 msgid "Separeted: \", \""
 msgstr "Разделитель \", \""
 
-#: settings/main.php:247
+#: settings/main.php:247 functions/dashboard-widget/siteinfo.php:15
 msgid "Server info"
 msgstr "ИНФОРМАЦИЯ О СЕРВЕРЕ"
 
@@ -571,7 +566,7 @@ msgstr "Установите Alt при обновлении загрузки с
 msgid "Set limit post revisions to 5"
 msgstr "Установить ограничение на ревизий постов в 5"
 
-#: wp-addon-settings.php:101
+#: settings/wp-addon-settings.php:100
 msgid "Shortcodes and Widgets"
 msgstr "Шорткоды и виджеты"
 
@@ -583,11 +578,11 @@ msgstr "Показать дополнительный шорткод?"
 msgid "Show custom fields for categories and posts"
 msgstr "Показать custom fields для категорий и сообщений"
 
-#: settings/main.php:42
+#: settings/main.php:36
 msgid "Show posts IDs"
 msgstr "Показывать ID"
 
-#: settings/main.php:48
+#: settings/main.php:42
 msgid "Show posts thumbnails"
 msgstr "Показывать миниатюры записей"
 
@@ -598,10 +593,6 @@ msgstr "Отображение сообщения \"Обновить wordpress\"
 #: settings/tweaks.php:143
 msgid "Showing usages memory and time generate site page"
 msgstr "Отображение использования памяти и времени создания страницы сайта"
-
-#: settings/widgets.php:30
-msgid "Sidebars"
-msgstr "Сайдбары"
 
 #: settings/main.php:286
 msgid "Space must be entered!"
@@ -620,11 +611,7 @@ msgstr "Эта опция включает интерфейс для замен�
 msgid "TinyMCE Settings"
 msgstr "Настройки TinyMCE"
 
-#: settings/main.php:23
-msgid "Trace slow actions to log file"
-msgstr ""
-
-#: wp-addon-settings.php:94
+#: settings/wp-addon-settings.php:93
 msgid "Tweaks"
 msgstr "Твики"
 
@@ -660,11 +647,11 @@ msgstr ""
 msgid "Widget not found!"
 msgstr ""
 
-#: settings/_options.php:44
+#: settings/_options.php:41
 msgid "With love by <span style=\"color: #ED4301;\">A</span> Tikhomirov"
 msgstr "С любовью <span style=\"color: #ED4301;\">A</span> Tikhomirov"
 
-#: wp-addon-settings.php:73
+#: settings/wp-addon-settings.php:75
 msgid "Wordpress Addon"
 msgstr "Дополнения WP"
 
@@ -672,19 +659,19 @@ msgstr "Дополнения WP"
 msgid "WP-Emojis deacivation"
 msgstr ""
 
-#: settings/widgets.php:72 settings/widgets.php:79
+#: settings/wp-widgets.php:43 settings/wp-widgets.php:50
 msgid "WPBakery Page Builder support "
 msgstr ""
 
 #: settings/main.php:202
 msgid "Write right link to guid for New posts."
-msgstr ""
+msgstr "Напишите правильную ссылку на guid for New posts."
 
-#: settings/widgets.php:60
+#: settings/wp-widgets.php:62
 msgid "Yearly archive widget"
-msgstr ""
+msgstr "Виджет ежегодного архива"
 
-#: functions/posts/Advertising.php:167
+#: functions/posts/Advertising.php:169
 msgid "Выводит html содержимое в выбранном месте поста"
 msgstr ""
 

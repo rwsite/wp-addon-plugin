@@ -80,3 +80,15 @@ if ( ! function_exists( 'console_log' ) ) {
     }
 }
 
+if (!function_exists('dump')) {
+    function dump(...$data)
+    {
+        ob_start();
+        var_dump($data);
+        $record = ob_get_clean();
+
+        echo <<< EOT
+            <pre>$record</pre>
+EOT;
+    }
+}

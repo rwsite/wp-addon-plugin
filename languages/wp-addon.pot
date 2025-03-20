@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: #1 RW Wordpress Addon\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-26 03:16+0000\n"
+"POT-Creation-Date: 2025-03-20 22:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.2.2; wp-5.2.1"
 
 #. Name of the plugin
-msgid "# WordPress дополнение"
+msgid "# WordPress Addon"
 msgstr ""
 
 #: settings/main.php:123
@@ -27,7 +27,7 @@ msgstr ""
 msgid "Add all types at a glance widget"
 msgstr ""
 
-#: functions/posts/Advertising.php:345
+#: functions/posts/Advertising.php:347
 msgid "Add Banner Image"
 msgstr ""
 
@@ -65,18 +65,15 @@ msgstr ""
 msgid "Additional shortcodes <b>email:</b>"
 msgstr ""
 
-#: settings/widgets.php:36 functions/widgets/add-sidebar.php:11
-#: functions/widgets/add-sidebar.php:13
+#: functions/widgets/add-sidebar.php:11 functions/widgets/add-sidebar.php:13
 msgid "Additional sidebar 1"
 msgstr ""
 
-#: settings/widgets.php:42 functions/widgets/add-sidebar.php:28
-#: functions/widgets/add-sidebar.php:30
+#: functions/widgets/add-sidebar.php:28 functions/widgets/add-sidebar.php:30
 msgid "Additional sidebar 2"
 msgstr ""
 
-#: settings/widgets.php:48 functions/widgets/add-sidebar.php:45
-#: functions/widgets/add-sidebar.php:47
+#: functions/widgets/add-sidebar.php:45 functions/widgets/add-sidebar.php:47
 msgid "Additional sidebar 3"
 msgstr ""
 
@@ -88,24 +85,24 @@ msgstr ""
 msgid "Admin dashboard widgets"
 msgstr ""
 
-#: functions/posts/Advertising.php:166
+#: functions/posts/Advertising.php:168
 msgid "Ads in content"
 msgstr ""
 
-#: functions/posts/Advertising.php:132
+#: functions/posts/Advertising.php:134
 msgid "Ads manager"
 msgstr ""
 
-#: functions/posts/Advertising.php:176 functions/posts/Advertising.php:227
-#: functions/posts/Advertising.php:278
+#: functions/posts/Advertising.php:178 functions/posts/Advertising.php:229
+#: functions/posts/Advertising.php:280
 msgid "ADs Mode"
 msgstr ""
 
-#: functions/posts/Advertising.php:329
+#: functions/posts/Advertising.php:331
 msgid "Advanced Advertising mode. For developers."
 msgstr ""
 
-#: functions/posts/Advertising.php:272
+#: functions/posts/Advertising.php:274
 msgid "After content"
 msgstr ""
 
@@ -133,11 +130,11 @@ msgstr ""
 msgid "Allow WEBP support for media"
 msgstr ""
 
-#: wp-addon-settings.php:137
+#: settings/wp-addon-settings.php:137
 msgid "Any HTML code in footer."
 msgstr ""
 
-#: wp-addon-settings.php:126
+#: settings/wp-addon-settings.php:125
 msgid "Any HTML code or Analytics code in header."
 msgstr ""
 
@@ -153,20 +150,20 @@ msgstr ""
 msgid "AutoRemove readme.html and license.txt files"
 msgstr ""
 
-#: wp-addon-settings.php:150
+#: settings/wp-addon-settings.php:150
 msgid "Backup Settings"
 msgstr ""
 
-#: functions/posts/Advertising.php:358
+#: functions/posts/Advertising.php:360
 msgid "Banner code"
 msgstr ""
 
-#: functions/posts/Advertising.php:199 functions/posts/Advertising.php:250
-#: functions/posts/Advertising.php:301
+#: functions/posts/Advertising.php:201 functions/posts/Advertising.php:252
+#: functions/posts/Advertising.php:303
 msgid "Banner html code"
 msgstr ""
 
-#: functions/posts/Advertising.php:170
+#: functions/posts/Advertising.php:172
 msgid "Before content"
 msgstr ""
 
@@ -182,7 +179,7 @@ msgstr ""
 msgid "Change length post excerpt? To maximum 200 symbols."
 msgstr ""
 
-#: functions/posts/Advertising.php:159
+#: functions/posts/Advertising.php:161
 msgid "Change to On for enable this."
 msgstr ""
 
@@ -198,7 +195,7 @@ msgstr ""
 msgid "Comment form"
 msgstr ""
 
-#: settings/widgets.php:26
+#: settings/wp-widgets.php:32
 msgid "Components"
 msgstr ""
 
@@ -206,11 +203,11 @@ msgstr ""
 msgid "Contact Form 7 settings"
 msgstr ""
 
-#: wp-addon-settings.php:116
+#: settings/wp-addon-settings.php:115
 msgid "CSS Code in Header"
 msgstr ""
 
-#: wp-addon-settings.php:110
+#: settings/wp-addon-settings.php:109
 msgid "Custom code"
 msgstr ""
 
@@ -230,7 +227,7 @@ msgstr ""
 msgid "Disable all comments"
 msgstr ""
 
-#: settings/main.php:29
+#: settings/main.php:23
 msgid "Disable all updates."
 msgstr ""
 
@@ -242,7 +239,7 @@ msgstr ""
 msgid "Disable guttenber?"
 msgstr ""
 
-#: settings/widgets.php:13
+#: settings/wp-widgets.php:13
 msgid "Disable guttenberg for widgets"
 msgstr ""
 
@@ -282,12 +279,12 @@ msgstr ""
 msgid "Don`t allow to show specific categories in frontend."
 msgstr ""
 
-#: wp-addon-settings.php:154
+#: settings/wp-addon-settings.php:154
 msgid "Download settings now"
 msgstr ""
 
-#: functions/shortcodes/FAQ.php:78 functions/shortcodes/FAQ_Question.php:111
-#: functions/shortcodes/vc-support.php:12
+#: functions/shortcodes/FAQ.php:78 functions/shortcodes/vc-support.php:12
+#: functions/shortcodes/FAQ_Question.php:111
 msgid "Elements"
 msgstr ""
 
@@ -303,27 +300,27 @@ msgstr ""
 msgid "Enable 301 redirect addon?"
 msgstr ""
 
-#: settings/main.php:54
+#: settings/main.php:48 settings/main.php:54
 msgid "Enable duplicate post and page"
 msgstr ""
 
-#: settings/widgets.php:19
-msgid "Enable Duplicate widgets function"
+#: settings/wp-widgets.php:19
+msgid "Enable Duplicate widgets"
 msgstr ""
 
-#: settings/widgets.php:71
+#: settings/wp-widgets.php:42
 msgid "Enable FAQ shortcode"
 msgstr ""
 
-#: functions/posts/Advertising.php:328
+#: functions/posts/Advertising.php:330
 msgid "Enable jQuery ADs mode"
 msgstr ""
 
-#: settings/widgets.php:78
+#: settings/wp-widgets.php:49
 msgid "Enable Table of Content shortcode"
 msgstr ""
 
-#: functions/posts/Advertising.php:158
+#: functions/posts/Advertising.php:160
 msgid "Enable this extension?"
 msgstr ""
 
@@ -335,7 +332,7 @@ msgstr ""
 msgid "Enter description."
 msgstr ""
 
-#: functions/posts/Advertising.php:352
+#: functions/posts/Advertising.php:354
 msgid "Example: #div"
 msgstr ""
 
@@ -359,11 +356,7 @@ msgstr ""
 msgid "filter..."
 msgstr ""
 
-#: settings/widgets.php:7
-msgid "Functional in development"
-msgstr ""
-
-#: wp-addon-settings.php:87
+#: settings/wp-addon-settings.php:86
 msgid "General Settings"
 msgstr ""
 
@@ -398,7 +391,7 @@ msgid ""
 "for repair GUID(url) in your database."
 msgstr ""
 
-#: functions/posts/Advertising.php:221
+#: functions/posts/Advertising.php:223
 msgid "In content"
 msgstr ""
 
@@ -410,12 +403,12 @@ msgstr ""
 msgid "Instance Params"
 msgstr ""
 
-#: functions/posts/Advertising.php:351
+#: functions/posts/Advertising.php:353
 msgid "jQuery selector"
 msgstr ""
 
-#: functions/posts/Advertising.php:193 functions/posts/Advertising.php:244
-#: functions/posts/Advertising.php:295
+#: functions/posts/Advertising.php:195 functions/posts/Advertising.php:246
+#: functions/posts/Advertising.php:297
 msgid "Link"
 msgstr ""
 
@@ -428,8 +421,8 @@ msgstr ""
 msgid "Off"
 msgstr ""
 
-#: functions/posts/Advertising.php:177 functions/posts/Advertising.php:228
-#: functions/posts/Advertising.php:279
+#: functions/posts/Advertising.php:179 functions/posts/Advertising.php:230
+#: functions/posts/Advertising.php:281
 msgid "Off to run html mode"
 msgstr ""
 
@@ -460,7 +453,7 @@ msgstr ""
 msgid "Polylang settings"
 msgstr ""
 
-#: settings/main.php:37
+#: settings/main.php:31
 msgid "Posts and Page Settings"
 msgstr ""
 
@@ -491,7 +484,7 @@ msgstr ""
 msgid "Remove autotop function. Remove %s tags in post content."
 msgstr ""
 
-#: functions/posts/Advertising.php:346
+#: functions/posts/Advertising.php:348
 msgid "Remove Image"
 msgstr ""
 
@@ -539,9 +532,9 @@ msgstr ""
 msgid "Repalse [...] to \"Read more ...\" for posts"
 msgstr ""
 
-#: functions/posts/Advertising.php:211 functions/posts/Advertising.php:214
-#: functions/posts/Advertising.php:262 functions/posts/Advertising.php:265
-#: functions/posts/Advertising.php:313 functions/posts/Advertising.php:316
+#: functions/posts/Advertising.php:213 functions/posts/Advertising.php:216
+#: functions/posts/Advertising.php:264 functions/posts/Advertising.php:267
+#: functions/posts/Advertising.php:315 functions/posts/Advertising.php:318
 msgid "Select post type"
 msgstr ""
 
@@ -553,7 +546,7 @@ msgstr ""
 msgid "Separeted: \", \""
 msgstr ""
 
-#: settings/main.php:247
+#: settings/main.php:247 functions/dashboard-widget/siteinfo.php:15
 msgid "Server info"
 msgstr ""
 
@@ -565,7 +558,7 @@ msgstr ""
 msgid "Set limit post revisions to 5"
 msgstr ""
 
-#: wp-addon-settings.php:101
+#: settings/wp-addon-settings.php:100
 msgid "Shortcodes and Widgets"
 msgstr ""
 
@@ -577,11 +570,11 @@ msgstr ""
 msgid "Show custom fields for categories and posts"
 msgstr ""
 
-#: settings/main.php:42
+#: settings/main.php:36
 msgid "Show posts IDs"
 msgstr ""
 
-#: settings/main.php:48
+#: settings/main.php:42
 msgid "Show posts thumbnails"
 msgstr ""
 
@@ -591,10 +584,6 @@ msgstr ""
 
 #: settings/tweaks.php:143
 msgid "Showing usages memory and time generate site page"
-msgstr ""
-
-#: settings/widgets.php:30
-msgid "Sidebars"
 msgstr ""
 
 #: settings/main.php:286
@@ -614,11 +603,7 @@ msgstr ""
 msgid "TinyMCE Settings"
 msgstr ""
 
-#: settings/main.php:23
-msgid "Trace slow actions to log file"
-msgstr ""
-
-#: wp-addon-settings.php:94
+#: settings/wp-addon-settings.php:93
 msgid "Tweaks"
 msgstr ""
 
@@ -654,11 +639,11 @@ msgstr ""
 msgid "Widget not found!"
 msgstr ""
 
-#: settings/_options.php:44
+#: settings/_options.php:41
 msgid "With love by <span style=\"color: #ED4301;\">A</span> Tikhomirov"
 msgstr ""
 
-#: wp-addon-settings.php:73
+#: settings/wp-addon-settings.php:75
 msgid "Wordpress Addon"
 msgstr ""
 
@@ -666,7 +651,7 @@ msgstr ""
 msgid "WP-Emojis deacivation"
 msgstr ""
 
-#: settings/widgets.php:72 settings/widgets.php:79
+#: settings/wp-widgets.php:43 settings/wp-widgets.php:50
 msgid "WPBakery Page Builder support "
 msgstr ""
 
@@ -674,11 +659,11 @@ msgstr ""
 msgid "Write right link to guid for New posts."
 msgstr ""
 
-#: settings/widgets.php:60
+#: settings/wp-widgets.php:62
 msgid "Yearly archive widget"
 msgstr ""
 
-#: functions/posts/Advertising.php:167
+#: functions/posts/Advertising.php:169
 msgid "Выводит html содержимое в выбранном месте поста"
 msgstr ""
 

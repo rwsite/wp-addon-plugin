@@ -1,4 +1,7 @@
 <?php
+
+use classes\ControllerWP;
+
 /**
  * CategoriesFilter
  *

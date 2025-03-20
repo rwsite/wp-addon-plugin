@@ -3,19 +3,22 @@
  * Plugin Name:  # WordPress Addon
  * Plugin URL:   https://rwsite.ru
  * Description:  Addon for WordPress;
- * Version:      1.2.0
+ * Version:      1.2.1
  * Text Domain:  wp-addon
- * Domain Path:  /languages
+ * Domain Path:  languages
  * Author:       Aleksey Tikhomirov
  * Author URI:   https://rwsite.ru
  *
  * Tags: wordpress, wp-addon,
  *
  * Requires at least: 4.6
- * Tested up to: 6.5.0
+ * Tested up to: 6.8.3
  * Requires PHP: 7.4+
  */
 
+
+use classes\ControllerWP;
+use classes\FrontWP;
 
 defined( 'ABSPATH' ) || exit;
 
@@ -37,15 +40,14 @@ if ( ! defined( 'RW_FILE' ) ) {
 }
 
 
-require_once 'wp-addon-settings.php';
-require_once 'FrontWP.php';
-require_once 'ControllerWP.php';
+require_once 'settings/wp-addon-settings.php';
+require_once 'classes/FrontWP.php';
+require_once 'classes/ControllerWP.php';
 
-WP_Addon_Settings::getInstance();
-FrontWP::getInstance();
 
+WP_Addon_Settings::getInstance()->add_actions();
+FrontWP::getInstance()->add_actions();
 
 require_once 'autoloader.php';
 
-ControllerWP::getInstance()->options_loader();
-
+add_action('init', fn() => ControllerWP::getInstance()->options_loader());

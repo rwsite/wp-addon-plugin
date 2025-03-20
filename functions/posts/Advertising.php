@@ -2,6 +2,8 @@
 
 
 // add settings tabs
+use classes\ControllerWP;
+
 add_action( 'wp_addon_settings_section', [Advertising::class, 'set_settings'], 10, 1);
 
 class Advertising {
