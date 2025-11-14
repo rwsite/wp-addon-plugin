@@ -98,7 +98,9 @@ function wptweaker_setting_7()
 
 function wptweaker_setting_8()
 {
-    define('WP_POST_REVISIONS', 5);
+    if (!defined('WP_POST_REVISIONS')) {
+        define('WP_POST_REVISIONS', 5);
+    }
 }
 
 function wptweaker_setting_9()
@@ -180,7 +182,9 @@ function wptweaker_setting_17()
 
 function wptweaker_setting_18()
 {
-    define('EMPTY_TRASH_DAYS', 14 );
+    if (!defined('EMPTY_TRASH_DAYS')) {
+        define('EMPTY_TRASH_DAYS', 14 );
+    }
 }
 
 function wptweaker_setting_19(){

@@ -1,43 +1,38 @@
 <?php
 
-namespace classes;
+namespace WpAddon;
+
+use WpAddon\Services\OptionService;
+use WpAddon\Services\AssetService;
 
 final class FrontWP
 {
-    public $options;
-    public $file;
-    public $path;
-    public $url;
-    public $name;
-    public $ver;
+    private OptionService $optionService;
+    private AssetService $assetService;
+    private array $options;
+    private string $file;
+    private string $path;
+    private string $url;
+    private string $name;
+    private string $ver;
 
-    private static $instance;
-
-    public static function getInstance(): FrontWP
+    /**
+     * Constructor
+     *
+     * @param OptionService $optionService
+     * @param AssetService $assetService
+     */
+    public function __construct(OptionService $optionService, AssetService $assetService)
     {
-        if (static::$instance === null) {
-            static::$instance = new static();
-        }
-        return static::$instance;
-    }
-
-    public function __clone()
-    {
-    }
-
-    public function __wakeup()
-    {
-    }
-
-    private function __construct()
-    {
+        $this->optionService = $optionService;
+        $this->assetService = $assetService;
         $this->file = RW_FILE;
         $this->path = RW_PLUGIN_DIR;
         $this->url = RW_PLUGIN_URL;
         $this->name = RW_LANG;
         $this->ver = '1.1.3';
 
-        $this->options = get_option(RW_LANG, '');
+        $this->options = $this->optionService->getSettings();
     }
 
     public function add_actions()
@@ -111,12 +106,7 @@ final class FrontWP
 
     public function rw_enqueue_scripts()
     {
-        if(!is_admin()) {
-            wp_enqueue_style($this->name,
-                $this->url.'assets/css/min/wp-addon.min.css', false,
-                $this->ver);
-            do_action('rw_enqueue_scripts');
-        }
+        $this->assetService->enqueueScripts();
     }
 
 

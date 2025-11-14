@@ -8,7 +8,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-05-29 09:48+0000\n"
-"PO-Revision-Date: 2025-11-16 01:55+0000\n"
+"PO-Revision-Date: 2025-11-16 01:54+0000\n"
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
@@ -158,7 +158,7 @@ msgstr "Любые виджеты"
 
 #: src/Config/wp-addon-settings.php:111
 msgid "Are you sure? This action cannot be undone."
-msgstr "Вы уверены? Это действие нельзя отменить."
+msgstr ""
 
 #: functions/shortcodes/vc-support.php:35
 msgid "Args"
@@ -203,7 +203,7 @@ msgstr "Измените значение на «Вкл.», чтобы вклю�
 
 #: src/Config/wp-addon-settings.php:110
 msgid "Clean up unused image sizes"
-msgstr "Очистите неиспользуемые размеры изображений"
+msgstr ""
 
 #: functions/widgets/duplicate-widgets.php:26
 msgid "Clone"
@@ -244,7 +244,7 @@ msgstr "Оптимизая БД"
 #: functions/MediaCleanup.php:58
 #, php-format
 msgid "Deleted %d files."
-msgstr "Удалено %d файлов."
+msgstr ""
 
 #: src/Config/tweaks.php:92
 msgid "Disable agressive update"
@@ -400,7 +400,7 @@ msgstr ""
 #: functions/posts/fix_guid.php:30 functions/posts/fix_guid.php:31
 #: functions/posts/fix_guid.php:50
 msgid "Guid repair"
-msgstr "Ремонт Guid"
+msgstr ""
 
 #: src/Config/tweaks.php:128
 msgid "Hide adminbar in frontend for contributors, authors and subscribers"
@@ -459,7 +459,7 @@ msgstr "Режим тех. работ"
 
 #: src/Config/wp-addon-settings.php:103
 msgid "Media Cleanup"
-msgstr "Очистка медиа"
+msgstr ""
 
 #: functions/MediaCleanup.php:37
 msgid "No files to delete."
@@ -510,11 +510,11 @@ msgstr "Настройки постов и страниц"
 
 #: src/Config/wp-addon-settings.php:111
 msgid "Preview Cleanup"
-msgstr "Очистка предварительного просмотра"
+msgstr ""
 
 #: src/Config/wp-addon-settings.php:111
 msgid "Processing..."
-msgstr "Обработка..."
+msgstr ""
 
 #: functions/shortcodes/FAQ_Question.php:35
 #: functions/shortcodes/FAQ_Question.php:36
@@ -656,7 +656,7 @@ msgstr "SQL: %d за %s sec. %.2f MB "
 
 #: src/Config/wp-addon-settings.php:111
 msgid "Start Cleanup"
-msgstr "Начать очистку"
+msgstr ""
 
 #: src/Config/main.php:208
 msgid "This option enable interface for replace wp guide to right GUID."
@@ -689,7 +689,7 @@ msgstr "Настройки TinyMCE"
 #: functions/MediaCleanup.php:38
 #, php-format
 msgid "Total size: %s MB"
-msgstr "Общий размер: %s МБ"
+msgstr ""
 
 #: src/Config/wp-addon-settings.php:96
 msgid "Tweaks"

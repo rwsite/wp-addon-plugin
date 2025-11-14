@@ -1,5 +1,8 @@
 <?php
 
+namespace WpAddon;
+
+use WpAddon\Services\MediaCleanupService;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -37,10 +40,6 @@ class WP_Addon_Settings {
 
     public function add_actions()
     {
-        add_action( 'init', function () {
-            load_plugin_textdomain( 'wp-addon', false, dirname( plugin_basename( RW_FILE ) ) . '/languages' );
-        }, 9 );
-
         add_action( 'after_setup_theme', [ $this, 'after_setup_theme'] );
         add_action( 'admin_enqueue_scripts', [ $this, 'admin_assets' ], 20 );
     }
@@ -79,33 +78,48 @@ class WP_Addon_Settings {
         $prefix = $this->wp_plugin_slug;
 
         // Create options
-        CSF::createOptions($prefix, require_once '_options.php');
+        \CSF::createOptions($prefix, require_once __DIR__ . '/_options.php');
 
         // General Settings
-        CSF::createSection($prefix, [
+        \CSF::createSection($prefix, [
             'title'  => __('General Settings', 'wp-addon'),
             'icon'   => 'fa fa-rocket',
-            'fields' => require_once 'main.php',
+            'fields' => require_once __DIR__ . '/main.php',
         ]);
 
         // Tweaks
-        CSF::createSection($prefix, [
+        \CSF::createSection($prefix, [
             'title'  => __('Tweaks', 'wp-addon'),
             'icon'   => 'fa fa-wordpress',
-            'fields' => require_once 'tweaks.php',
+            'fields' => require_once __DIR__ . '/tweaks.php',
+        ]);
+
+        // Media Cleanup
+        \CSF::createSection($prefix, [
+            'title'  => __('Media Cleanup', 'wp-addon'),
+            'icon'   => 'fa fa-image',
+            'description' => __('This section allows you to clean up unused image sizes to free up disk space. WordPress generates multiple sizes for each uploaded image, but if your theme or plugins don\'t use all of them, they take up unnecessary space. Use this tool to identify and remove such files.<br><br><strong>When to use:</strong> After changing themes, disabling plugins that generate custom sizes, or optimizing site performance.<br><br><strong>Precautions:</strong> Always create a backup before cleanup. Use "Preview Cleanup" first to see what will be deleted. The tool preserves original images and "scaled" versions (up to 2000px). Deleted files cannot be recovered!', 'wp-addon'),
+            'fields' => [
+                [
+                    'id'      => 'cleanup_images',
+                    'type'    => 'content',
+                    'title'   => __('Clean up unused image sizes', 'wp-addon'),
+                    'content' => '<p>' . sprintf(__('This will delete all image sizes except: %s. Files will be deleted permanently!', 'wp-addon'), implode(', ', MediaCleanupService::getRegisteredSizesStatic())) . '</p><button id="preview-cleanup-btn" class="button">' . __('Preview Cleanup', 'wp-addon') . '</button> <button id="cleanup-images-btn" class="button button-primary">' . __('Start Cleanup', 'wp-addon') . '</button><div id="cleanup-result"></div><script>jQuery(document).ready(function($){$("#preview-cleanup-btn").click(function(e){e.preventDefault();$("#cleanup-result").html("' . __('Loading preview...', 'wp-addon') . '");$.post(ajaxurl,{action:"wp_addon_cleanup_images_dry_run",nonce:"'.wp_create_nonce('cleanup_images').'"},function(r){$("#cleanup-result").html(r);});});$("#cleanup-images-btn").click(function(e){e.preventDefault();if(confirm("' . __('Are you sure? This action cannot be undone.', 'wp-addon') . '")){$("#cleanup-result").html("' . __('Processing...', 'wp-addon') . '");$.post(ajaxurl,{action:"wp_addon_cleanup_images",nonce:"'.wp_create_nonce('cleanup_images').'"},function(r){$("#cleanup-result").html(r);});}});});</script>',
+                ],
+            ],
         ]);
 
         // Shortcodes and Widgets
-        CSF::createSection($prefix, [
+        \CSF::createSection($prefix, [
             'title'  => __('Shortcodes and Widgets', 'wp-addon'),
             'icon'   => 'fa fa-bolt',
-            'fields' => require 'wp-widgets.php',
+            'fields' => require __DIR__ . '/wp-widgets.php',
         ]);
 
         do_action('wp_addon_settings_section', $prefix);
 
         // Custom Code
-        CSF::createSection($prefix, [
+        \CSF::createSection($prefix, [
             'title'  => __('Custom code', 'wp-addon'),
             'icon'   => 'fa fa-code',
             'fields' => [
@@ -146,7 +160,7 @@ class WP_Addon_Settings {
         ]);
 
         // BackUp
-        CSF::createSection($prefix, [
+        \CSF::createSection($prefix, [
             'title'  => __('Backup Settings', 'wp-addon'),
             'icon'   => 'fa fa-server',
             'fields' => [

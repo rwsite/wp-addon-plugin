@@ -459,7 +459,7 @@ msgstr "Режим тех. работ"
 
 #: src/Config/wp-addon-settings.php:103
 msgid "Media Cleanup"
-msgstr "Очистка медиа"
+msgstr ""
 
 #: functions/MediaCleanup.php:37
 msgid "No files to delete."
@@ -510,11 +510,11 @@ msgstr "Настройки постов и страниц"
 
 #: src/Config/wp-addon-settings.php:111
 msgid "Preview Cleanup"
-msgstr "Очистка предварительного просмотра"
+msgstr ""
 
 #: src/Config/wp-addon-settings.php:111
 msgid "Processing..."
-msgstr "Обработка..."
+msgstr ""
 
 #: functions/shortcodes/FAQ_Question.php:35
 #: functions/shortcodes/FAQ_Question.php:36
@@ -656,7 +656,7 @@ msgstr "SQL: %d за %s sec. %.2f MB "
 
 #: src/Config/wp-addon-settings.php:111
 msgid "Start Cleanup"
-msgstr "Начать очистку"
+msgstr ""
 
 #: src/Config/main.php:208
 msgid "This option enable interface for replace wp guide to right GUID."
@@ -689,7 +689,7 @@ msgstr "Настройки TinyMCE"
 #: functions/MediaCleanup.php:38
 #, php-format
 msgid "Total size: %s MB"
-msgstr "Общий размер: %s МБ"
+msgstr ""
 
 #: src/Config/wp-addon-settings.php:96
 msgid "Tweaks"

@@ -204,7 +204,7 @@ return [
         'default' => false,
     ],
     [
-        'id'      => 'wptweaker_settimngs_34',
+        'id'      => 'wptweaker_setting_34',
         'type'    => 'switcher',
         'title'   => __('Allow WEBP support for media', 'wp-addon'),
         'default' => true,
