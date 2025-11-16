@@ -28,19 +28,26 @@ describe('AssetMinification', function () {
         global $wp_styles;
         $wp_styles = new \stdClass();
         $wp_styles->queue = ['test-style'];
+
+        // Create test CSS file
+        $cssContent = str_repeat(".test {\n    color: red;\n    font-size: 14px;\n    margin: 10px;\n    padding: 5px;\n}\n", 20); // CSS with newlines, > 1KB
+        $testCssPath = sys_get_temp_dir() . '/test.css';
+        file_put_contents($testCssPath, $cssContent);
+
         $wp_styles->registered = [
             'test-style' => (object) [
                 'handle' => 'test-style',
-                'src' => 'http://localhost/wp-content/themes/yootheme_child/css/test.css',
+                'src' => 'http://localhost/test.css',
                 'deps' => [],
                 'ver' => '1.0.0',
                 'args' => 'all'
             ]
         ];
 
-        // Create test CSS file
-        $cssContent = str_repeat(".test {\n    color: red;\n    font-size: 14px;\n    margin: 10px;\n    padding: 5px;\n}\n", 20); // CSS with newlines, > 1KB
-        file_put_contents(WP_CONTENT_DIR . '/themes/yootheme_child/css/test.css', $cssContent);
+        // Mock ABSPATH for urlToPath
+        if (!defined('ABSPATH')) {
+            define('ABSPATH', sys_get_temp_dir() . '/');
+        }
 
         // Initialize
         $assetMinification->init();
@@ -58,7 +65,7 @@ describe('AssetMinification', function () {
         foreach ($files as $file) {
             unlink($file);
         }
-        unlink(WP_CONTENT_DIR . '/themes/yootheme_child/css/test.css');
+        unlink($testCssPath);
     });
 
     it('creates cache files for JS assets', function () {
@@ -88,19 +95,26 @@ describe('AssetMinification', function () {
         global $wp_scripts;
         $wp_scripts = new \stdClass();
         $wp_scripts->queue = ['test-script'];
+
+        // Create test JS file
+        $jsContent = str_repeat("function test() {\n    console.log('test');\n    return true;\n}\n", 20); // JS with newlines
+        $testJsPath = sys_get_temp_dir() . '/test.js';
+        file_put_contents($testJsPath, $jsContent);
+
         $wp_scripts->registered = [
             'test-script' => (object) [
                 'handle' => 'test-script',
-                'src' => 'http://localhost/wp-content/themes/yootheme_child/js/test.js',
+                'src' => 'http://localhost/test.js',
                 'deps' => [],
                 'ver' => '1.0.0',
                 'args' => false
             ]
         ];
 
-        // Create test JS file
-        $jsContent = str_repeat("function test() {\n    console.log('test');\n    return true;\n}\n", 20); // JS with newlines
-        file_put_contents(WP_CONTENT_DIR . '/themes/yootheme_child/js/test.js', $jsContent);
+        // Mock ABSPATH for urlToPath
+        if (!defined('ABSPATH')) {
+            define('ABSPATH', sys_get_temp_dir() . '/');
+        }
 
         // Initialize
         $assetMinification->init();
@@ -118,6 +132,6 @@ describe('AssetMinification', function () {
         foreach ($files as $file) {
             unlink($file);
         }
-        unlink(WP_CONTENT_DIR . '/themes/yootheme_child/js/test.js');
+        unlink($testJsPath);
     });
 });
