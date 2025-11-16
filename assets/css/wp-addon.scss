@@ -4,18 +4,18 @@
 
 $color: #008ee1;
 
+img {
+  loading: lazy;
+}
+
 .list {
   li{
     list-style: none;
     &:before {
       width: 25px;
-      content: "\f00c";
+      content: "✓";
       display: inline-block;
-      font: 14px/1 FontAwesome;
       font-size: inherit;
-      text-rendering: auto;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       position: initial;
       margin-left: -20px;
       top: 6px;
@@ -24,16 +24,14 @@ $color: #008ee1;
 }
 .list-style-star li {
   &:before {
-    content: "\f005";
+    content: "★";
     color: $color;
-    font: 14px/1 FontAwesome;
   }
 }
 .list-style-check li{
   &:before {
-    content: "\f00c";
+    content: "✓";
     color: $color;
-    font: 14px/1 FontAwesome;
   }
 }
 

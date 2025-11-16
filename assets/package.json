@@ -11,10 +11,15 @@
     "gulp-rename": "^1.0.0",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^1.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-concat": "^2.6.1",
+    "gulp-watch": "^5.0.1",
     "del": "^1.0.0"
   },
   "devDependencies": {},
   "scripts": {
+    "build": "gulp build",
+    "dev": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

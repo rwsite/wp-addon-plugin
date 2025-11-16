@@ -6,3 +6,4 @@
 .phpunit.cache
 vendor
 lib/
+assets/node_modules/

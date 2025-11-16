@@ -30,6 +30,27 @@ Transform your standard WordPress installation into an excellent, optimized webs
 3. Activate through WordPress admin
 4. Configure settings in **WP Excellence Addon** menu
 
+## 🛠️ Assets & Build Process
+
+### Static Resources Structure
+- **CSS**: SCSS compilation with Gulp, minified output in `assets/css/min/`
+- **JS**: Uglified JavaScript in `assets/js/min/`
+- **Images**: Optimized WebP/SVG formats with lazy loading
+
+### Development Setup
+```bash
+cd assets/
+npm install
+npm run build    # Build for production
+npm run dev      # Watch mode for development
+```
+
+### Asset Loading
+- Main stylesheet: `wp-addon.min.css` (enqueued automatically)
+- TinyMCE plugins: Loaded conditionally based on settings
+- FontAwesome: CDN for editor, Unicode icons for frontend
+- Images: Lazy loading enabled by default
+
 ## ✅ Requirements
 
 - WordPress 6.6+
