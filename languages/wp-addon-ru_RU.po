@@ -8,12 +8,12 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-05-29 09:48+0000\n"
-"PO-Revision-Date: 2025-11-16 01:55+0000\n"
+"PO-Revision-Date: 2025-11-16 08:55+0000\n"
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.3; wp-5.9\n"
+"X-Loco-Version: 2.8.0; wp-6.8.3; php-7.4.33"
 
 #: functions/MediaCleanup.php:60
 #, php-format
@@ -347,35 +347,39 @@ msgstr "Включить режим jQuery AD"
 
 #: src/Config/wp-widgets.php:49
 msgid "Enable Table of Content shortcode"
-msgstr ""
+msgstr "Включить шорткод таблицы содержания"
 
 #: functions/posts/Advertising.php:160
 msgid "Enable this extension?"
-msgstr ""
+msgstr "Включить это расширение?"
 
 #: src/Config/main.php:172
 msgid "Enable transliteration?"
-msgstr ""
+msgstr "Включить транслитерацию?"
 
 #: functions/shortcodes/vc-support.php:38
 msgid "Enter description."
-msgstr ""
+msgstr "Введите описание."
 
 #: functions/posts/Advertising.php:354
 msgid "Example: #div"
-msgstr ""
+msgstr "Пример: #div"
 
 #: src/Config/main.php:179
 msgid ""
 "Exclude all pages from search. Enable it if your site is placement to Test "
 "host."
 msgstr ""
+"Исключить все страницы из поиска. Включите эту функцию, если ваш сайт "
+"находится на тестовом хостинге."
 
 #: src/Config/main.php:72
 msgid ""
 "Exclude specific categories of posts. Enter categories ID, separated by "
 "commas. Before ID you need a minus sign."
 msgstr ""
+"Исключить определённые категории публикаций. Введите идентификатор категории "
+"через запятую. Перед идентификатором необходимо поставить знак минус."
 
 #: functions/shortcodes/FAQ.php:29 functions/shortcodes/FAQ.php:30
 msgid "FAQ"
@@ -383,7 +387,7 @@ msgstr "Часто задаваемые вопросы"
 
 #: functions/MediaCleanup.php:40
 msgid "Files to delete:"
-msgstr ""
+msgstr "Файлы для удаления:"
 
 #: functions/wp-functions.php:335
 msgid "filter..."
@@ -395,7 +399,7 @@ msgstr "Основные настройки"
 
 #: src/Config/tweaks.php:197
 msgid "Get jquery from google cloud"
-msgstr ""
+msgstr "Получить jquery из Google Cloud"
 
 #: functions/posts/fix_guid.php:30 functions/posts/fix_guid.php:31
 #: functions/posts/fix_guid.php:50
@@ -410,7 +414,7 @@ msgstr ""
 
 #: src/Config/main.php:284
 msgid "Hide languages in wp Front. Enter lang slug, separated: \", \"."
-msgstr ""
+msgstr "Скрыть языки в WP Front. Введите название языка, разделённое: \", \"."
 
 #. Author URI of the plugin
 #: wp-addon-plugin.php
@@ -419,7 +423,7 @@ msgstr ""
 
 #: src/Config/tweaks.php:173
 msgid "If posts have status \"pending\" show numbers it in menu"
-msgstr ""
+msgstr "Если сообщения имеют статус «ожидание», показывать их номера в меню."
 
 #: src/Config/main.php:217
 #, php-format
@@ -427,27 +431,29 @@ msgid ""
 "If you url is include %category%, %tag%, %author%, you can use this option "
 "for repair GUID(url) in your database."
 msgstr ""
+"Если ваш URL включает %category%, %tag%, %author%, вы можете использовать "
+"эту опцию для восстановления GUID(url) в вашей базе данных."
 
 #: functions/posts/Advertising.php:223
 msgid "In content"
-msgstr ""
+msgstr "В содержании"
 
 #: functions/shortcodes/vc-support.php:27
 msgid "Instance"
-msgstr ""
+msgstr "Пример"
 
 #: functions/shortcodes/vc-support.php:30
 msgid "Instance Params"
-msgstr ""
+msgstr "Параметры экземпляра"
 
 #: functions/posts/Advertising.php:353
 msgid "jQuery selector"
-msgstr ""
+msgstr "селектор jQuery"
 
 #: functions/posts/Advertising.php:195 functions/posts/Advertising.php:246
 #: functions/posts/Advertising.php:297
 msgid "Link"
-msgstr ""
+msgstr "Связь"
 
 #: src/Config/wp-addon-settings.php:111
 msgid "Loading preview..."
@@ -674,6 +680,18 @@ msgid ""
 "what will be deleted. The tool preserves original images and \"scaled\" "
 "versions (up to 2000px). Deleted files cannot be recovered!"
 msgstr ""
+"Этот раздел позволяет очистить неиспользуемые размеры изображений, чтобы "
+"освободить место на диске. WordPress генерирует несколько размеров для "
+"каждого загруженного изображения, но если ваша тема или плагины не "
+"используют их все, они занимают лишнее место. Используйте этот инструмент "
+"для выявления и удаления таких файлов.<br><br><strong>Когда использовать:"
+"</strong> После смены темы, отключения плагинов, генерирующих нестандартные "
+"размеры, или оптимизации производительности сайта.<br><br><strong>Меры "
+"предосторожности:</strong> Всегда создавайте резервную копию перед очисткой. "
+"Сначала воспользуйтесь функцией «Предварительная очистка», чтобы увидеть, "
+"что будет удалено. Инструмент сохраняет исходные изображения и "
+"«масштабированные» версии (до 2000 пикселей). Удаленные файлы не подлежат "
+"восстановлению!"
 
 #: src/Config/wp-addon-settings.php:111
 #, php-format
@@ -681,6 +699,8 @@ msgid ""
 "This will delete all image sizes except: %s. Files will be deleted "
 "permanently!"
 msgstr ""
+"Это приведет к удалению всех размеров изображений, кроме: %s. Файлы будут "
+"удалены безвозвратно!"
 
 #: src/Config/main.php:112
 msgid "TinyMCE Settings"
@@ -709,23 +729,23 @@ msgstr "Информация о ролях"
 
 #: functions/posts/fix_guid.php:57
 msgid "View all GUID"
-msgstr ""
+msgstr "Просмотреть все GUID"
 
 #: functions/wp-functions.php:240
 msgid "VK"
-msgstr ""
+msgstr "ВК"
 
 #: functions/dashboard-widget/siteinfo.php:47
 msgid "Welcome to "
-msgstr ""
+msgstr "Добро пожаловать в"
 
 #: functions/shortcodes/vc-support.php:18
 msgid "Widget Name"
-msgstr ""
+msgstr "Имя виджета"
 
 #: functions/shortcodes/widget_shortcode.php:33
 msgid "Widget not found!"
-msgstr ""
+msgstr "Виджет не найден!"
 
 #: src/Config/_options.php:41
 msgid "With love by <span style=\"color: #ED4301;\">A</span> Tikhomirov"
@@ -737,11 +757,11 @@ msgstr "Дополнения WP"
 
 #: src/Config/tweaks.php:14
 msgid "WP-Emojis deacivation"
-msgstr ""
+msgstr "Деактивация WP-Emojis"
 
 #: src/Config/wp-widgets.php:43 src/Config/wp-widgets.php:50
 msgid "WPBakery Page Builder support "
-msgstr ""
+msgstr "Поддержка конструктора страниц WPBakery"
 
 #: src/Config/main.php:202
 msgid "Write right link to guid for New posts."

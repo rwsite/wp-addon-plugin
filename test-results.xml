@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="" tests="67" assertions="113" errors="26" warnings="0" failures="4" skipped="0" time="0.017389">
+    <testsuite name="unit" tests="67" assertions="113" errors="26" warnings="0" failures="4" skipped="0" time="0.017389">
+      <testsuite name="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" tests="24" assertions="6" errors="18" warnings="0" failures="0" skipped="0" time="0.007029">
+        <testcase name="testProcessAssetsWithEmptyQueue" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="47" assertions="0" time="0.005593">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testProcessAssetsWithEmptyQueue
+Error: Call to undefined method AssetMinification::processAssets()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:54</error>
+        </testcase>
+        <testcase name="testProcessAssetsWithNullWpStyles" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="62" assertions="0" time="0.000080">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testProcessAssetsWithNullWpStyles
+Error: Call to undefined method AssetMinification::processAssets()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:70</error>
+        </testcase>
+        <testcase name="testProcessAssetsWithNullWpScripts" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="76" assertions="0" time="0.000052">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testProcessAssetsWithNullWpScripts
+Error: Call to undefined method AssetMinification::processAssets()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:84</error>
+        </testcase>
+        <testcase name="testShouldProcessAssetWithEmptySrc" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="90" assertions="1" time="0.000174"/>
+        <testcase name="testShouldProcessAssetWithNullSrc" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="96" assertions="0" time="0.000053">
+          <error type="TypeError">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testShouldProcessAssetWithNullSrc
+TypeError: AssetMinification::shouldProcessAsset(): Argument #2 ($src) must be of type string, null given
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/functions/AssetMinification.php:342
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/TestCase.php:156
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:98</error>
+        </testcase>
+        <testcase name="testShouldProcessAssetWithInvalidPath" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="102" assertions="0" time="0.000034">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testShouldProcessAssetWithInvalidPath
+Error: Call to undefined method WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:105</error>
+        </testcase>
+        <testcase name="testIsAlreadyMinifiedWithMalformedCss" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="115" assertions="1" time="0.000177"/>
+        <testcase name="testIsAlreadyMinifiedWithMalformedJs" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="124" assertions="1" time="0.000074"/>
+        <testcase name="testUrlToPathWithEmptyUrl" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="133" assertions="0" time="0.000045">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testUrlToPathWithEmptyUrl
+Error: Call to private method AssetMinification::urlToPath() from scope WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:135</error>
+        </testcase>
+        <testcase name="testUrlToPathWithNonMatchingUrl" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="139" assertions="0" time="0.000033">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testUrlToPathWithNonMatchingUrl
+Error: Call to private method AssetMinification::urlToPath() from scope WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:142</error>
+        </testcase>
+        <testcase name="testGetCacheUrlWithEmptyKey" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="149" assertions="0" time="0.000035">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testGetCacheUrlWithEmptyKey
+Error: Call to private method AssetMinification::getCacheUrl() from scope WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:151</error>
+        </testcase>
+        <testcase name="testGetCacheUrlWithSpecialCharacters" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="156" assertions="0" time="0.000030">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testGetCacheUrlWithSpecialCharacters
+Error: Call to private method AssetMinification::getCacheUrl() from scope WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:159</error>
+        </testcase>
+        <testcase name="testInjectCriticalCssWithMissingThemeCss" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="165" assertions="0" time="0.000030">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testInjectCriticalCssWithMissingThemeCss
+Error: Call to undefined method WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:168</error>
+        </testcase>
+        <testcase name="testInjectCriticalCssWithEmptyThemeCss" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="179" assertions="0" time="0.000090">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testInjectCriticalCssWithEmptyThemeCss
+Error: Call to undefined method WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:185</error>
+        </testcase>
+        <testcase name="testInjectCriticalCssWithCorruptThemeCss" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="199" assertions="0" time="0.000073">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testInjectCriticalCssWithCorruptThemeCss
+Error: Call to undefined method WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:206</error>
+        </testcase>
+        <testcase name="testDeferCssLoadingWithNoCombinedJs" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="220" assertions="0" time="0.000047">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testDeferCssLoadingWithNoCombinedJs
+Error: Typed property AssetMinification::$config must not be accessed before initialization
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/functions/AssetMinification.php:284
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:229</error>
+        </testcase>
+        <testcase name="testClearCacheWithNonExistentDirectory" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="236" assertions="0" time="0.000049">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testClearCacheWithNonExistentDirectory
+Error: Typed property AssetMinification::$config must not be accessed before initialization
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/functions/AssetMinification.php:419
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:250</error>
+        </testcase>
+        <testcase name="testClearCacheWithPermissionDenied" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="256" assertions="0" time="0.000057">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testClearCacheWithPermissionDenied
+Error: Typed property AssetMinification::$config must not be accessed before initialization
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/functions/AssetMinification.php:419
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:271</error>
+        </testcase>
+        <testcase name="testProcessAssetsInAdminArea" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="281" assertions="0" time="0.000030">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testProcessAssetsInAdminArea
+Error: Call to undefined method WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:284</error>
+        </testcase>
+        <testcase name="testProcessAssetsDuringAjax" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="299" assertions="0" time="0.000032">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testProcessAssetsDuringAjax
+Error: Call to undefined method WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:302</error>
+        </testcase>
+        <testcase name="testGetAssetPriorityWithUnknownAsset" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="317" assertions="1" time="0.000139"/>
+        <testcase name="testGetAssetPriorityWithEmptyHandle" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="323" assertions="1" time="0.000035"/>
+        <testcase name="testIsSystemAssetWithEmptyHandle" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="329" assertions="1" time="0.000030"/>
+        <testcase name="testIsSystemAssetWithNullHandle" class="WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest" classname="WpAddon.Tests.Unit.AssetMinificationEdgeCasesTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php" line="335" assertions="0" time="0.000034">
+          <error type="TypeError">WpAddon\Tests\Unit\AssetMinificationEdgeCasesTest::testIsSystemAssetWithNullHandle
+TypeError: AssetMinification::isSystemAsset(): Argument #1 ($handle) must be of type string, null given
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/functions/AssetMinification.php:304
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/TestCase.php:156
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationEdgeCasesTest.php:337</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" tests="15" assertions="49" errors="4" warnings="0" failures="4" skipped="0" time="0.001634">
+        <testcase name="testShouldProcessAssetSystemAssetsExcluded" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="51" assertions="9" time="0.000533"/>
+        <testcase name="testShouldProcessAssetExplicitlyExcluded" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="74" assertions="2" time="0.000052"/>
+        <testcase name="testShouldProcessAssetExternalUrlsExcluded" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="89" assertions="3" time="0.000051"/>
+        <testcase name="testShouldProcessAssetLocalUrlsIncluded" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="106" assertions="1" time="0.000194">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::testShouldProcessAssetLocalUrlsIncluded
+Local URL 'http://example.com/wp-content/themes/theme/style.css' should be included
+Failed asserting that false is true.
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php:116</failure>
+        </testcase>
+        <testcase name="testShouldProcessAssetSmallFilesExcluded" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="123" assertions="0" time="0.000054">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::testShouldProcessAssetSmallFilesExcluded
+Error: Call to undefined method WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php:126</error>
+        </testcase>
+        <testcase name="testShouldProcessAssetLargeFilesIncluded" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="134" assertions="0" time="0.000072">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::testShouldProcessAssetLargeFilesIncluded
+Error: Call to undefined method WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php:137</error>
+        </testcase>
+        <testcase name="testShouldProcessAssetNonexistentFilesExcluded" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="145" assertions="0" time="0.000053">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::testShouldProcessAssetNonexistentFilesExcluded
+Error: Call to undefined method WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php:148</error>
+        </testcase>
+        <testcase name="testShouldProcessAssetValidFilesIncluded" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="156" assertions="0" time="0.000047">
+          <error type="Error">WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::testShouldProcessAssetValidFilesIncluded
+Error: Call to undefined method WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php:159</error>
+        </testcase>
+        <testcase name="testIsAlreadyMinifiedCss" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="168" assertions="2" time="0.000074"/>
+        <testcase name="testIsAlreadyMinifiedJs" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="185" assertions="1" time="0.000066">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::testIsAlreadyMinifiedJs
+Minified JS should be detected as already minified
+Failed asserting that false is true.
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php:189</failure>
+        </testcase>
+        <testcase name="testIsAlreadyMinifiedEdgeCases" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="202" assertions="3" time="0.000051"/>
+        <testcase name="testIsSystemAsset" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="212" assertions="12" time="0.000054"/>
+        <testcase name="testGetAssetPriority" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="240" assertions="14" time="0.000061"/>
+        <testcase name="testUrlToPath" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="267" assertions="1" time="0.000174">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::testUrlToPath
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+-'/var/www/html/wp-content/themes/theme/style.css'
++'http://example.com/wp-content/themes/theme/style.css'
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php:272</failure>
+        </testcase>
+        <testcase name="testGetCacheUrl" class="WpAddon\Tests\Unit\AssetMinificationSmartLogicTest" classname="WpAddon.Tests.Unit.AssetMinificationSmartLogicTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php" line="275" assertions="1" time="0.000098">
+          <failure type="PHPUnit\Framework\ExpectationFailedException">WpAddon\Tests\Unit\AssetMinificationSmartLogicTest::testGetCacheUrl
+Failed asserting that two strings are equal.
+--- Expected
++++ Actual
+@@ @@
+-'http://example.com/wp-content/cache/assets/test-cache-key.gz'
++'http://localhost/wp-content/cache/assets/test-cache-key.gz'
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationSmartLogicTest.php:280</failure>
+        </testcase>
+      </testsuite>
+      <testsuite name="WpAddon\Tests\Unit\AssetMinificationTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationTest.php" tests="2" assertions="0" errors="2" warnings="0" failures="0" skipped="0" time="0.005091">
+        <testcase name="testProcessCssCreatesCacheFiles" class="WpAddon\Tests\Unit\AssetMinificationTest" classname="WpAddon.Tests.Unit.AssetMinificationTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationTest.php" line="26" assertions="0" time="0.004817">
+          <error type="TypeError">WpAddon\Tests\Unit\AssetMinificationTest::testProcessCssCreatesCacheFiles
+TypeError: explode(): Argument #2 ($string) must be of type string, array given
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/functions/AssetMinification.php:37
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/functions/AssetMinification.php:46
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationTest.php:62</error>
+        </testcase>
+        <testcase name="testProcessJsCreatesCacheFiles" class="WpAddon\Tests\Unit\AssetMinificationTest" classname="WpAddon.Tests.Unit.AssetMinificationTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationTest.php" line="79" assertions="0" time="0.000274">
+          <error type="TypeError">WpAddon\Tests\Unit\AssetMinificationTest::testProcessJsCreatesCacheFiles
+TypeError: explode(): Argument #2 ($string) must be of type string, array given
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/functions/AssetMinification.php:37
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/functions/AssetMinification.php:46
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/AssetMinificationTest.php:119</error>
+        </testcase>
+      </testsuite>
+      <testsuite name="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" tests="15" assertions="31" errors="2" warnings="0" failures="0" skipped="0" time="0.002510">
+        <testcase name="testMinifyCss" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="55" assertions="6" time="0.000675"/>
+        <testcase name="testMinifyCssAlreadyMinified" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="76" assertions="2" time="0.000122"/>
+        <testcase name="testMinifyJs" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="86" assertions="5" time="0.000158"/>
+        <testcase name="testCombineCss" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="106" assertions="2" time="0.000146"/>
+        <testcase name="testCombineJs" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="120" assertions="2" time="0.000200"/>
+        <testcase name="testGenerateVersion" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="139" assertions="4" time="0.000210"/>
+        <testcase name="testSaveToCache" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="161" assertions="0" time="0.000204">
+          <error type="Error">WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest::testSaveToCache
+Error: Call to undefined method WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php:170</error>
+        </testcase>
+        <testcase name="testGetFromCache" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="179" assertions="0" time="0.000157">
+          <error type="Error">WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest::testGetFromCache
+Error: Call to undefined method WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest::setMockFunction()
+
+/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php:188</error>
+        </testcase>
+        <testcase name="testGetFromCacheNonexistent" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="197" assertions="1" time="0.000141"/>
+        <testcase name="testExtractCriticalCss" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="203" assertions="3" time="0.000109"/>
+        <testcase name="testMinifyCssEmpty" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="222" assertions="1" time="0.000076"/>
+        <testcase name="testMinifyJsEmpty" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="228" assertions="1" time="0.000073"/>
+        <testcase name="testCombineCssEmptyArray" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="234" assertions="1" time="0.000074"/>
+        <testcase name="testCombineJsEmptyArray" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="240" assertions="1" time="0.000072"/>
+        <testcase name="testGenerateVersionEmpty" class="WpAddon\Tests\Unit\Services\AssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.AssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/AssetOptimizationServiceTest.php" line="246" assertions="2" time="0.000092"/>
+      </testsuite>
+      <testsuite name="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" tests="11" assertions="27" errors="0" warnings="0" failures="0" skipped="0" time="0.001126">
+        <testcase name="testMinifyCssBasic" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="51" assertions="3" time="0.000064"/>
+        <testcase name="testMinifyCssRemovesComments" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="69" assertions="3" time="0.000076"/>
+        <testcase name="testMinifyJsBasic" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="79" assertions="3" time="0.000076"/>
+        <testcase name="testMinifyJsRemovesComments" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="96" assertions="4" time="0.000076"/>
+        <testcase name="testGenerateVersion" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="107" assertions="3" time="0.000091"/>
+        <testcase name="testGenerateVersionSameContent" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="120" assertions="1" time="0.000073"/>
+        <testcase name="testSaveAndGetFromCache" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="130" assertions="1" time="0.000159"/>
+        <testcase name="testGetFromCacheNonexistent" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="144" assertions="1" time="0.000079"/>
+        <testcase name="testExtractCriticalCss" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="150" assertions="4" time="0.000080"/>
+        <testcase name="testCombineCssWithFiles" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="170" assertions="2" time="0.000180"/>
+        <testcase name="testCombineJsWithFiles" class="WpAddon\Tests\Unit\Services\SimpleAssetOptimizationServiceTest" classname="WpAddon.Tests.Unit.Services.SimpleAssetOptimizationServiceTest" file="/var/www/no-borders.ru/wp-content/plugins/wp-addon-plugin/tests/unit/Services/SimpleAssetOptimizationServiceTest.php" line="187" assertions="2" time="0.000172"/>
+      </testsuite>
+    </testsuite>
+  </testsuite>
+</testsuites>

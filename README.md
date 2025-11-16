@@ -9,6 +9,7 @@ WP Addon Plugin provides a suite of tools and optimizations for WordPress websit
 ## Key Features
 
 ### Performance Optimization
+- **Asset Minification**: Automatic CSS and JavaScript minification with caching (✅ Implemented)
 - **Media Cleanup**: Remove unused image sizes to free up disk space
 - **Database Optimization**: Fix GUID fields and optimize post revisions
 - **Asset Management**: Disable unnecessary scripts (emojis, heartbeat, jQuery migrate)

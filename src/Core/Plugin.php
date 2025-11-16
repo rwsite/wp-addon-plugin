@@ -129,6 +129,8 @@ class Plugin
                 // For complex modules inject dependencies
                 if ($className === 'MediaCleanup') {
                     $module = new $className($this->mediaCleanupService);
+                } elseif ($className === 'PageCache' || $className === 'AssetMinification') {
+                    $module = new $className($this->optionService);
                 } else {
                     $module = new $className();
                 }

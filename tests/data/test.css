@@ -1,0 +1,22 @@
+/* Test CSS with comments and formatting */
+.test-class {
+    color: #ff0000;
+    font-size: 14px;
+    margin: 10px 20px;
+    padding: 5px;
+}
+
+/* Another class */
+.another-class {
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Media query */
+@media (max-width: 768px) {
+    .test-class {
+        font-size: 12px;
+        margin: 5px 10px;
+    }
+}
