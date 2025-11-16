@@ -72,7 +72,7 @@ jobs:
     - name: Install WordPress test suite
       run: |
         cd /tmp/wordpress-develop
-        php tests/bin/install.php --dbname=wordpress_test --dbuser=wordpress --dbpass=wordpress --dbhost=127.0.0.1 --url=http://localhost --title="Test Site" --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email
+        php tests/phpunit/includes/install.php --dbname=wordpress_test --dbuser=wordpress --dbpass=wordpress --dbhost=127.0.0.1 --url=http://localhost --title="Test Site" --admin_user=admin --admin_password=password --admin_email=admin@example.com --skip-email
 
     - name: Run tests
       run: composer test -- --exclude-group problematic
