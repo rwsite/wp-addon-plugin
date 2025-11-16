@@ -45,7 +45,7 @@ class Plugin
     /**
      * Media cleanup service
      */
-    private \WpAddon\Services\MediaCleanupService $mediaCleanupService;
+    private \WpAddon\Services\ImageOptimizationService $imageOptimizationService;
 
     /**
      * Constructor
@@ -160,6 +160,10 @@ class Plugin
         if (!defined('RW_FILE')) {
             define('RW_FILE', $this->file);
         }
+
+        if (!defined('WP_ADDON_VERSION')) {
+            define('WP_ADDON_VERSION', $this->version);
+        }
     }
 
     /**
@@ -180,6 +184,7 @@ class Plugin
         $this->optionService = new \WpAddon\Services\OptionService(RW_LANG);
         $this->assetService = new \WpAddon\Services\AssetService(RW_FILE, RW_PLUGIN_URL, RW_LANG, $this->version);
         $this->mediaCleanupService = new \WpAddon\Services\MediaCleanupService();
+        $this->imageOptimizationService = new \WpAddon\Services\ImageOptimizationService();
 
         // Load functions and modules
         $this->loadModules();
@@ -198,6 +203,8 @@ class Plugin
                     $module = new $className($this->mediaCleanupService);
                 } elseif ($className === 'PageCache' || $className === 'AssetMinification') {
                     $module = new $className($this->optionService);
+                } elseif ($className === 'LazyLoading') {
+                    $module = new $className($this->optionService, $this->imageOptimizationService);
                 } else {
                     $module = new $className();
                 }

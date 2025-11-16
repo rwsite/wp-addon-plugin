@@ -1,85 +1,163 @@
 <p align="center">
     <a href="https://github.com/rwsite/wp-addon-plugin"><img alt="GitHub release" src="https://img.shields.io/github/release/rwsite/wp-addon-plugin.svg?style=for-the-badge"></a>
-    <a href="https://php.net"><img alt="PHP Version" src="https://img.shields.io/badge/PHP-8.2+-blue.svg?style=for-the-badge&logo=php"></a>
+    <a href="https://php.net"><img alt="PHP Version" src="https://img.shields.io/badge/PHP-7.4+-blue.svg?style=for-the-badge&logo=php"></a>
     <a href="https://wordpress.org"><img alt="WordPress Version" src="https://img.shields.io/badge/WordPress-6.6+-blue.svg?style=for-the-badge&logo=wordpress"></a>
     <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge"></a>
 </p>
 
 <p align="center">
-    <strong>Transform your standard WordPress installation into an excellent, optimized website with advanced performance enhancements.</strong>
+    <strong>Трансформирует стандартную установку WordPress в отличный, оптимизированный сайт с комплексными улучшениями производительности, безопасности и удобства использования.</strong>
 </p>
 
 ---
 
-## ✨ Key Features
+## 📋 Обзор плагина
 
-### 🚀 Performance Optimization
-- **Asset Minification**: Automatic CSS and JavaScript minification with intelligent caching
-- **Smart Processing**: Only processes local assets, skips already minified files
-- **Cache Management**: Automatic cleanup on theme/plugin updates
+WP Addon Plugin - это комплексное решение для оптимизации WordPress, объединяющее множество функций в одном плагине. Плагин использует модульную архитектуру с PSR-4 автозагрузкой, что позволяет легко расширять функциональность.
 
-### 🏗️ Architecture
-- **PSR-4 Autoloading**: Clean namespace structure
-- **Modular Design**: Interface-based system for easy extension
-- **Modern Testing**: Pest framework with declarative syntax
-- **CI/CD**: GitHub Actions with matrix testing
+## ✨ Реализованные модули и функции
 
-## 📦 Installation
+### 🚀 Производительность и оптимизация
+- **PerformanceTweaks**: 36 различных оптимизаций производительности (очистка заголовков, ограничение ревизий, блокировка HTTP-запросов, отключение heartbeat, удаление jQuery migrate и др.)
+- **AssetMinification**: Минификация и объединение CSS и JavaScript файлов с умным кэшированием
+- **LazyLoading**: Ленивая загрузка изображений, iframe и видео с blur placeholder'ами
+- **PageCache**: Полноценный файловый кэш страниц для замены плагинов типа W3 Total Cache или WP Rocket
+- **MediaCleanup**: Очистка неиспользуемых медиафайлов
 
-1. Download the plugin
-2. Upload to `wp-content/plugins/`
-3. Activate through WordPress admin
-4. Configure settings in **WP Excellence Addon** menu
+### 🔒 Безопасность и обслуживание
+- **MaintenanceMode**: Режим обслуживания с кастомной страницей
+- **DisableAutoUpdate**: Управление автоматическими обновлениями WordPress
+- **DisableComments**: Полное отключение комментариев
 
-## 🛠️ Assets & Build Process
+### 📝 Контент и редактор
+- **TinyMCE расширения**: Дополнительные плагины для редактора (кнопки, стили, вставка медиа)
+- **Redirects**: Управление редиректами
+- **Shortcodes**: Пользовательские шорткоды для контента
 
-### Static Resources Structure
-- **CSS**: SCSS compilation with Gulp, minified output in `assets/css/min/`
-- **JS**: Uglified JavaScript in `assets/js/min/`
-- **Images**: Optimized WebP/SVG formats with lazy loading
+### 🔧 Администрирование
+- **Dashboard widgets**: Виджеты панели администратора
+- **SEO модули**: Базовые оптимизации SEO
+- **Дополнительные функции**: Показ ID постов, миниатюр, дублирование постов, удаление категории из URL, ограничение длины отрывков, исключение категорий
 
-### Development Setup
+## 📁 Структура плагина
+
+```
+wp-addon-plugin/
+├── src/                          # Основной код (PSR-4)
+│   ├── Autoloader.php           # Автозагрузчик классов
+│   ├── Core/                    # Ядро плагина
+│   ├── Interfaces/              # Интерфейсы модулей
+│   ├── Services/                # Сервисы
+│   ├── Traits/                  # Трейты для модулей
+│   └── Config/                  # Конфигурация
+├── functions/                   # Модули функциональности
+│   ├── PerformanceTweaks.php   # Оптимизации производительности
+│   ├── AssetMinification.php    # Минификация ресурсов
+│   ├── PageCache.php            # Кэш страниц
+│   ├── MaintenanceMode.php      # Режим обслуживания
+│   ├── DisableComments.php      # Отключение комментариев
+│   ├── TinyMCE/                 # Расширения TinyMCE
+│   ├── shortcodes/              # Шорткоды
+│   ├── seo/                     # SEO функции
+│   └── ...                      # Другие модули
+├── assets/                      # Статические ресурсы
+│   ├── css/                     # Стили (SCSS с компиляцией)
+│   ├── js/                      # JavaScript (с минификацией)
+│   ├── images/                  # Изображения
+│   └── gulpfile.js              # Система сборки
+├── languages/                   # Переводы
+├── tests/                       # Модульные тесты (Pest)
+└── composer.json                # Зависимости PHP
+```
+
+## ⚙️ Настройки плагина
+
+Плагин предоставляет подробную панель настроек в **WordPress Admin > Settings > WP Addon** с разделами:
+
+### Общие настройки
+- Режим обслуживания
+- Показ кастомных полей в админке
+- Отключение автообновлений
+
+### Посты и страницы
+- Показ ID постов и миниатюр
+- Дублирование постов
+- Удаление категории из URL
+- Ограничение длины отрывков
+- Исключение категорий из фронтенда
+
+### Комментарии
+- Отключение комментариев
+- Удаление nofollow с ссылок
+- Удаление поля сайта в комментариях
+
+### Редактор
+- Отключение Gutenberg
+- TinyMCE настройки
+
+### Производительность
+- Минификация ресурсов
+- Кэширование страниц
+- Оптимизации производительности (36 настроек)
+- Ленивая загрузка медиафайлов
+
+## 📦 Установка
+
+1. Скачайте плагин
+2. Загрузите в `wp-content/plugins/`
+3. Активируйте через админку WordPress
+4. Настройте параметры в меню **WP Addon**
+
+## 🛠️ Сборка ресурсов
+
+### Структура ресурсов
+- **CSS**: Компиляция SCSS с минификацией в `assets/css/min/`
+- **JS**: Минификация JavaScript в `assets/js/min/`
+- **Изображения**: Оптимизация в WebP/SVG
+
+### Сборка
 ```bash
 cd assets/
 npm install
-npm run build    # Build for production
-npm run dev      # Watch mode for development
+npm run build    # Сборка для продакшена
+npm run dev      # Режим разработки с watch
 ```
 
-### Asset Loading
-- Main stylesheet: `wp-addon.min.css` (enqueued automatically)
-- TinyMCE plugins: Loaded conditionally based on settings
-- FontAwesome: CDN for editor, Unicode icons for frontend
-- Images: Lazy loading enabled by default
+### Загрузка ресурсов
+- Основной CSS: `wp-addon.min.css` (автоматическая загрузка)
+- TinyMCE плагины: Условная загрузка
+- Иконки: FontAwesome из CDN для редактора
 
-## ✅ Requirements
+## ✅ Требования
 
 - WordPress 6.6+
-- PHP 8.2+
+- PHP 7.4+
 
-## 🧪 Testing
+## 🧪 Тестирование
 
-Modern testing with Pest framework:
+Модульное тестирование с фреймворком Pest:
 
 ```bash
 composer install
-composer test  # Run unit tests
-composer test:coverage  # With coverage report
+composer test  # Запуск тестов
+composer test:coverage  # С покрытием
 ```
 
-## 🤝 Contributing
+## 🤝 Разработка модулей
 
-1. Fork the repository
-2. Create a feature branch
-3. Add tests for new functionality
-4. Ensure all tests pass
-5. Submit a pull request
+Плагин поддерживает модульную архитектуру. Для создания нового модуля:
 
-## 📄 License
+1. Создайте файл в `functions/` реализующий `ModuleInterface`
+2. Используйте `HookTrait` для регистрации хуков
+3. Модуль автоматически загрузится
 
-See LICENSE file for details.
+Подробная документация: [MODULES_GUIDE.md](MODULES_GUIDE.md)
 
-## 🆘 Support
+## 📄 Лицензия
 
-- [Settings Guide](SETTINGS.md)
-- [Module Development](MODULES_GUIDE.md)
+Смотрите файл LICENSE для деталей.
+
+## 🆘 Поддержка
+
+- [Руководство по настройкам](SETTINGS.md)
+- [Разработка модулей](MODULES_GUIDE.md)

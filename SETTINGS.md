@@ -197,6 +197,45 @@ Navigate to **WordPress Admin > Settings > WP Addon** to access the plugin confi
 - **Default**: Enabled
 - **Description**: Displays user role statistics on dashboard.
 
+## Lazy Loading Settings
+
+### Enable Lazy Loading
+- **Setting**: `enable_lazy_loading`
+- **Type**: Switcher
+- **Default**: Enabled
+- **Description**: Main toggle for the lazy loading module. When enabled, lazy loading is activated for selected media types. Recommended for all sites to improve performance.
+
+### Media Types for Lazy Loading
+- **Setting**: `lazy_types`
+- **Type**: Checkbox
+- **Default**: img, iframe, video
+- **Description**: Select element types to apply lazy loading to. Images are most effective for optimization.
+- **Options**: img (Images), iframe (YouTube, Vimeo), video (Video elements)
+
+### Blur Effect Intensity
+- **Setting**: `blur_intensity`
+- **Type**: Number (1-10)
+- **Default**: 5
+- **Description**: Blur intensity for placeholder images. 1 = light blur, 10 = heavy blur. Recommended 3-7 for optimal quality/performance balance.
+
+### Viewport Margin (rootMargin)
+- **Setting**: `root_margin`
+- **Type**: Text
+- **Default**: 50px
+- **Description**: Distance from viewport edge to start loading. Example: 50px = load 50px before element appears. 10% = 10% of viewport height.
+
+### Visibility Threshold
+- **Setting**: `threshold`
+- **Type**: Number (0-1)
+- **Default**: 0.1
+- **Description**: Portion of element that must be visible to start loading. 0.1 = 10% of element visible. 1.0 = entire element visible.
+
+### Enable Fallback for Old Browsers
+- **Setting**: `enable_fallback`
+- **Type**: Switcher
+- **Default**: Enabled
+- **Description**: Use scroll event listeners instead of Intersection Observer in browsers without IO support. Slower performance but ensures compatibility.
+
 ## Performance Tweaks
 
 ### Header Cleanup

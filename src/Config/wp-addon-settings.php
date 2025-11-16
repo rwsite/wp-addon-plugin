@@ -21,7 +21,7 @@ class WP_Addon_Settings {
 		$this->file = RW_FILE;
 		$this->path = RW_PLUGIN_DIR;
 		$this->url  = RW_PLUGIN_URL;
-		$this->ver  = '1.1.3';
+		$this->ver  = '1.3.4';
 	}
 
     public static function getInstance(): WP_Addon_Settings
@@ -223,6 +223,75 @@ class WP_Addon_Settings {
                     'desc'  => __('Handles JS файлов через запятую для исключения из оптимизации. Примеры: google-analytics, facebook-pixel, custom-scripts. Системные скрипты WordPress (jQuery, etc.) исключаются автоматически.', 'wp-addon'),
                     'default' => 'jquery,jquery-core',
                     'dependency' => ['asset_minification_enabled', '==', 'true'],
+                ],
+            ],
+        ]);
+
+        // Lazy Loading
+        \CSF::createSection($prefix, [
+            'title'  => __('Lazy Loading', 'wp-addon'),
+            'icon'   => 'fa fa-eye',
+            'description' => __('Ленивая загрузка изображений и медиафайлов - это техника оптимизации производительности, при которой ресурсы загружаются только когда они попадают в область видимости пользователя. Модуль использует современный Intersection Observer API с fallback для старых браузеров.<br><br><strong>Преимущества:</strong><br>• Снижение времени загрузки страницы<br>• Экономия трафика (особенно на мобильных устройствах)<br>• Улучшение Core Web Vitals (LCP, CLS)<br>• Автоматическое сжатие изображений с blur placeholder<br><br><strong>Поддержка:</strong><br>• Изображения (img)<br>• Iframe (видео YouTube, Vimeo)<br>• Video элементы<br>• Blur placeholder для плавной загрузки<br>• Fallback для IE11+', 'wp-addon'),
+            'fields' => [
+                [
+                    'id'    => 'enable_lazy_loading',
+                    'type'  => 'switcher',
+                    'title' => __('Включить ленивую загрузку', 'wp-addon'),
+                    'desc'  => __('Главный переключатель модуля. При включении активируется ленивая загрузка для выбранных типов медиа. Рекомендуется включать на всех сайтах для улучшения производительности.', 'wp-addon'),
+                    'default' => false,
+                ],
+                [
+                    'id'    => 'lazy_types',
+                    'type'  => 'checkbox',
+                    'title' => __('Типы медиа для ленивой загрузки', 'wp-addon'),
+                    'desc'  => __('Выберите типы элементов, для которых будет применяться ленивая загрузка. Изображения - наиболее эффективны для оптимизации.', 'wp-addon'),
+                    'options' => [
+                        'img' => __('Изображения (img)', 'wp-addon'),
+                        'iframe' => __('Iframe (YouTube, Vimeo)', 'wp-addon'),
+                        'video' => __('Video элементы', 'wp-addon'),
+                    ],
+                    'default' => ['img', 'iframe', 'video'],
+                    'dependency' => ['enable_lazy_loading', '==', 'true'],
+                ],
+                [
+                    'id'    => 'blur_intensity',
+                    'type'  => 'number',
+                    'title' => __('Интенсивность blur эффекта', 'wp-addon'),
+                    'desc'  => __('Степень размытия blur placeholder. Значение 1 - слабое размытие, 10 - сильное. Рекомендуется 3-7 для оптимального баланса качества и производительности.', 'wp-addon'),
+                    'default' => 5,
+                    'min'   => 1,
+                    'max'   => 10,
+                    'dependency' => ['enable_lazy_loading', '==', 'true'],
+                ],
+                [
+                    'id'    => 'root_margin',
+                    'type'  => 'text',
+                    'title' => __('Отступ от viewport (rootMargin)', 'wp-addon'),
+                    'desc'  => __('Расстояние от края viewport, при котором начинать загрузку. Пример: 50px - загрузка за 50px до появления элемента. 10% - 10% от высоты viewport.', 'wp-addon'),
+                    'default' => '50px',
+                    'attributes' => [
+                        'placeholder' => '50px',
+                    ],
+                    'dependency' => ['enable_lazy_loading', '==', 'true'],
+                ],
+                [
+                    'id'    => 'threshold',
+                    'type'  => 'number',
+                    'title' => __('Порог видимости (threshold)', 'wp-addon'),
+                    'desc'  => __('Доля элемента, которая должна попасть в viewport для начала загрузки. 0.1 = 10% элемента видно. 1.0 = весь элемент виден.', 'wp-addon'),
+                    'default' => 0.1,
+                    'min'   => 0,
+                    'max'   => 1,
+                    'step'  => 0.1,
+                    'dependency' => ['enable_lazy_loading', '==', 'true'],
+                ],
+                [
+                    'id'    => 'enable_fallback',
+                    'type'  => 'switcher',
+                    'title' => __('Включить fallback для старых браузеров', 'wp-addon'),
+                    'desc'  => __('Использовать scroll event listeners вместо Intersection Observer в браузерах без поддержки IO API. Замедляет производительность, но обеспечивает совместимость.', 'wp-addon'),
+                    'default' => true,
+                    'dependency' => ['enable_lazy_loading', '==', 'true'],
                 ],
             ],
         ]);
