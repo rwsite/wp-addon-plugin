@@ -21,7 +21,15 @@ class WP_Addon_Settings {
 		$this->file = RW_FILE;
 		$this->path = RW_PLUGIN_DIR;
 		$this->url  = RW_PLUGIN_URL;
-		$this->ver  = '1.3.4';
+
+		// Get version from plugin header dynamically
+		$plugin_data = get_file_data($this->file, ['Version' => 'Version']);
+		$this->ver = $plugin_data['Version'] ?? '1.0.0';
+
+		// Use timestamp for version in debug mode to avoid caching issues
+		if (defined('WP_DEBUG') && WP_DEBUG) {
+			$this->ver = time();
+		}
 	}
 
     public static function getInstance(): WP_Addon_Settings
@@ -173,7 +181,7 @@ class WP_Addon_Settings {
                     'type'  => 'switcher',
                     'title' => __('Минифицировать JavaScript файлы', 'wp-addon'),
                     'desc'  => __('Сжимает JS код, удаляя комментарии, лишние пробелы и форматирование. Пропускает минифицированные файлы и файлы менее 1KB. Важно: проверяйте работоспособность после включения, так как некоторые плагины могут иметь чувствительный к минификации код.', 'wp-addon'),
-                    'default' => true,
+                    'default' => false,
                     'dependency' => ['asset_minification_enabled', '==', 'true'],
                 ],
                 [
@@ -189,7 +197,7 @@ class WP_Addon_Settings {
                     'type'  => 'switcher',
                     'title' => __('Объединять JavaScript файлы', 'wp-addon'),
                     'desc'  => __('Комбинирует JS файлы в один, загружаемый в футере. Уменьшает количество запросов, но может нарушить порядок загрузки. Рекомендуется тестировать на наличие JavaScript ошибок после включения.', 'wp-addon'),
-                    'default' => true,
+                    'default' => false,
                     'dependency' => ['asset_minification_enabled', '==', 'true'],
                 ],
                 [
