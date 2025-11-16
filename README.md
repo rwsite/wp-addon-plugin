@@ -1,104 +1,51 @@
-# WordPress Excellence Plugin
+# WP Excellence Addon
+
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/wp-addon-plugin/wp-addon-plugin.svg?style=flat-square)](https://packagist.org/packages/wp-addon-plugin/wp-addon-plugin)
+[![Total Downloads](https://img.shields.io/packagist/dt/wp-addon-plugin/wp-addon-plugin.svg?style=flat-square)](https://packagist.org/packages/wp-addon-plugin/wp-addon-plugin)
+[![PHP Version Require](https://img.shields.io/packagist/php-v/wp-addon-plugin/wp-addon-plugin.svg?style=flat-square)](https://packagist.org/packages/wp-addon-plugin/wp-addon-plugin)
+[![License](https://img.shields.io/packagist/l/wp-addon-plugin/wp-addon-plugin.svg?style=flat-square)](https://packagist.org/packages/wp-addon-plugin/wp-addon-plugin)
 
 🇷🇺 [Russian version](README.ru.md)
 
-Transforms your standard WordPress installation into an excellent, optimized website with comprehensive performance, security, and usability enhancements.
+Transform your standard WordPress installation into an excellent, optimized website with advanced performance enhancements.
 
-## Key Features
+## ✨ Key Features
 
-### Performance Optimization
-- **Asset Minification**: Automatic CSS and JavaScript minification with caching ✅
-- **Media Cleanup**: Remove unused image sizes to free up disk space
-- **Database Optimization**: Fix GUID fields and optimize post revisions
-- **Asset Management**: Disable unnecessary scripts (emojis, heartbeat, jQuery migrate)
+### 🚀 Performance Optimization
+- **Asset Minification**: Automatic CSS and JavaScript minification with intelligent caching
+- **Smart Processing**: Only processes local assets, skips already minified files
+- **Cache Management**: Automatic cleanup on theme/plugin updates
 
-### Security Enhancements
-- Remove WordPress version from headers
-- Disable XML-RPC and pingbacks
-- Block aggressive updates
-- Hide admin bar for non-admin users
+## 🏗️ Architecture
 
-### SEO & Content Management
-- Automatic alt text for uploaded images
-- Transliteration support
-- Custom excerpt lengths
-- Disable comments globally or selectively
-- Post duplication functionality
+- **PSR-4 Autoloading**: Clean namespace structure
+- **Modular Design**: Interface-based system for easy extension
+- **Modern Testing**: Pest framework with declarative syntax
+- **CI/CD**: GitHub Actions with matrix testing
 
-### User Interface Improvements
-- Enhanced TinyMCE editor with custom colors, fonts, and Bootstrap support
-- Advanced dashboard widgets (server info, plugin list, user roles)
-- Custom admin columns (post IDs, thumbnails)
-- Maintenance mode
-
-### Development Tools
-- Custom shortcodes (FAQ, Table of Contents)
-- Additional widgets (Yearly Archive)
-- Custom CSS/JS/HTML injection
-- **PerformanceTweaks Module**: Centralized performance optimizations
-- Modular extension system
-
-## Architecture
-
-- **PSR-4 Autoloading**: Organized namespace structure
-- **Modular Design**: Interface-based module system for easy extension
-- **Dependency Injection**: Clean service architecture
-- **Modern Testing**: Pest framework with declarative syntax, in-memory database, and data factories
-
-## Installation
+## 📦 Installation
 
 1. Download the plugin
 2. Upload to `wp-content/plugins/`
 3. Activate through WordPress admin
-4. Configure settings in **WordPress Excellence** menu
+4. Configure settings in **WP Excellence Addon** menu
 
-## Requirements
+## ✅ Requirements
 
-- WordPress 5.6+
-- PHP 7.4 - 8.4
+- WordPress 6.6+
+- PHP 8.2+
 
-## Testing
+## 🧪 Testing
 
-The plugin uses modern testing practices with Pest framework for declarative, readable tests.
+Modern testing with Pest framework:
 
-### Quick Start
 ```bash
 composer install
-composer test  # Run all unit tests (83 tests)
+composer test  # Run unit tests
 composer test:coverage  # With coverage report
 ```
 
-### Architecture
-- **Pest Framework**: Declarative syntax with `describe`/`it`/`expect`
-- **In-Memory SQLite**: Fast, isolated database testing
-- **Data Factories**: Easy test data generation
-- **CI/CD**: GitHub Actions with matrix testing (PHP 7.4-8.4)
-
-### Writing Tests
-```php
-describe('AssetOptimizationService', function () {
-    it('minifies CSS', function () {
-        $service = new AssetOptimizationService(['minify_css' => true]);
-        $result = $service->minifyCss('body { color: red; }');
-        expect($result)->toBe('body{color:red}');
-    });
-});
-```
-
-Tests are located in `tests/Unit/` and `tests/Feature/`. All tests pass with 196 assertions.
-
-## Development
-
-- Follow PSR-12 coding standards
-- Add PHPDoc for all public methods
-- Write unit tests for new functionality
-- Use modular system for new features
-
-## Backwards Compatibility
-
-The plugin maintains compatibility with existing installations. Legacy features are preserved while new features use the modular system.
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
 2. Create a feature branch
@@ -106,13 +53,11 @@ The plugin maintains compatibility with existing installations. Legacy features 
 4. Ensure all tests pass
 5. Submit a pull request
 
-## License
+## 📄 License
 
 See LICENSE file for details.
 
-## Support
+## 🆘 Support
 
-For support and documentation:
 - [Settings Guide](SETTINGS.md)
 - [Module Development](MODULES_GUIDE.md)
-- WordPress Plugin Directory
