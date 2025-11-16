@@ -1,7 +1,7 @@
 {
   "name": "rwsite/wp-addon-plugin",
   "description": "Massive Addon for WordPress;",
-  "license": "GPL-3.0-or-later",
+  "license": "MIT",
   "type": "wordpress-plugin",
   "authors": [
     {
