@@ -1,15 +1,17 @@
 <?php
 
-describe('AssetMinification', function () {
-    beforeAll(function() {
-        if (!function_exists('site_url')) {
-            function site_url() {
-                return 'http://localhost';
-            }
+beforeAll(function() {
+    if (!function_exists('site_url')) {
+        function site_url() {
+            return 'http://localhost';
         }
-    });
+    }
+});
+
+describe('AssetMinification', function () {
 
     it('creates cache files for CSS assets', function () {
+        $cacheDir = sys_get_temp_dir() . '/wp_addon_cache/';
         $optionService = \Mockery::mock('\\WpAddon\\Services\\OptionService');
         $assetMinification = new \AssetMinification($optionService);
 
@@ -53,8 +55,11 @@ describe('AssetMinification', function () {
         ];
 
         // Mock ABSPATH for urlToPath
-        if (!defined('ABSPATH')) {
-            define('ABSPATH', sys_get_temp_dir() . '/');
+        define('ABSPATH', sys_get_temp_dir() . '/');
+
+        // Ensure cache dir exists
+        if (!is_dir($cacheDir)) {
+            mkdir($cacheDir, 0755, true);
         }
 
         // Initialize
@@ -64,7 +69,6 @@ describe('AssetMinification', function () {
         $assetMinification->processAssets();
 
         // Check if cache file was created
-        $cacheDir = sys_get_temp_dir() . '/wp_addon_cache/';
         $files = glob($cacheDir . '*.gz');
 
         expect(count($files))->toBeGreaterThan(0, 'Cache file should be created');
@@ -77,6 +81,7 @@ describe('AssetMinification', function () {
     });
 
     it('creates cache files for JS assets', function () {
+        $cacheDir = sys_get_temp_dir() . '/wp_addon_cache/';
         $optionService = \Mockery::mock('\\WpAddon\\Services\\OptionService');
         $assetMinification = new \AssetMinification($optionService);
 
@@ -120,8 +125,11 @@ describe('AssetMinification', function () {
         ];
 
         // Mock ABSPATH for urlToPath
-        if (!defined('ABSPATH')) {
-            define('ABSPATH', sys_get_temp_dir() . '/');
+        define('ABSPATH', sys_get_temp_dir() . '/');
+
+        // Ensure cache dir exists
+        if (!is_dir($cacheDir)) {
+            mkdir($cacheDir, 0755, true);
         }
 
         // Initialize
@@ -131,7 +139,6 @@ describe('AssetMinification', function () {
         $assetMinification->processAssets();
 
         // Check if cache file was created
-        $cacheDir = sys_get_temp_dir() . '/wp_addon_cache/';
         $files = glob($cacheDir . '*.gz');
 
         expect(count($files))->toBeGreaterThan(0, 'Cache file should be created');

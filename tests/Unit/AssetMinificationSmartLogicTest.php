@@ -283,7 +283,7 @@ describe('AssetMinification Smart Logic', function () {
 
     it('converts URL to path', function () {
         $url = 'http://localhost/wp-content/themes/theme/style.css';
-        $expectedPath = '/var/www/no-borders.ru//wp-content/themes/theme/style.css';
+        $expectedPath = ABSPATH . 'wp-content/themes/theme/style.css';
 
         $reflection = new \ReflectionClass($this->assetMinification);
         $method = $reflection->getMethod('urlToPath');

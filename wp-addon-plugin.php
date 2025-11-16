@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name:  WP Excellence Addon
+ * Plugin Name:  # WP Excellence Addon
  * Plugin URL:   https://rwsite.ru
  * Description:  Transforms your standard WordPress installation into an excellent, optimized website with comprehensive performance, security, and usability enhancements.
  * Version:      1.3.2
@@ -13,7 +13,7 @@
  *
  * Requires at least: 6.6
  * Tested up to: 6.8.3
- * Requires PHP: 8.2+
+ * Requires PHP: 7.4+
  */
 
 defined('ABSPATH') || exit;

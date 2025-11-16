@@ -402,7 +402,11 @@ class AssetMinification implements ModuleInterface
 
     private function urlToPath(string $url): string
     {
-        return str_replace(site_url(), ABSPATH, $url);
+        if (!$url) {
+            return '';
+        }
+        $path = str_replace(site_url(), '', $url);
+        return rtrim(ABSPATH, '/') . '/' . ltrim($path, '/');
     }
 
     private function getCacheUrl(string $key): string

@@ -129,7 +129,7 @@ global $mock_functions;
 $mock_functions = [];
 
 if (!defined('ABSPATH')) {
-    define('ABSPATH', '/var/www/no-borders.ru/');
+    define('ABSPATH', '/tmp/');
 }
 
 if (!defined('WP_CONTENT_DIR')) {
@@ -283,13 +283,13 @@ if (!function_exists('file_exists')) {
 
 if (!function_exists('is_dir')) {
     function is_dir($filename) {
-        return true;
+        return \is_dir($filename);
     }
 }
 
 if (!function_exists('mkdir')) {
     function mkdir($filename, $mode = 0777, $recursive = false) {
-        return true;
+        return \mkdir($filename, $mode, $recursive);
     }
 }
 
@@ -332,31 +332,30 @@ if (!function_exists('file_get_contents')) {
 
 if (!function_exists('file_put_contents')) {
     function file_put_contents($filename, $data) {
-        return strlen($data);
+        return \file_put_contents($filename, $data);
     }
 }
 
 if (!function_exists('gzcompress')) {
     function gzcompress($data, $level = -1) {
-        return $data . '_compressed';
+        return \gzcompress($data, $level);
     }
 }
 
 if (!function_exists('gzuncompress')) {
     function gzuncompress($data) {
-        global $mock_functions;
-        return $mock_functions['gzuncompress'] ?? str_replace('_compressed', '', $data);
+        return \gzuncompress($data);
     }
 }
 
 if (!function_exists('md5')) {
     function md5($str) {
-        return 'mock_md5_' . $str;
+        return \md5($str);
     }
 }
 
 if (!function_exists('time')) {
     function time() {
-        return 1234567890;
+        return \time();
     }
 }
