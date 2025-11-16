@@ -1,9 +1,9 @@
 # WP Excellence Addon
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/wp-addon-plugin/wp-addon-plugin.svg?style=flat-square)](https://packagist.org/packages/wp-addon-plugin/wp-addon-plugin)
-[![Total Downloads](https://img.shields.io/packagist/dt/wp-addon-plugin/wp-addon-plugin.svg?style=flat-square)](https://packagist.org/packages/wp-addon-plugin/wp-addon-plugin)
-[![PHP Version Require](https://img.shields.io/packagist/php-v/wp-addon-plugin/wp-addon-plugin.svg?style=flat-square)](https://packagist.org/packages/wp-addon-plugin/wp-addon-plugin)
-[![License](https://img.shields.io/packagist/l/wp-addon-plugin/wp-addon-plugin.svg?style=flat-square)](https://packagist.org/packages/wp-addon-plugin/wp-addon-plugin)
+[![GitHub release](https://img.shields.io/github/release/rwsite/wp-addon-plugin.svg?style=flat-square)](https://github.com/rwsite/wp-addon-plugin/releases)
+[![PHP Version](https://img.shields.io/badge/PHP-8.2+-blue.svg?style=flat-square)](https://php.net)
+[![WordPress Version](https://img.shields.io/badge/WordPress-6.6+-blue.svg?style=flat-square)](https://wordpress.org)
+[![License](https://img.shields.io/github/license/rwsite/wp-addon-plugin.svg?style=flat-square)](LICENSE)
 
 🇷🇺 [Russian version](README.ru.md)
 
