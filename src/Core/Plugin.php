@@ -101,7 +101,7 @@ class Plugin
         $temp_zip = download_url($zip_url);
 
         if (is_wp_error($temp_zip)) {
-            wp_die(__('Ошибка загрузки CodeStar Framework. Пожалуйста, установите его вручную с https://github.com/Codestar/codestar-framework', 'wp-addon'));
+            wp_die(__('Error downloading CodeStar Framework. Please install it manually from https://github.com/Codestar/codestar-framework', 'wp-addon'));
         }
 
         // Unzip
@@ -114,7 +114,7 @@ class Plugin
         @unlink($temp_zip);
 
         if (is_wp_error($unzip_result)) {
-            wp_die(__('Ошибка распаковки CodeStar Framework. Пожалуйста, установите его вручную.', 'wp-addon'));
+            wp_die(__('Error unpacking CodeStar Framework. Please install it manually.', 'wp-addon'));
         }
 
         // Rename directory
@@ -127,7 +127,7 @@ class Plugin
         if (file_exists($csf_dir . 'codestar-framework.php')) {
             require_once $csf_dir . 'codestar-framework.php';
         } else {
-            wp_die(__('CodeStar Framework не найден после установки. Пожалуйста, установите его вручную.', 'wp-addon'));
+            wp_die(__('CodeStar Framework not found after installation. Please install it manually.', 'wp-addon'));
         }
     }
 

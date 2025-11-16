@@ -304,9 +304,9 @@ function wptweaker_setting_25()
             $deleted = unlink($license_file) && unlink($readme_file);
 
             if ( ! $deleted) {
-                $GLOBALS['readmedel'] = 'Не удалось удалить файлы: license.txt и readme.html из папки `' . ABSPATH . '`. Удалите их вручную!';
+                $GLOBALS['readmedel'] = sprintf(__('Failed to delete files license.txt and readme.html from folder %s. Please delete them manually!', 'wp-addon'), ABSPATH);
             } else {
-                $GLOBALS['readmedel'] = 'Файлы: license.txt и readme.html удалены из из папки `' . ABSPATH . '`.';
+                $GLOBALS['readmedel'] = sprintf(__('Files license.txt and readme.html have been deleted from folder %s.', 'wp-addon'), ABSPATH);
             }
 
             add_action('admin_notices', function () {

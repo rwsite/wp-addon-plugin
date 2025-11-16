@@ -166,7 +166,7 @@ class Advertising {
             'id'            => 'ads_in_content',
             'type'          => 'tabbed',
             'title'         => __('Ads in content', 'wp-addon'),
-            'subtitle'      => __('Выводит html содержимое в выбранном месте поста', 'wp-addon'),
+            'subtitle'      => __('Displays HTML content in the selected location of the post', 'wp-addon'),
             'tabs'          => [
                 [
                     'title'     => __('Before content', 'wp-addon'),
@@ -336,7 +336,7 @@ class Advertising {
             'id'       => 'ads_jquery',
             'type'     => 'repeater',
             'title'    => __( 'Banner in jQuery selector' ),
-            'subtitle' => __( 'Выводит html содержимое в выбраном jQuery селекторе, в любом месте сайта.' ),
+            'subtitle' => __( 'Displays HTML content in the selected jQuery selector, anywhere on the site.', 'wp-addon' ),
             'fields'   => [
                 [
                     'id'           => 'ads_jquery_upload',

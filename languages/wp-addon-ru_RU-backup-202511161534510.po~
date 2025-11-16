@@ -3,27 +3,43 @@ msgstr ""
 "Project-Id-Version: #1 RW Wordpress Addon\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
-"Language-Team: Русский\n"
+"Language-Team: Russian\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "POT-Creation-Date: 2019-05-29 09:48+0000\n"
-"PO-Revision-Date: 2025-11-16 01:54+0000\n"
+"PO-Revision-Date: 2025-11-16 15:31+0000\n"
 "Language: ru_RU\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10 >= 2 && "
 "n%10<=4 &&(n%100<10||n%100 >= 20)? 1 : 2);\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.3; wp-5.9\n"
+"X-Loco-Version: 2.8.0; wp-6.8.3; php-7.4.33\n"
 
 #: functions/MediaCleanup.php:60
-#, php-format
 msgid " Errors: %d."
+msgstr "Ошибки: %d."
+
+#. Name of the plugin
+msgid "# WP Excellence Addon"
 msgstr ""
 
-#. Plugin Name of the plugin
-#: wp-addon-plugin.php
-msgid "# WordPress Addon"
-msgstr "# Аддон WordPress"
+#: src/Config/wp-addon-settings.php:326
+msgid ""
+"301 redirect management. Create redirect rules from one URL to another. "
+"Supports both simple redirection and wildcard (*) usage for folder "
+"redirection.<br><br><strong>Simple redirects:</strong> /old-page/ → /new-"
+"page/<br><strong>Wildcard redirects:</strong> /old-folder/* → /new-"
+"folder/*<br><br><strong>Important:</strong> Redirects apply to all requests "
+"except wp-admin and wp-login to prevent admin access blocking."
+msgstr ""
+
+#: functions/wp-functions.php:309
+msgid "`."
+msgstr ""
+
+#: functions/wp-functions.php:307
+msgid "`. Please delete them manually!"
+msgstr ""
 
 #: functions/MediaCleanup.php:23 functions/MediaCleanup.php:47
 msgid "Access denied."
@@ -52,6 +68,12 @@ msgstr "Добавить коды Bootsrtrap 3 в TinyMCE"
 #: src/Config/tweaks.php:161
 msgid "Add notice for posts if they have status \"pending\" "
 msgstr "Добавить уведомление для записей, если они имеют статус \"в ожидании\""
+
+#: src/Config/wp-addon-settings.php:339
+msgid ""
+"Add redirection rules. Request - source URL (relative to site root), "
+"Destination - target URL."
+msgstr ""
 
 #: src/Config/main.php:152
 msgid "Add table plugin"
@@ -89,11 +111,6 @@ msgstr "Дополнительная боковая панель 2"
 msgid "Additional sidebar 3"
 msgstr "Дополнительная боковая панель 3"
 
-#. Description of the plugin
-#: wp-addon-plugin.php
-msgid "Addon for WordPress;"
-msgstr "Аддон для WordPress;"
-
 #: src/Config/main.php:230
 msgid "Admin dashboard widgets"
 msgstr "Виджеты панели администратора"
@@ -120,7 +137,6 @@ msgid "After content"
 msgstr "После контента"
 
 #. Author of the plugin
-#: wp-addon-plugin.php
 msgid "Aleksey Tikhomirov"
 msgstr "Aleksey Tikhomirov"
 
@@ -144,11 +160,11 @@ msgstr "Разрешить поддержку SVG для мультимедиа"
 msgid "Allow WEBP support for media"
 msgstr "Разрешить поддержку WEBP для мультимедиа"
 
-#: src/Config/wp-addon-settings.php:155
+#: src/Config/wp-addon-settings.php:404
 msgid "Any HTML code in footer."
 msgstr "Любой HTML-код в футере."
 
-#: src/Config/wp-addon-settings.php:143
+#: src/Config/wp-addon-settings.php:392
 msgid "Any HTML code or Analytics code in header."
 msgstr "Любой HTML-код или код Analytics в header."
 
@@ -156,19 +172,43 @@ msgstr "Любой HTML-код или код Analytics в header."
 msgid "Any widgets"
 msgstr "Любые виджеты"
 
-#: src/Config/wp-addon-settings.php:111
+#: src/Config/wp-addon-settings.php:317
 msgid "Are you sure? This action cannot be undone."
-msgstr ""
+msgstr "Вы уверены? Это действие нельзя отменить."
 
 #: functions/shortcodes/vc-support.php:35
 msgid "Args"
 msgstr "Аргументы"
 
+#: src/Config/wp-addon-settings.php:160
+msgid "Asset Minification"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:162
+msgid ""
+"Asset optimization is a comprehensive system for improving site performance "
+"by minifying and combining CSS/JavaScript files. The module automatically "
+"analyzes all connected resources and applies optimal optimization strategies."
+"<br><br><strong>Benefits:</strong><br>• Reduce file size by 20-40%<br>• "
+"Decrease number of HTTP requests<br>• Speed up page loading<br>• Better "
+"PageSpeed Insights scores<br><br><strong>Automatic logic:</strong><br>• "
+"Excludes WordPress system resources<br>• Does not process files smaller than "
+"1KB<br>• Skips already minified files<br>• Analyzes resource loading "
+"priorities"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:207
+msgid ""
+"Automatically extracts and embeds inline critical CSS styles (header, menu, "
+"main content) for instant display of above-the-fold content. Improves First "
+"Contentful Paint score in Lighthouse."
+msgstr ""
+
 #: src/Config/tweaks.php:155
 msgid "AutoRemove readme.html and license.txt files"
 msgstr "Автоудаление readme.html and license.txt файлов"
 
-#: src/Config/wp-addon-settings.php:168
+#: src/Config/wp-addon-settings.php:417
 msgid "Backup Settings"
 msgstr "Бэкап"
 
@@ -189,9 +229,21 @@ msgstr "До контента"
 msgid "Block http-requests by plugins/themes"
 msgstr "Блокировать http-запросы плагинов и тем"
 
+#: src/Config/wp-addon-settings.php:267
+msgid "Blur effect intensity"
+msgstr ""
+
 #: src/Config/_options.php:7
 msgid "by Aleksey Tihomirov"
 msgstr "от Алексей Тихомиров"
+
+#: src/Config/wp-addon-settings.php:107
+msgid "Cache"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:121
+msgid "Cache lifetime (seconds)"
+msgstr ""
 
 #: src/Config/main.php:60
 msgid "Change length post excerpt? To maximum 200 symbols."
@@ -201,8 +253,12 @@ msgstr "Изменить длину отрывка из поста? Максим
 msgid "Change to On for enable this."
 msgstr "Измените значение на «Вкл.», чтобы включить это."
 
-#: src/Config/wp-addon-settings.php:110
+#: src/Config/wp-addon-settings.php:316
 msgid "Clean up unused image sizes"
+msgstr "Очистите неиспользуемые размеры изображений"
+
+#: src/Config/wp-addon-settings.php:151
+msgid "Clear cache on post publish"
 msgstr ""
 
 #: functions/widgets/duplicate-widgets.php:26
@@ -213,6 +269,33 @@ msgstr "клонировать"
 msgid "Clone this Widget"
 msgstr "Клонирование виджетов"
 
+#: src/Core/Plugin.php:130
+msgid ""
+"CodeStar Framework not found after installation. Please install it manually."
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:191
+msgid ""
+"Collects all suitable CSS files into one combined file, reducing the number "
+"of HTTP requests to the server. Automatically excludes WordPress system "
+"styles. Effective for sites with 3+ CSS files."
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:190
+msgid "Combine CSS files"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:198
+msgid "Combine JavaScript files"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:199
+msgid ""
+"Combines JS files into one loaded in the footer. Reduces the number of "
+"requests, but may break loading order. Recommended to test for JavaScript "
+"errors after enabling."
+msgstr ""
+
 #: src/Config/main.php:86
 msgid "Comment form"
 msgstr "Форма комментариев"
@@ -221,15 +304,22 @@ msgstr "Форма комментариев"
 msgid "Components"
 msgstr "Компоненты"
 
+#: src/Config/wp-addon-settings.php:183
+msgid ""
+"Compresses JS code by removing comments, extra spaces and formatting. Skips "
+"minified files and files smaller than 1KB. Important: check functionality "
+"after enabling, as some plugins may have minification-sensitive code."
+msgstr ""
+
 #: src/Config/main.php:263
 msgid "Contact Form 7 settings"
 msgstr "CF7 настройки"
 
-#: src/Config/wp-addon-settings.php:133
+#: src/Config/wp-addon-settings.php:382
 msgid "CSS Code in Header"
 msgstr "CSS-код в Header"
 
-#: src/Config/wp-addon-settings.php:127
+#: src/Config/wp-addon-settings.php:376
 msgid "Custom code"
 msgstr "Свой код"
 
@@ -241,9 +331,22 @@ msgstr "Аватар по умолчанию"
 msgid "Data Base Optimization"
 msgstr "Оптимизая БД"
 
+#: src/Config/wp-addon-settings.php:214
+msgid "Defer non-critical CSS"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:268
+msgid ""
+"Degree of blur placeholder blur. Value 1 - weak blur, 10 - strong. "
+"Recommended 3-7 for optimal quality and performance balance."
+msgstr ""
+
 #: functions/MediaCleanup.php:58
-#, php-format
 msgid "Deleted %d files."
+msgstr "Удалено %d файлов."
+
+#: src/Config/wp-addon-settings.php:353
+msgid "Destination URL"
 msgstr ""
 
 #: src/Config/tweaks.php:92
@@ -304,16 +407,39 @@ msgstr "Отключить автоматическую привязку URL-а�
 msgid "Disable XML-RPC"
 msgstr "Отключить XML-RPC"
 
+#: functions/posts/Advertising.php:339
+msgid ""
+"Displays HTML content in the selected jQuery selector, anywhere on the site."
+msgstr ""
+
+#: functions/posts/Advertising.php:169
+msgid "Displays HTML content in the selected location of the post"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:278
+msgid ""
+"Distance from viewport edge at which to start loading. Example: 50px - "
+"loading 50px before element appears. 10% - 10% of viewport height."
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:130
+msgid "Do not cache for logged-in users"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:137
+msgid "Do not cache these pages"
+msgstr ""
+
 #: src/Config/main.php:66
 msgid "Don`t allow to show specific categories in frontend."
 msgstr "Запретить отображение определенных категорий во внешнем интерфейсе."
 
-#: src/Config/wp-addon-settings.php:172
+#: src/Config/wp-addon-settings.php:421
 msgid "Download settings now"
 msgstr "Скачать настройки"
 
-#: functions/shortcodes/FAQ.php:78 functions/shortcodes/FAQ_Question.php:111
-#: functions/shortcodes/vc-support.php:12
+#: functions/shortcodes/FAQ.php:78 functions/shortcodes/vc-support.php:12
+#: functions/shortcodes/FAQ_Question.php:111
 msgid "Elements"
 msgstr "Элементы"
 
@@ -329,6 +455,10 @@ msgstr "Включить шрифт Google \"Open Sans\" для TinyMCE."
 msgid "Enable 301 redirect addon?"
 msgstr "Включить надстройку 301 редиректа?"
 
+#: src/Config/wp-addon-settings.php:167
+msgid "Enable asset optimization"
+msgstr ""
+
 #: src/Config/main.php:48 src/Config/main.php:54
 msgid "Enable duplicate post and page"
 msgstr "Включить дублирование поста и страницы"
@@ -337,38 +467,76 @@ msgstr "Включить дублирование поста и страницы
 msgid "Enable Duplicate widgets"
 msgstr "Включить дублирование виджетов"
 
+#: src/Config/wp-addon-settings.php:299
+msgid "Enable fallback for older browsers"
+msgstr ""
+
 #: src/Config/wp-widgets.php:42
 msgid "Enable FAQ shortcode"
 msgstr "Включить шорткод FAQ"
+
+#: src/Config/wp-addon-settings.php:332
+msgid ""
+"Enable for * symbol support in URLs. Example: /old-folder/* will redirect "
+"all pages from old-folder to corresponding pages in new-folder."
+msgstr ""
 
 #: functions/posts/Advertising.php:330
 msgid "Enable jQuery ADs mode"
 msgstr "Включить режим jQuery AD"
 
+#: src/Config/wp-addon-settings.php:247
+msgid "Enable lazy loading"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:114
+msgid "Enable page caching"
+msgstr ""
+
 #: src/Config/wp-widgets.php:49
 msgid "Enable Table of Content shortcode"
-msgstr ""
+msgstr "Включить шорткод таблицы содержания"
 
 #: functions/posts/Advertising.php:160
 msgid "Enable this extension?"
-msgstr ""
+msgstr "Включить это расширение?"
 
 #: src/Config/main.php:172
 msgid "Enable transliteration?"
-msgstr ""
+msgstr "Включить транслитерацию?"
 
 #: functions/shortcodes/vc-support.php:38
 msgid "Enter description."
+msgstr "Введите описание."
+
+#: src/Core/Plugin.php:104
+msgid ""
+"Error downloading CodeStar Framework. Please install it manually from https:"
+"//github.com/Codestar/codestar-framework"
+msgstr ""
+
+#: src/Core/Plugin.php:117
+msgid "Error unpacking CodeStar Framework. Please install it manually."
 msgstr ""
 
 #: functions/posts/Advertising.php:354
 msgid "Example: #div"
-msgstr ""
+msgstr "Пример: #div"
 
 #: src/Config/main.php:179
 msgid ""
 "Exclude all pages from search. Enable it if your site is placement to Test "
 "host."
+msgstr ""
+"Исключить все страницы из поиска. Включите эту функцию, если ваш сайт "
+"находится на тестовом хостинге."
+
+#: src/Config/wp-addon-settings.php:222
+msgid "Exclude CSS files"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:230
+msgid "Exclude JavaScript files"
 msgstr ""
 
 #: src/Config/main.php:72
@@ -376,6 +544,8 @@ msgid ""
 "Exclude specific categories of posts. Enter categories ID, separated by "
 "commas. Before ID you need a minus sign."
 msgstr ""
+"Исключить определённые категории публикаций. Введите идентификатор категории "
+"через запятую. Перед идентификатором необходимо поставить знак минус."
 
 #: functions/shortcodes/FAQ.php:29 functions/shortcodes/FAQ.php:30
 msgid "FAQ"
@@ -383,24 +553,24 @@ msgstr "Часто задаваемые вопросы"
 
 #: functions/MediaCleanup.php:40
 msgid "Files to delete:"
-msgstr ""
+msgstr "Файлы для удаления:"
 
 #: functions/wp-functions.php:335
 msgid "filter..."
 msgstr ""
 
-#: src/Config/wp-addon-settings.php:89
+#: src/Config/wp-addon-settings.php:93
 msgid "General Settings"
 msgstr "Основные настройки"
 
 #: src/Config/tweaks.php:197
 msgid "Get jquery from google cloud"
-msgstr ""
+msgstr "Получить jquery из Google Cloud"
 
 #: functions/posts/fix_guid.php:30 functions/posts/fix_guid.php:31
 #: functions/posts/fix_guid.php:50
 msgid "Guid repair"
-msgstr ""
+msgstr "Ремонт Guid"
 
 #: src/Config/tweaks.php:128
 msgid "Hide adminbar in frontend for contributors, authors and subscribers"
@@ -410,55 +580,149 @@ msgstr ""
 
 #: src/Config/main.php:284
 msgid "Hide languages in wp Front. Enter lang slug, separated: \", \"."
+msgstr "Скрыть языки в WP Front. Введите название языка, разделённое: \", \"."
+
+#: src/Config/wp-addon-settings.php:122
+msgid ""
+"How many seconds to store the cached page. After this time, the page will be "
+"recreated. For a news site - 1800 sec (30 min). For static - 3600 sec (1 "
+"hour)."
 msgstr ""
 
 #. Author URI of the plugin
-#: wp-addon-plugin.php
 msgid "https://rwsite.ru"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:131
+msgid ""
+"If a user is logged into admin or personal account - show them fresh pages "
+"without cache. Otherwise, they may not see their changes or notifications."
 msgstr ""
 
 #: src/Config/tweaks.php:173
 msgid "If posts have status \"pending\" show numbers it in menu"
-msgstr ""
+msgstr "Если сообщения имеют статус «ожидание», показывать их номера в меню."
 
 #: src/Config/main.php:217
-#, php-format
 msgid ""
 "If you url is include %category%, %tag%, %author%, you can use this option "
 "for repair GUID(url) in your database."
 msgstr ""
+"Если ваш URL включает %category%, %tag%, %author%, вы можете использовать "
+"эту опцию для восстановления GUID(url) в вашей базе данных."
+
+#: src/Config/wp-addon-settings.php:258
+msgid "Iframe (YouTube, Vimeo)"
+msgstr "Iframe (YouTube, Vimeo)"
+
+#: src/Config/wp-addon-settings.php:257
+msgid "Images (img)"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:206
+msgid "Implement critical CSS"
+msgstr ""
 
 #: functions/posts/Advertising.php:223
 msgid "In content"
-msgstr ""
+msgstr "В содержании"
 
 #: functions/shortcodes/vc-support.php:27
 msgid "Instance"
-msgstr ""
+msgstr "Пример"
 
 #: functions/shortcodes/vc-support.php:30
 msgid "Instance Params"
-msgstr ""
+msgstr "Параметры экземпляра"
 
 #: functions/posts/Advertising.php:353
 msgid "jQuery selector"
+msgstr "селектор jQuery"
+
+#: src/Config/wp-addon-settings.php:231
+msgid ""
+"JS file handles separated by comma for exclusion from optimization. Examples:"
+" google-analytics, facebook-pixel, custom-scripts. WordPress system scripts "
+"(jQuery, etc.) are excluded automatically."
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:240
+msgid "Lazy Loading"
+msgstr "Ленивая загрузка"
+
+#: src/Config/wp-addon-settings.php:242
+msgid ""
+"Lazy loading of images and media files is a performance optimization "
+"technique where resources are loaded only when they come into the user's "
+"view. The module uses the modern Intersection Observer API with fallback for "
+"older browsers.<br><br><strong>Benefits:</strong><br>• Reduced page load "
+"time<br>• Traffic savings (especially on mobile devices)<br>• Improved Core "
+"Web Vitals (LCP, CLS)<br>• Automatic image compression with blur "
+"placeholder<br><br><strong>Support:</strong><br>• Images (img)<br>• Iframe "
+"(YouTube, Vimeo videos)<br>• Video elements<br>• Blur placeholder for smooth "
+"loading<br>• Fallback for IE11+"
 msgstr ""
 
 #: functions/posts/Advertising.php:195 functions/posts/Advertising.php:246
 #: functions/posts/Advertising.php:297
 msgid "Link"
+msgstr "Связь"
+
+#: src/Config/wp-addon-settings.php:223
+msgid ""
+"List of CSS file handles separated by comma that should not be optimized. "
+"Examples: critical-styles, admin-css, custom-admin-styles. WordPress system "
+"files are excluded automatically."
 msgstr ""
 
-#: src/Config/wp-addon-settings.php:111
+#: src/Config/wp-addon-settings.php:317
 msgid "Loading preview..."
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:215
+msgid ""
+"Loads non-critical CSS files asynchronously after page rendering. Prevents "
+"render blocking, but may cause brief \"flash of unstyled content\" (FOUC)."
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:115
+msgid ""
+"Main switch for enabling/disabling cache. When ON: all site pages are saved "
+"to cache. When OFF: cache is not used, pages are generated each time anew."
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:248
+msgid ""
+"Main switch of the module. When enabled, lazy loading is activated for "
+"selected media types. Recommended to enable on all sites for improved "
+"performance."
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:168
+msgid ""
+"Main switch of the optimization module. When enabled, intelligent processing "
+"of all CSS and JavaScript resources on the site is activated. Recommended to "
+"enable on production sites for maximum performance."
 msgstr ""
 
 #: functions/MaintenanceMode.php:59 src/Config/main.php:11
 msgid "Maintenance Mode"
 msgstr "Режим тех. работ"
 
-#: src/Config/wp-addon-settings.php:103
+#: src/Config/wp-addon-settings.php:309
 msgid "Media Cleanup"
+msgstr "Очистка медиа"
+
+#: src/Config/wp-addon-settings.php:254
+msgid "Media types for lazy loading"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:174
+msgid "Minify CSS files"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:182
+msgid "Minify JavaScript files"
 msgstr ""
 
 #: functions/MediaCleanup.php:37
@@ -484,6 +748,32 @@ msgstr "OK"
 msgid "On"
 msgstr "Вкл"
 
+#: src/Config/wp-addon-settings.php:109
+msgid ""
+"Page caching saves ready HTML pages to a file. When a user visits the site, "
+"instead of executing PHP code and database queries, they are shown the saved "
+"page immediately. This speeds up site loading by 5-10 times.<br><br><strong>"
+"When to use:</strong> On a finished site with high traffic. <strong>When to "
+"disable:</strong> During development or if content changes frequently.<br>"
+"<br><strong>Important:</strong> Cached pages are stored in the wp-"
+"content/cache/pages/ folder as .gz files."
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:145
+msgid ""
+"Pages for auto-caching every hour. <strong>Leave empty for automatic mode:"
+"</strong> the home page + all pages from the main site menu (up to 10 pcs) "
+"will be loaded. Or specify manually: one URL per line, for example /about/, "
+"/services/"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:138
+msgid ""
+"Pages that change frequently and should not be cached. One line - one URL. "
+"Examples: /wp-admin/ (admin), /checkout/ (checkout), /cart/ (cart), /my-"
+"account/ (personal account)."
+msgstr ""
+
 #: functions/shortcodes/vc-support.php:21
 msgid ""
 "Paste Original Widget Class Name. See: https://codex.wordpress."
@@ -508,13 +798,17 @@ msgstr "Настройки Polylang"
 msgid "Posts and Page Settings"
 msgstr "Настройки постов и страниц"
 
-#: src/Config/wp-addon-settings.php:111
-msgid "Preview Cleanup"
+#: src/Config/wp-addon-settings.php:144
+msgid "Preload these pages"
 msgstr ""
 
-#: src/Config/wp-addon-settings.php:111
+#: src/Config/wp-addon-settings.php:317
+msgid "Preview Cleanup"
+msgstr "Очистка предварительного просмотра"
+
+#: src/Config/wp-addon-settings.php:317
 msgid "Processing..."
-msgstr ""
+msgstr "Обработка..."
 
 #: functions/shortcodes/FAQ_Question.php:35
 #: functions/shortcodes/FAQ_Question.php:36
@@ -529,6 +823,14 @@ msgstr "Вопрос для ответа"
 #: functions/wp-functions.php:406
 msgid "Read more ..."
 msgstr "Подробнее..."
+
+#: src/Config/wp-addon-settings.php:338
+msgid "Redirect rules"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:324
+msgid "Redirects"
+msgstr ""
 
 #: src/Config/tweaks.php:44
 msgid "Remove adjacent links to posts in the header"
@@ -587,9 +889,26 @@ msgstr "Удалить Windows Live Writer"
 msgid "Remove WP-Version in Header"
 msgstr "Удалить WP-версию в шапке"
 
+#: src/Config/wp-addon-settings.php:175
+msgid ""
+"Removes from CSS files: comments, extra spaces, line breaks and tabs. Does "
+"not process files that are already minified or smaller than 1KB. Traffic "
+"savings: 15-30% per file."
+msgstr ""
+
 #: src/Config/tweaks.php:185
 msgid "Repalse [...] to \"Read more ...\" for posts"
 msgstr "Заменить [...] на «Читать далее...» для сообщений"
+
+#: src/Config/wp-addon-settings.php:344
+msgid "Request URL"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:255
+msgid ""
+"Select element types for which lazy loading will be applied. Images are most "
+"effective for optimization."
+msgstr ""
 
 #: functions/posts/Advertising.php:213 functions/posts/Advertising.php:216
 #: functions/posts/Advertising.php:264 functions/posts/Advertising.php:267
@@ -605,7 +924,7 @@ msgstr "Настройки SEO"
 msgid "Separeted: \", \""
 msgstr "Разделитель \", \""
 
-#: functions/dashboard-widget/siteinfo.php:15 src/Config/main.php:247
+#: src/Config/main.php:247 functions/dashboard-widget/siteinfo.php:15
 msgid "Server info"
 msgstr "ИНФОРМАЦИЯ О СЕРВЕРЕ"
 
@@ -617,7 +936,7 @@ msgstr "Установите Alt при обновлении загрузки с
 msgid "Set limit post revisions to 5"
 msgstr "Установить ограничение на ревизий постов в 5"
 
-#: src/Config/wp-addon-settings.php:118
+#: src/Config/wp-addon-settings.php:367
 msgid "Shortcodes and Widgets"
 msgstr "Шорткоды и виджеты"
 
@@ -645,24 +964,44 @@ msgstr "Отображение сообщения \"Обновить wordpress\"
 msgid "Showing usages memory and time generate site page"
 msgstr "Отображение использования памяти и времени создания страницы сайта"
 
+#: src/Config/wp-addon-settings.php:345
+msgid "Source URL for redirection. Example: /old-page/ or /old-folder/*"
+msgstr ""
+
 #: src/Config/main.php:286
 msgid "Space must be entered!"
 msgstr "Пробел должен быть введен!"
+
+#: functions/cf7/datetimepicker.php:79
+msgid "Specify date and time in format: 00.00.0000 00:00 or use the calendar"
+msgstr ""
 
 #: functions/wp-functions.php:253
 #, php-format
 msgid "SQL: %d за %s sec. %.2f MB "
 msgstr "SQL: %d за %s sec. %.2f MB "
 
-#: src/Config/wp-addon-settings.php:111
+#: src/Config/wp-addon-settings.php:317
 msgid "Start Cleanup"
+msgstr "Начать очистку"
+
+#: src/Config/wp-addon-settings.php:354
+msgid ""
+"Target URL. Can be relative (/new-page/) or absolute (https://example."
+"com/new-page/)"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:289
+msgid ""
+"The portion of the element that must enter the viewport to start loading. 0."
+"1 = 10% of element visible. 1.0 = entire element visible."
 msgstr ""
 
 #: src/Config/main.php:208
 msgid "This option enable interface for replace wp guide to right GUID."
 msgstr "Эта опция включает интерфейс для замены wp guide на правильный GUID."
 
-#: src/Config/wp-addon-settings.php:105
+#: src/Config/wp-addon-settings.php:311
 msgid ""
 "This section allows you to clean up unused image sizes to free up disk space."
 " WordPress generates multiple sizes for each uploaded image, but if your "
@@ -674,13 +1013,27 @@ msgid ""
 "what will be deleted. The tool preserves original images and \"scaled\" "
 "versions (up to 2000px). Deleted files cannot be recovered!"
 msgstr ""
+"Этот раздел позволяет очистить неиспользуемые размеры изображений, чтобы "
+"освободить место на диске. WordPress генерирует несколько размеров для "
+"каждого загруженного изображения, но если ваша тема или плагины не "
+"используют их все, они занимают лишнее место. Используйте этот инструмент "
+"для выявления и удаления таких файлов.<br><br><strong>Когда использовать:"
+"</strong> После смены темы, отключения плагинов, генерирующих нестандартные "
+"размеры, или оптимизации производительности сайта.<br><br><strong>Меры "
+"предосторожности:</strong> Всегда создавайте резервную копию перед очисткой. "
+"Сначала воспользуйтесь функцией «Предварительная очистка», чтобы увидеть, "
+"что будет удалено. Инструмент сохраняет исходные изображения и "
+"«масштабированные» версии (до 2000 пикселей). Удаленные файлы не подлежат "
+"восстановлению!"
 
-#: src/Config/wp-addon-settings.php:111
+#: src/Config/wp-addon-settings.php:317
 #, php-format
 msgid ""
 "This will delete all image sizes except: %s. Files will be deleted "
 "permanently!"
 msgstr ""
+"Это приведет к удалению всех размеров изображений, кроме: %s. Файлы будут "
+"удалены безвозвратно!"
 
 #: src/Config/main.php:112
 msgid "TinyMCE Settings"
@@ -689,15 +1042,31 @@ msgstr "Настройки TinyMCE"
 #: functions/MediaCleanup.php:38
 #, php-format
 msgid "Total size: %s MB"
+msgstr "Общий размер: %s МБ"
+
+#. Description of the plugin
+msgid ""
+"Transforms your standard WordPress installation into an excellent, optimized "
+"website with comprehensive performance, security, and usability enhancements."
 msgstr ""
 
-#: src/Config/wp-addon-settings.php:96
+#: src/Config/wp-addon-settings.php:100
 msgid "Tweaks"
 msgstr "Твики"
 
 #: functions/posts/fix_guid.php:62
 msgid "Update all GUID"
 msgstr "Обновить все идентификаторы GUID"
+
+#: src/Config/wp-addon-settings.php:300
+msgid ""
+"Use scroll event listeners instead of Intersection Observer in browsers "
+"without IO API support. Slows performance but ensures compatibility."
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:331
+msgid "Use wildcard redirects"
+msgstr ""
 
 #: functions/users/UserAvatar.php:50
 msgid "User avatar"
@@ -707,41 +1076,60 @@ msgstr "Аватар пользователя"
 msgid "Users role info"
 msgstr "Информация о ролях"
 
+#: src/Config/wp-addon-settings.php:259
+msgid "Video elements"
+msgstr ""
+
 #: functions/posts/fix_guid.php:57
 msgid "View all GUID"
+msgstr "Просмотреть все GUID"
+
+#: src/Config/wp-addon-settings.php:277
+msgid "Viewport margin (rootMargin)"
+msgstr ""
+
+#: src/Config/wp-addon-settings.php:288
+msgid "Visibility threshold"
 msgstr ""
 
 #: functions/wp-functions.php:240
 msgid "VK"
-msgstr ""
+msgstr "ВК"
 
 #: functions/dashboard-widget/siteinfo.php:47
 msgid "Welcome to "
+msgstr "Добро пожаловать в"
+
+#: src/Config/wp-addon-settings.php:152
+msgid ""
+"When you publish a new article or edit an old one - automatically delete all "
+"cache. So readers will immediately see fresh content. Disable if you publish "
+"often - this will slow down the site."
 msgstr ""
 
 #: functions/shortcodes/vc-support.php:18
 msgid "Widget Name"
-msgstr ""
+msgstr "Имя виджета"
 
 #: functions/shortcodes/widget_shortcode.php:33
 msgid "Widget not found!"
-msgstr ""
+msgstr "Виджет не найден!"
 
 #: src/Config/_options.php:41
 msgid "With love by <span style=\"color: #ED4301;\">A</span> Tikhomirov"
 msgstr "С любовью <span style=\"color: #ED4301;\">A</span> Tikhomirov"
 
-#: src/Config/wp-addon-settings.php:78
+#: src/Config/wp-addon-settings.php:82
 msgid "Wordpress Addon"
 msgstr "Дополнения WP"
 
 #: src/Config/tweaks.php:14
 msgid "WP-Emojis deacivation"
-msgstr ""
+msgstr "Деактивация WP-Emojis"
 
 #: src/Config/wp-widgets.php:43 src/Config/wp-widgets.php:50
 msgid "WPBakery Page Builder support "
-msgstr ""
+msgstr "Поддержка конструктора страниц WPBakery"
 
 #: src/Config/main.php:202
 msgid "Write right link to guid for New posts."
@@ -750,10 +1138,6 @@ msgstr "Напишите правильную ссылку на guid for New pos
 #: src/Config/wp-widgets.php:62
 msgid "Yearly archive widget"
 msgstr "Виджет ежегодного архива"
-
-#: functions/posts/Advertising.php:169
-msgid "Выводит html содержимое в выбранном месте поста"
-msgstr ""
 
 #: functions/MaintenanceMode.php:69
 msgid "Извините, в настоящий момент на сайте проводятся технические работы."
@@ -794,11 +1178,3 @@ msgstr "Попробуйте зайти позднее."
 #: functions/MaintenanceMode.php:66
 msgid "Технические работы."
 msgstr "Технические работы."
-
-#: functions/cf7/datetimepicker.php:79
-msgid ""
-"Укажите дату и время в формате: 00.00.0000 00:00 или воспользуйтесь "
-"календарем"
-msgstr ""
-"Укажите дату и время в формате: 00.00.0000 00:00 или воспользуйтесь "
-"календарем"

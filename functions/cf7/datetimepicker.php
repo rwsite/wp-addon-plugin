@@ -76,7 +76,7 @@ function wpcf7_datetime_form_tag_handler( $tag ) {
 		#$atts['data-validation'] = 'number';
         $atts['data-sanitize'] = 'numberFormat';
         $atts['data-sanitize-number-format'] = '00.00.0000 00:00';
-        $atts['data-validation-help'] = __('Укажите дату и время в формате: 00.00.0000 00:00 или воспользуйтесь календарем', 'wp-addon');
+        $atts['data-validation-help'] = __('Specify date and time in format: 00.00.0000 00:00 or use the calendar', 'wp-addon');
 
 	} else {
 		$atts['type'] = 'text';
