@@ -22,7 +22,7 @@ class LazyLoading implements ModuleInterface
 
     public function init(): void
     {
-        if (!$this->enabled || is_admin()) {
+        if (!$this->enabled || (function_exists('is_admin') && is_admin())) {
             return;
         }
 

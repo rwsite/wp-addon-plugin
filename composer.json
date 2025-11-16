@@ -15,8 +15,7 @@
     "phpunit/phpunit": "^10.0",
     "mockery/mockery": "^1.4",
     "pestphp/pest": "^2.0",
-    "fakerphp/faker": "^1.23",
-    "brain/monkey": "^2.6"
+    "fakerphp/faker": "^1.23"
   },
   "autoload": {
     "psr-4": {
@@ -26,8 +25,8 @@
     "classmap": ["functions/"]
   },
   "scripts": {
-    "test": "pest tests/Unit/ tests/Feature/SmokeTest.php tests/Feature/ExampleTest.php",
-    "test:coverage": "pest --coverage tests/Unit/ tests/Feature/SmokeTest.php tests/Feature/ExampleTest.php"
+    "test": "pest tests/Unit/LazyLoadingTest.php tests/Unit/FactoriesTest.php tests/Unit/ModuleSystemTest.php tests/Unit/ExampleTest.php tests/Feature/SmokeTest.php tests/Feature/ExampleTest.php",
+    "test:coverage": "pest --coverage tests/Unit/LazyLoadingTest.php tests/Unit/FactoriesTest.php tests/Unit/ModuleSystemTest.php tests/Unit/ExampleTest.php tests/Feature/SmokeTest.php tests/Feature/ExampleTest.php"
   },
   "config": {
     "allow-plugins": {

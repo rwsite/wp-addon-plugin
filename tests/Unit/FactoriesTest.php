@@ -4,6 +4,13 @@ use WpAddon\Tests\Factories\PostFactory;
 use WpAddon\Tests\Factories\AssetFactory;
 
 describe('Factories', function () {
+    beforeEach(function () {
+        global $db;
+        if (!isset($db)) {
+            $db = new PDO('sqlite::memory:');
+            $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+        }
+    });
     it('creates posts with PostFactory', function () {
         $factory = new PostFactory();
         $post = $factory->create(['post_title' => 'Test Post']);

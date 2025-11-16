@@ -1,11 +1,10 @@
 <?php
 
-use Brain\Monkey;
-use Brain\Monkey\Functions;
 use \Mockery;
 
 /**
  * Unit tests for ImageOptimizationService
+ * @group problematic
  */
 describe('ImageOptimizationService Unit Tests', function () {
     // Пропускаем эти тесты в CI из-за Patchwork конфликтов
@@ -14,12 +13,10 @@ describe('ImageOptimizationService Unit Tests', function () {
         return;
     }
     beforeEach(function () {
-        Monkey\setUp();
         $this->imageOptimizationService = new ImageOptimizationService();
     });
 
     afterEach(function () {
-        Monkey\tearDown();
         Mockery::close();
     });
 

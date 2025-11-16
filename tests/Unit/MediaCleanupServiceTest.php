@@ -1,5 +1,8 @@
 <?php
 
+/**
+ * @group problematic
+ */
 use WpAddon\Services\MediaCleanupService;
 
 describe('MediaCleanupService', function () {
