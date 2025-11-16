@@ -5,10 +5,12 @@ namespace WpAddon\Tests;
 use PHPUnit\Framework\TestCase as BaseTestCase;
 
 /**
- * Base test case for WP Addon Plugin tests
+ * Base test case for WP Addon Plugin tests with database support
  */
 abstract class TestCase extends BaseTestCase
 {
+    use DatabaseMigrations;
+
     /**
      * Set up test environment
      */
@@ -16,12 +18,14 @@ abstract class TestCase extends BaseTestCase
     {
         parent::setUp();
 
+        // Run database migrations before each test
+        $this->runDatabaseMigrations();
+
         // Reset global WordPress objects
-        global $wp_styles, $wp_scripts, $wp_inline_scripts, $mock_options;
+        global $wp_styles, $wp_scripts, $wp_inline_scripts;
         $wp_styles = null;
         $wp_scripts = null;
         $wp_inline_scripts = null;
-        $mock_options = [];
     }
 
     /**
@@ -29,6 +33,9 @@ abstract class TestCase extends BaseTestCase
      */
     protected function tearDown(): void
     {
+        // Clean up database after each test
+        $this->cleanupDatabase();
+
         parent::tearDown();
     }
 
@@ -39,15 +46,6 @@ abstract class TestCase extends BaseTestCase
     {
         $path = __DIR__ . '/data';
         return $filename ? $path . '/' . $filename : $path;
-    }
-
-    /**
-     * Mock WordPress options
-     */
-    protected function mockOptions(array $options): void
-    {
-        global $mock_options;
-        $mock_options = array_merge($mock_options, $options);
     }
 
     /**
@@ -143,6 +141,15 @@ abstract class TestCase extends BaseTestCase
         });
 
         return $mock;
+    }
+
+    /**
+     * Set mock function value
+     */
+    protected function setMockFunction(string $functionName, $value): void
+    {
+        global $mock_functions;
+        $mock_functions[$functionName] = $value;
     }
 
     /**

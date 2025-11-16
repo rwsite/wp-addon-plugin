@@ -13,7 +13,7 @@ class AssetOptimizationService
     public function __construct(array $config)
     {
         $this->config = $config;
-        $this->cacheDir = $config['cache_dir'];
+        $this->cacheDir = rtrim($config['cache_dir'], '/') . '/';
         $this->ensureCacheDir();
     }
 

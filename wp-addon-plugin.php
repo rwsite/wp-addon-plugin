@@ -1,9 +1,9 @@
 <?php
 /**
- * Plugin Name:  # WordPress Addon
+ * Plugin Name:  WordPress Excellence
  * Plugin URL:   https://rwsite.ru
- * Description:  Addon for WordPress;
- * Version:      1.3.0
+ * Description:  Transforms your standard WordPress installation into an excellent, optimized website with comprehensive performance, security, and usability enhancements.
+ * Version:      1.3.1
  * Text Domain:  wp-addon
  * Domain Path: /languages/
  * Author:       Aleksey Tikhomirov
@@ -11,7 +11,7 @@
  *
  * Tags: wordpress, wp-addon,
  *
- * Requires at least: 5.3
+ * Requires at least: 5.6
  * Tested up to: 6.8.3
  * Requires PHP: 7.4+
  */

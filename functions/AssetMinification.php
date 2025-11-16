@@ -36,8 +36,8 @@ class AssetMinification implements ModuleInterface
             'defer_non_critical_css' => $this->optionService->getSetting('asset_defer_non_critical_css', $defaultConfig['defer_non_critical_css']),
             'exclude_css' => array_merge($defaultConfig['exclude_css'], explode(',', $this->optionService->getSetting('asset_exclude_css', ''))),
             'exclude_js' => array_merge($defaultConfig['exclude_js'], explode(',', $this->optionService->getSetting('asset_exclude_js', ''))),
-            'cache_dir' => $defaultConfig['cache_dir'],
-            'version_salt' => $defaultConfig['version_salt'],
+            'cache_dir' => $this->optionService->getSetting('cache_dir', $defaultConfig['cache_dir']),
+            'version_salt' => $this->optionService->getSetting('version_salt', $defaultConfig['version_salt']),
         ];
     }
 
@@ -103,9 +103,6 @@ class AssetMinification implements ModuleInterface
         if (!$wp_styles || !$this->config['minify_css'] && !$this->config['combine_css']) {
             return;
         }
-
-        // Отладка
-        // error_log('AssetMinification: processCss started, styles count: ' . count($wp_styles->queue));
 
         $cssFiles = [];
         $handlesToRemove = [];
@@ -420,5 +417,12 @@ class AssetMinification implements ModuleInterface
         foreach ($files as $file) {
             unlink($file);
         }
+    }
+
+    // Public method for testing
+    public function processAssets(): void
+    {
+        $this->processCss();
+        $this->processJs();
     }
 }

@@ -13,8 +13,11 @@
   "require": {
   },
   "require-dev": {
-    "phpunit/phpunit": "^9.0",
-    "mockery/mockery": "^1.4"
+    "phpunit/phpunit": "^10.0",
+    "mockery/mockery": "^1.4",
+    "pestphp/pest": "^2.0",
+    "fakerphp/faker": "^1.23",
+    "brain/monkey": "^2.6"
   },
   "autoload": {
     "psr-4": {
@@ -24,7 +27,12 @@
     "classmap": ["functions/"]
   },
   "scripts": {
-    "test": "phpunit",
-    "test:coverage": "phpunit --coverage-html coverage"
+    "test": "pest tests/Unit/ tests/Feature/SmokeTest.php tests/Feature/ExampleTest.php",
+    "test:coverage": "pest --coverage tests/Unit/ tests/Feature/SmokeTest.php tests/Feature/ExampleTest.php"
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
   }
 }
