@@ -1,6 +1,14 @@
 <?php
 
 describe('AssetMinification', function () {
+    beforeAll(function() {
+        if (!function_exists('site_url')) {
+            function site_url() {
+                return 'http://localhost';
+            }
+        }
+    });
+
     it('creates cache files for CSS assets', function () {
         $optionService = \Mockery::mock('\\WpAddon\\Services\\OptionService');
         $assetMinification = new \AssetMinification($optionService);
