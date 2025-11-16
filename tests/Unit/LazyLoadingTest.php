@@ -1,6 +1,6 @@
 <?php
 
-use \Mockery;
+use Mockery\Mockery;
 
 /**
  * Unit tests for LazyLoading module
