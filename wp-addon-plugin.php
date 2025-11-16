@@ -11,7 +11,7 @@
  *
  * Tags: wordpress, wp-addon,
  *
- * Requires at least: 5.6
+ * Requires at least: 6.6
  * Tested up to: 6.8.3
  * Requires PHP: 8.2+
  */
