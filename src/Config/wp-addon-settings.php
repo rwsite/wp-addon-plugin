@@ -3,6 +3,9 @@
 namespace WpAddon;
 
 use WpAddon\Services\MediaCleanupService;
+use Plugin_Upgrader;
+use WP_Ajax_Upgrader_Skin;
+use Automatic_Upgrader_Skin;
 
 defined( 'ABSPATH' ) or exit;
 
@@ -46,10 +49,398 @@ class WP_Addon_Settings {
 	public function __wakeup() {
 	}
 
+    private function get_github_plugins() {
+        $cache_key = 'wp_addon_github_plugins';
+        $cached_plugins = get_transient($cache_key);
+        if ($cached_plugins !== false) {
+            error_log('GitHub plugins loaded from cache: ' . count($cached_plugins));
+            return $cached_plugins;
+        }
+
+        $token = defined('GITHUB_TOKEN') ? GITHUB_TOKEN : null;
+        $headers = $token ? ['Authorization' => 'token ' . $token] : [];
+        error_log('Using GitHub token: ' . ($token ? 'yes' : 'no'));
+
+        $response = wp_remote_get('https://api.github.com/users/rwsite/repos?page=1&per_page=100', ['headers' => $headers]);
+        if (is_wp_error($response)) {
+            error_log('GitHub API error (repos): ' . $response->get_error_message());
+            return [];
+        }
+        $repos = json_decode(wp_remote_retrieve_body($response), true);
+        if (!is_array($repos)) {
+            error_log('Invalid repos response: ' . wp_remote_retrieve_body($response));
+            return [];
+        }
+        error_log('Repos loaded: ' . count($repos));
+        $plugins = [];
+        foreach ($repos as $repo) {
+            $name = $repo['name'] ?? '';
+            // Исключаем текущий плагин
+            if ($name === 'wp-addon-plugin') {
+                continue;
+            }
+            // Фильтр по формату wp-{name}-plugin
+            if (!preg_match('/^wp-.*-plugin$/', $name)) {
+                continue;
+            }
+            // Проверяем наличие тегов (стабильных версий)
+            $tags_response = wp_remote_get('https://api.github.com/repos/rwsite/' . $name . '/tags?per_page=1', ['headers' => $headers]);
+            if (is_wp_error($tags_response)) {
+                error_log('Tags error for ' . $name . ': ' . $tags_response->get_error_message());
+                continue;
+            }
+            $tags = json_decode(wp_remote_retrieve_body($tags_response), true);
+            if (!is_array($tags) || empty($tags)) {
+                error_log('No tags for ' . $name);
+                continue;
+            }
+            // Проверяем, что это WordPress плагин (наличие plugin.php или readme.txt)
+            $contents_response = wp_remote_get('https://api.github.com/repos/rwsite/' . $name . '/contents?ref=' . ($repo['default_branch'] ?? 'main'), ['headers' => $headers]);
+            if (is_wp_error($contents_response)) {
+                error_log('Contents error for ' . $name . ': ' . $contents_response->get_error_message());
+                continue;
+            }
+            $contents = json_decode(wp_remote_retrieve_body($contents_response), true);
+            if (!is_array($contents)) {
+                error_log('Invalid contents for ' . $name);
+                continue;
+            }
+            $has_plugin_file = false;
+            foreach ($contents as $file) {
+                if ($file['name'] === $name . '.php' || $file['name'] === 'plugin.php' || $file['name'] === 'readme.txt') {
+                    $has_plugin_file = true;
+                    break;
+                }
+            }
+            if (!$has_plugin_file) {
+                error_log('No plugin file for ' . $name);
+                continue;
+            }
+            $plugins[] = [
+                'name' => $name,
+                'description' => $repo['description'] ?? '',
+                'html_url' => $repo['html_url'] ?? '',
+                'zip_url' => 'https://github.com/rwsite/' . $name . '/archive/' . ($repo['default_branch'] ?? 'main') . '.zip',
+            ];
+        }
+        error_log('Filtered plugins: ' . count($plugins));
+
+        // Кешируем на сутки
+        set_transient($cache_key, $plugins, DAY_IN_SECONDS);
+
+        return $plugins;
+    }
+
+    public function get_plugins_html() {
+        $plugins = $this->get_github_plugins();
+        $installed_plugins = get_plugins();
+        $active_plugins = get_option('active_plugins', []);
+        $html = '<div class="my-plugins-list" style="max-width: 800px;">';
+        $html .= '<button id="refresh-plugins-list" class="button">Обновить список</button><br><br>';
+        if (empty($plugins)) {
+            $html .= '<p>Не удалось загрузить список плагинов.</p>';
+        } else {
+            foreach ($plugins as $plugin) {
+                $is_installed = false;
+                $plugin_file = null;
+                $is_active = false;
+                foreach ($installed_plugins as $file => $data) {
+                    if (dirname($file) === $plugin['name']) {
+                        $is_installed = true;
+                        $plugin_file = $file;
+                        $is_active = in_array($file, $active_plugins);
+                        break;
+                    }
+                }
+                $class = $is_installed ? ($is_active ? 'plugin-item installed active' : 'plugin-item installed inactive') : 'plugin-item not-installed';
+                $style = $is_installed ? ($is_active ? 'border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #d4edda;' : 'border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #fff3cd;') : 'border: 1px solid #ddd; padding: 10px; margin-bottom: 10px; border-radius: 5px; background-color: #f8f9fa;';
+                $button_text = $is_installed ? 'Деинсталлировать' : 'Установить';
+                $button_class = $is_installed ? 'uninstall-plugin-btn button button-secondary' : 'install-plugin-btn button button-primary';
+                $html .= '<div class="' . esc_attr($class) . '">';
+                $html .= '<h4 style="margin: 0 0 5px 0;">' . esc_html($plugin['name']) . '</h4>';
+                $html .= '<p style="margin: 5px 0; list-style: none;">' . esc_html($plugin['description']) . '</p>';
+                $html .= '<a href="' . esc_url($plugin['html_url']) . '" target="_blank" style="margin-right: 10px;">Посмотреть на GitHub</a>';
+                if ($is_installed) {
+                    $activate_text = $is_active ? 'Деактивировать' : 'Активировать';
+                    $activate_class = $is_active ? 'deactivate-plugin-btn button button-warning' : 'activate-plugin-btn button button-success';
+                    $html .= '<button class="' . esc_attr($activate_class) . '" data-repo="' . esc_attr($plugin['name']) . '" data-file="' . esc_attr($plugin_file) . '">' . esc_html($activate_text) . '</button> ';
+                    $html .= '<button class="' . esc_attr($button_class) . '" data-repo="' . esc_attr($plugin['name']) . '" data-zip="' . esc_attr($plugin['zip_url']) . '">' . esc_html($button_text) . '</button>';
+                } else {
+                    $html .= '<button class="' . esc_attr($button_class) . '" data-repo="' . esc_attr($plugin['name']) . '" data-zip="' . esc_attr($plugin['zip_url']) . '">' . esc_html($button_text) . '</button>';
+                }
+                $html .= '</div>';
+            }
+        }
+        $html .= '</div>';
+        $html .= '<style>.installed p:before { content: none !important; }</style>';
+        $html .= '<style>
+            .plugin-item {
+                border: 1px solid #ddd;
+                padding: 10px;
+                margin-bottom: 10px;
+                border-radius: 5px;
+            }
+            .plugin-item.installed.active {
+                background-color: #d4edda;
+            }
+            .plugin-item.installed.inactive {
+                background-color: #fff3cd;
+            }
+            .plugin-item.not-installed {
+                background-color: #f8f9fa;
+            }
+        </style>';
+        $html .= '<script type="text/javascript">
+        jQuery(document).ready(function($) {
+            $(document).on("click", ".install-plugin-btn", function() {
+                var btn = $(this);
+                var originalText = btn.text();
+                btn.text("Установка...").prop("disabled", true);
+                $.post(ajaxurl, {
+                    action: "install_my_plugin",
+                    repo: btn.data("repo"),
+                    zip: btn.data("zip"),
+                    nonce: "' . wp_create_nonce('install_plugin') . '"
+                }, function(response) {
+                    if (response.success) {
+                        btn.text("Установлен и активирован").removeClass("button").addClass("button-disabled");
+                        location.reload();
+                    } else {
+                        btn.text("Ошибка установки").prop("disabled", false);
+                        console.log(response.data);
+                    }
+                }).fail(function() {
+                    btn.text("Ошибка").prop("disabled", false);
+                });
+            });
+            $(document).on("click", ".deactivate-plugin-btn, .activate-plugin-btn", function() {
+                var btn = $(this);
+                var originalText = btn.text();
+                btn.text("Обработка...").prop("disabled", true);
+                $.post(ajaxurl, {
+                    action: "toggle_my_plugin",
+                    plugin_file: btn.data("file"),
+                    nonce: "' . wp_create_nonce('toggle_plugin') . '"
+                }, function(response) {
+                    if (response.success) {
+                        if (response.data.action == "deactivated") {
+                            btn.removeClass("deactivate-plugin-btn button button-warning").addClass("activate-plugin-btn button button-success").text("Активировать");
+                        } else {
+                            btn.removeClass("activate-plugin-btn button button-success").addClass("deactivate-plugin-btn button button-warning").text("Деактивировать");
+                        }
+                        location.reload();
+                    } else {
+                        btn.text(originalText).prop("disabled", false);
+                        console.log(response.data);
+                    }
+                }).fail(function() {
+                    btn.text(originalText).prop("disabled", false);
+                });
+            });
+            $(document).on("click", ".uninstall-plugin-btn", function() {
+                var btn = $(this);
+                var originalText = btn.text();
+                if (!confirm("Вы уверены, что хотите деинсталлировать этот плагин?")) {
+                    return;
+                }
+                btn.text("Деинсталляция...").prop("disabled", true);
+                $.post(ajaxurl, {
+                    action: "uninstall_my_plugin",
+                    repo: btn.data("repo"),
+                    nonce: "' . wp_create_nonce('uninstall_plugin') . '"
+                }, function(response) {
+                    if (response.success) {
+                        var pluginItem = btn.closest(".plugin-item");
+                        pluginItem.removeClass("installed active inactive").addClass("not-installed").css("background-color", "#f8f9fa");
+                        pluginItem.find(".activate-plugin-btn, .deactivate-plugin-btn").remove();
+                        btn.removeClass("uninstall-plugin-btn button button-secondary").addClass("install-plugin-btn button button-primary").text("Установить").prop("disabled", false);
+                    } else {
+                        btn.text("Ошибка деинсталляции").prop("disabled", false);
+                        console.log(response.data);
+                    }
+                }).fail(function() {
+                    btn.text("Ошибка").prop("disabled", false);
+                });
+            });
+            $("#refresh-plugins-list").click(function() {
+                var btn = $(this);
+                btn.text("Обновление...").prop("disabled", true);
+                $.post(ajaxurl, {
+                    action: "refresh_plugins_list",
+                    nonce: "' . wp_create_nonce('refresh_plugins') . '"
+                }, function(response) {
+                    if (response.success) {
+                        location.reload();
+                    } else {
+                        btn.text("Ошибка").prop("disabled", false);
+                        alert("Ошибка обновления: " + response.data);
+                    }
+                });
+            });
+        });
+        </script>';
+        return $html;
+    }
+
+    public function refresh_plugins_list_ajax() {
+        check_ajax_referer('refresh_plugins', 'nonce');
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error('Нет прав.');
+        }
+        delete_transient('wp_addon_github_plugins');
+        wp_send_json_success();
+    }
+
+    public function uninstall_plugin_ajax() {
+        check_ajax_referer('uninstall_plugin', 'nonce');
+        if (!current_user_can('delete_plugins')) {
+            wp_send_json_error('Нет прав для удаления плагинов.');
+        }
+        $repo = sanitize_text_field($_POST['repo']);
+        if (empty($repo)) {
+            wp_send_json_error('Неверные параметры.');
+        }
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        require_once ABSPATH . 'wp-admin/includes/file.php';
+        if (!WP_Filesystem()) {
+            error_log('WP_Filesystem failed');
+            wp_send_json_error('Ошибка файловой системы.');
+            return;
+        }
+        global $wp_filesystem;
+        $installed_plugins = get_plugins();
+        $plugin_file = null;
+        foreach ($installed_plugins as $file => $data) {
+            if (dirname($file) === $repo) {
+                $plugin_file = $file;
+                break;
+            }
+        }
+        if (!$plugin_file) {
+            wp_send_json_error('Плагин не найден.');
+            return;
+        }
+        // Деактивировать плагин
+        deactivate_plugins($plugin_file);
+        error_log('Deactivated plugin: ' . $plugin_file);
+        // Удалить папку
+        $plugin_dir = WP_PLUGIN_DIR . '/' . $repo;
+        if ($wp_filesystem->exists($plugin_dir)) {
+            $wp_filesystem->delete($plugin_dir, true);
+            error_log('Deleted plugin dir: ' . $plugin_dir);
+        }
+        wp_send_json_success();
+    }
+
+    public function toggle_plugin_ajax() {
+        check_ajax_referer('toggle_plugin', 'nonce');
+        if (!current_user_can('activate_plugins')) {
+            wp_send_json_error('Нет прав для активации/деактивации плагинов.');
+        }
+        $plugin_file = sanitize_text_field($_POST['plugin_file']);
+        if (empty($plugin_file)) {
+            wp_send_json_error('Неверные параметры.');
+        }
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        $active_plugins = get_option('active_plugins', []);
+        if (in_array($plugin_file, $active_plugins)) {
+            // Деактивировать
+            deactivate_plugins($plugin_file);
+            error_log('Deactivated plugin: ' . $plugin_file);
+            wp_send_json_success(['action' => 'deactivated']);
+        } else {
+            // Активировать
+            $activate_result = activate_plugin($plugin_file);
+            if ($activate_result === true || is_null($activate_result)) {
+                error_log('Activated plugin: ' . $plugin_file);
+                wp_send_json_success(['action' => 'activated']);
+            } else {
+                wp_send_json_error('Не удалось активировать плагин: ' . (is_wp_error($activate_result) ? $activate_result->get_error_message() : 'Неизвестная ошибка'));
+            }
+        }
+    }
+
+    public function install_plugin_ajax() {
+        check_ajax_referer('install_plugin', 'nonce');
+        if (!current_user_can('install_plugins')) {
+            wp_send_json_error('Нет прав для установки плагинов.');
+        }
+        $zip_url = esc_url_raw($_POST['zip']);
+        $repo = sanitize_text_field($_POST['repo']);
+        if (empty($zip_url) || empty($repo)) {
+            wp_send_json_error('Неверные параметры.');
+        }
+        require_once ABSPATH . 'wp-admin/includes/plugin.php';
+        require_once ABSPATH . 'wp-admin/includes/class-wp-upgrader.php';
+        require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
+        require_once ABSPATH . 'wp-admin/includes/file.php';
+        if (!WP_Filesystem()) {
+            error_log('WP_Filesystem failed');
+            wp_send_json_error('Ошибка файловой системы.');
+            return;
+        }
+        error_log('Installing plugin from: ' . $zip_url);
+        $upgrader = new Plugin_Upgrader( new Automatic_Upgrader_Skin() );
+        $result = $upgrader->install($zip_url);
+        if ($result) {
+            // Найти установленную папку (GitHub ZIP создает папку с -main)
+            $possible_dirs = glob(WP_PLUGIN_DIR . '/' . $repo . '-*');
+            if (empty($possible_dirs)) {
+                error_log('No installed dir found for ' . $repo);
+                wp_send_json_error('Не найдена установленная папка.');
+                return;
+            }
+            $installed_dir = $possible_dirs[0]; // берем первую
+            $expected_dir = WP_PLUGIN_DIR . '/' . $repo;
+            error_log('Found installed dir: ' . $installed_dir);
+            error_log('Expected dir: ' . $expected_dir);
+            if (is_dir($expected_dir)) {
+                error_log('Expected dir already exists: ' . $expected_dir);
+                wp_send_json_error('Папка плагина уже существует.');
+                return;
+            }
+            if (rename($installed_dir, $expected_dir)) {
+                error_log('Renamed to: ' . $expected_dir);
+                // Найти основной файл плагина
+                $plugin_files = glob($expected_dir . '/*.php');
+                $plugin_file = null;
+                foreach ($plugin_files as $file) {
+                    $data = get_plugin_data($file);
+                    if (!empty($data['Name'])) {
+                        $plugin_file = $file;
+                        break;
+                    }
+                }
+                if ($plugin_file) {
+                    $activate_result = activate_plugin($plugin_file);
+                    error_log('Activate result: ' . print_r($activate_result, true));
+                    if ($activate_result === true || is_null($activate_result)) {
+                        wp_send_json_success();
+                    } else {
+                        wp_send_json_error('Плагин установлен, но не удалось активировать: ' . (is_wp_error($activate_result) ? $activate_result->get_error_message() : 'Неизвестная ошибка'));
+                    }
+                } else {
+                    error_log('No plugin file found in ' . $expected_dir);
+                    wp_send_json_error('Не найден файл плагина для активации.');
+                }
+            } else {
+                error_log('Rename failed from ' . $installed_dir . ' to ' . $expected_dir);
+                wp_send_json_error('Не удалось переименовать папку плагина.');
+            }
+        } else {
+            error_log('Install failed');
+            wp_send_json_error('Ошибка установки плагина.');
+        }
+    }
+
     public function add_actions()
     {
         add_action( 'after_setup_theme', [ $this, 'after_setup_theme'] );
         add_action( 'admin_enqueue_scripts', [ $this, 'admin_assets' ], 20 );
+        add_action( 'wp_ajax_install_my_plugin', [ $this, 'install_plugin_ajax' ] );
+        add_action( 'wp_ajax_refresh_plugins_list', [ $this, 'refresh_plugins_list_ajax' ] );
+        add_action( 'wp_ajax_uninstall_my_plugin', [ $this, 'uninstall_plugin_ajax' ] );
+        add_action( 'wp_ajax_toggle_my_plugin', [ $this, 'toggle_plugin_ajax' ] );
     }
 
 	/**
@@ -369,6 +760,8 @@ class WP_Addon_Settings {
             'fields' => require __DIR__ . '/wp-widgets.php',
         ]);
 
+
+
         do_action('wp_addon_settings_section', $prefix);
 
         // Custom Code
@@ -424,5 +817,17 @@ class WP_Addon_Settings {
                 ],
             ],
         ]);
+
+		// My Plugins
+		\CSF::createSection($prefix, [
+			'title'  => __('Мои плагины', 'wp-addon'),
+			'icon'   => 'fa fa-plug',
+			'fields' => [
+				[
+					'type'    => 'content',
+					'content' => $this->get_plugins_html(),
+				],
+			],
+		]);
 	}
 }
