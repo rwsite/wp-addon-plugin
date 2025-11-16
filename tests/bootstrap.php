@@ -3,6 +3,19 @@
 // Load composer autoloader
 require_once __DIR__ . '/../vendor/autoload.php';
 
+// Disable Patchwork completely to avoid function redefinition issues
+if (class_exists('Patchwork\Utils')) {
+    Patchwork\Utils::disable();
+}
+
+// Alternative: Create a no-op Patchwork setup
+if (!class_exists('Patchwork')) {
+    class Patchwork {
+        public static function redefine() { }
+        public static function restoreAll() { }
+    }
+}
+
 // Load autoloader (commented out as composer handles PSR-4)
 // require_once __DIR__ . '/../src/Autoloader.php';
 // \WpAddon\Autoloader::register();
@@ -354,8 +367,27 @@ if (!function_exists('md5')) {
     }
 }
 
-if (!function_exists('time')) {
-    function time() {
-        return \time();
+if (!function_exists('home_url')) {
+    function home_url($path = '') {
+        return 'http://localhost' . $path;
+    }
+}
+
+if (!function_exists('wp_upload_dir')) {
+    function wp_upload_dir() {
+        return [
+            'path' => '/tmp/uploads',
+            'url' => 'http://localhost/wp-content/uploads',
+            'subdir' => '',
+            'basedir' => '/tmp/uploads',
+            'baseurl' => 'http://localhost/wp-content/uploads',
+            'error' => false,
+        ];
+    }
+}
+
+if (!function_exists('__')) {
+    function __($text, $domain = 'default') {
+        return $text;
     }
 }

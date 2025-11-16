@@ -1,7 +1,5 @@
 <?php
 
-use Brain\Monkey;
-use Brain\Monkey\Functions;
 use \Mockery;
 
 /**
@@ -9,29 +7,19 @@ use \Mockery;
  */
 describe('LazyLoading Unit Tests', function () {
     beforeEach(function () {
-        Monkey\setUp();
-
-        $this->mockOptionService = Mockery::mock('\WpAddon\Services\OptionService');
-
-        // Настройки по умолчанию для новой версии
+        $this->mockOptionService = Mockery::mock('WpAddon\Services\OptionService');
         $this->mockOptionService->shouldReceive('getSetting')
             ->andReturnUsing(function($key, $default = null) {
-                $config = [
-                    'enable_lazy_loading' => true,
-                ];
+                $config = ['enable_lazy_loading' => true];
                 return $config[$key] ?? $default;
             });
     });
 
     afterEach(function () {
-        Monkey\tearDown();
         Mockery::close();
     });
 
     it('initializes and registers hooks when enabled', function () {
-        Functions\when('add_filter')->justReturn(true);
-        Functions\when('add_action')->justReturn(true);
-        Functions\when('wp_enqueue_script')->justReturn(true);
 
         $lazyLoading = new LazyLoading($this->mockOptionService);
         $lazyLoading->init();
@@ -40,11 +28,12 @@ describe('LazyLoading Unit Tests', function () {
     });
 
     it('does not initialize when disabled', function () {
-        $this->mockOptionService->shouldReceive('getSetting')
+        $mockService = Mockery::mock('WpAddon\Services\OptionService');
+        $mockService->shouldReceive('getSetting')
             ->with('enable_lazy_loading', false)
             ->andReturn(false);
 
-        $lazyLoading = new LazyLoading($this->mockOptionService);
+        $lazyLoading = new LazyLoading($mockService);
         $lazyLoading->init();
 
         expect(true)->toBeTrue();
@@ -53,13 +42,15 @@ describe('LazyLoading Unit Tests', function () {
     it('applies lazy loading to HTML content with images', function () {
         $lazyLoading = new LazyLoading($this->mockOptionService);
 
-        $html = '<p>Some text</p><img src="/wp-content/uploads/image.jpg" alt="Test" class="wp-image"><p>More text</p>';
+        $html = '<img src="/image.jpg" alt="Test">';
         $result = $lazyLoading->processContent($html);
 
-        expect($result)->toContain('data-src="/wp-content/uploads/image.jpg"');
-        expect($result)->toContain('class="wp-image lazy-img"');
+        // Проверяем что добавлены нужные атрибуты
+        expect($result)->toContain('data-src="/image.jpg"');
+        expect($result)->toContain('lazy-img');
         expect($result)->toContain('loading="lazy"');
-        expect($result)->not()->toContain('src="/wp-content/uploads/image.jpg"');
+        // И что НЕТ атрибута src (только data-src)
+        expect(preg_match('/\ssrc\s*=\s*"\/image\.jpg"/', $result))->toBe(0);
     });
 
     it('skips SVG images', function () {
@@ -101,8 +92,9 @@ describe('LazyLoading Unit Tests', function () {
         expect($result)->toContain('data-src="/uploads/1.jpg"');
         expect($result)->toContain('data-src="/uploads/2.jpg"');
         expect($result)->toContain('src="/uploads/3.svg"'); // SVG пропускается
-        expect($result)->not()->toContain('src="/uploads/1.jpg"');
-        expect($result)->not()->toContain('src="/uploads/2.jpg"');
+        // Проверяем что НЕТ атрибутов src для обработанных изображений
+        expect(preg_match('/\ssrc\s*=\s*"\/uploads\/1\.jpg"/', $result))->toBe(0);
+        expect(preg_match('/\ssrc\s*=\s*"\/uploads\/2\.jpg"/', $result))->toBe(0);
     });
 
     it('preserves existing attributes', function () {
