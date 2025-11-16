@@ -1,13 +1,15 @@
-# WP Excellence Addon
+<p align="center">
+    <a href="https://github.com/rwsite/wp-addon-plugin"><img alt="GitHub release" src="https://img.shields.io/github/release/rwsite/wp-addon-plugin.svg?style=for-the-badge"></a>
+    <a href="https://php.net"><img alt="PHP Version" src="https://img.shields.io/badge/PHP-8.2+-blue.svg?style=for-the-badge&logo=php"></a>
+    <a href="https://wordpress.org"><img alt="WordPress Version" src="https://img.shields.io/badge/WordPress-6.6+-blue.svg?style=for-the-badge&logo=wordpress"></a>
+    <a href="LICENSE"><img alt="License" src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge"></a>
+</p>
 
-[![GitHub release](https://img.shields.io/github/release/rwsite/wp-addon-plugin.svg?style=flat-square)](https://github.com/rwsite/wp-addon-plugin/releases)
-[![PHP Version](https://img.shields.io/badge/PHP-8.2+-blue.svg?style=flat-square)](https://php.net)
-[![WordPress Version](https://img.shields.io/badge/WordPress-6.6+-blue.svg?style=flat-square)](https://wordpress.org)
-[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=flat-square)](LICENSE)
+<p align="center">
+    <strong>Transform your standard WordPress installation into an excellent, optimized website with advanced performance enhancements.</strong>
+</p>
 
-🇷🇺 [Russian version](README.ru.md)
-
-Transform your standard WordPress installation into an excellent, optimized website with advanced performance enhancements.
+---
 
 ## ✨ Key Features
 
@@ -16,8 +18,7 @@ Transform your standard WordPress installation into an excellent, optimized webs
 - **Smart Processing**: Only processes local assets, skips already minified files
 - **Cache Management**: Automatic cleanup on theme/plugin updates
 
-## 🏗️ Architecture
-
+### 🏗️ Architecture
 - **PSR-4 Autoloading**: Clean namespace structure
 - **Modular Design**: Interface-based system for easy extension
 - **Modern Testing**: Pest framework with declarative syntax
