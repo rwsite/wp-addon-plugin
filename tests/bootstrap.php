@@ -1,11 +1,27 @@
 <?php
 
+// Create mock Patchwork class BEFORE loading autoloader to prevent conflicts
+if (!class_exists('Patchwork')) {
+    class Patchwork {
+        public static function redefine() { }
+        public static function restoreAll() { }
+        public static function disable() { }
+    }
+}
+
+// Mock Patchwork functions
+if (!function_exists('redefine')) {
+    function redefine() { }
+}
+if (!function_exists('restoreAll')) {
+    function restoreAll() { }
+}
+
 // Load composer autoloader
 require_once __DIR__ . '/../vendor/autoload.php';
 
-// Completely disable Patchwork to avoid redefinition conflicts
+// Completely disable any remaining Patchwork functionality
 if (class_exists('Patchwork')) {
-    // Disable all Patchwork functionality
     if (method_exists('Patchwork', 'disable')) {
         Patchwork::disable();
     }
