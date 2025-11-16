@@ -64,10 +64,71 @@ class Plugin
      */
     public function init(): void
     {
+        register_activation_hook($this->file, [$this, 'activate']);
+
         $this->defineConstants();
 		$this->loadLocales();
         $this->loadDependencies();
         $this->addHooks();
+    }
+
+    /**
+     * Plugin activation hook
+     */
+    public function activate(): void
+    {
+        // Check if CodeStar Framework is installed
+        if (!class_exists('CSF')) {
+            $this->installCodestarFramework();
+        }
+    }
+
+    /**
+     * Install CodeStar Framework
+     */
+    private function installCodestarFramework(): void
+    {
+        $csf_dir = $this->dir . 'lib/codestar-framework/';
+
+        // Check if already downloaded
+        if (file_exists($csf_dir . 'codestar-framework.php')) {
+            require_once $csf_dir . 'codestar-framework.php';
+            return;
+        }
+
+        // Download CodeStar Framework
+        $zip_url = 'https://github.com/Codestar/codestar-framework/archive/refs/heads/master.zip';
+        $temp_zip = download_url($zip_url);
+
+        if (is_wp_error($temp_zip)) {
+            wp_die(__('Ошибка загрузки CodeStar Framework. Пожалуйста, установите его вручную с https://github.com/Codestar/codestar-framework', 'wp-addon'));
+        }
+
+        // Unzip
+        WP_Filesystem();
+        global $wp_filesystem;
+
+        $unzip_result = unzip_file($temp_zip, $this->dir . 'lib/');
+
+        // Clean up temp file
+        @unlink($temp_zip);
+
+        if (is_wp_error($unzip_result)) {
+            wp_die(__('Ошибка распаковки CodeStar Framework. Пожалуйста, установите его вручную.', 'wp-addon'));
+        }
+
+        // Rename directory
+        $extracted_dir = $this->dir . 'lib/codestar-framework-master/';
+        if (file_exists($extracted_dir)) {
+            $wp_filesystem->move($extracted_dir, $csf_dir);
+        }
+
+        // Include CSF
+        if (file_exists($csf_dir . 'codestar-framework.php')) {
+            require_once $csf_dir . 'codestar-framework.php';
+        } else {
+            wp_die(__('CodeStar Framework не найден после установки. Пожалуйста, установите его вручную.', 'wp-addon'));
+        }
     }
 
 
@@ -106,6 +167,12 @@ class Plugin
      */
     private function loadDependencies(): void
     {
+        // Load CodeStar Framework if available
+        $csf_file = $this->dir . 'lib/codestar-framework/codestar-framework.php';
+        if (file_exists($csf_file)) {
+            require_once $csf_file;
+        }
+
         // Load settings
         require_once $this->dir . 'src/Config/wp-addon-settings.php';
 

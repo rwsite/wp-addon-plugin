@@ -5,3 +5,4 @@
 *.phar
 .phpunit.cache
 vendor
+lib/
