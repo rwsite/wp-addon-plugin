@@ -17,8 +17,7 @@
     "mockery/mockery": "^1.4",
     "pestphp/pest": "^2.0",
     "fakerphp/faker": "^1.23",
-    "brain/monkey": "^2.6",
-    "10up/wp_mock": "^1.0"
+    "brain/monkey": "^2.6"
   },
   "autoload": {
     "psr-4": {

@@ -1,7 +1,5 @@
 <?php
 
-use WP_Mock;
-
 describe('AssetMinification', function () {
     it('creates cache files for CSS assets', function () {
         $optionService = \Mockery::mock('\\WpAddon\\Services\\OptionService');
@@ -50,9 +48,6 @@ describe('AssetMinification', function () {
         if (!defined('ABSPATH')) {
             define('ABSPATH', sys_get_temp_dir() . '/');
         }
-
-        // Mock site_url
-        WP_Mock::userFunction('site_url')->andReturn('http://localhost');
 
         // Initialize
         $assetMinification->init();
@@ -120,9 +115,6 @@ describe('AssetMinification', function () {
         if (!defined('ABSPATH')) {
             define('ABSPATH', sys_get_temp_dir() . '/');
         }
-
-        // Mock site_url
-        WP_Mock::userFunction('site_url')->andReturn('http://localhost');
 
         // Initialize
         $assetMinification->init();
