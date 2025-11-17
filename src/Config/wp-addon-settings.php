@@ -53,25 +53,20 @@ class WP_Addon_Settings {
         $cache_key = 'wp_addon_github_plugins';
         $cached_plugins = get_transient($cache_key);
         if ($cached_plugins !== false) {
-            error_log('GitHub plugins loaded from cache: ' . count($cached_plugins));
             return $cached_plugins;
         }
 
         $token = defined('GITHUB_TOKEN') ? GITHUB_TOKEN : null;
         $headers = $token ? ['Authorization' => 'token ' . $token] : [];
-        error_log('Using GitHub token: ' . ($token ? 'yes' : 'no'));
 
         $response = wp_remote_get('https://api.github.com/users/rwsite/repos?page=1&per_page=100', ['headers' => $headers]);
         if (is_wp_error($response)) {
-            error_log('GitHub API error (repos): ' . $response->get_error_message());
             return [];
         }
         $repos = json_decode(wp_remote_retrieve_body($response), true);
         if (!is_array($repos)) {
-            error_log('Invalid repos response: ' . wp_remote_retrieve_body($response));
             return [];
         }
-        error_log('Repos loaded: ' . count($repos));
         $plugins = [];
         foreach ($repos as $repo) {
             $name = $repo['name'] ?? '';
@@ -86,23 +81,19 @@ class WP_Addon_Settings {
             // Проверяем наличие тегов (стабильных версий)
             $tags_response = wp_remote_get('https://api.github.com/repos/rwsite/' . $name . '/tags?per_page=1', ['headers' => $headers]);
             if (is_wp_error($tags_response)) {
-                error_log('Tags error for ' . $name . ': ' . $tags_response->get_error_message());
                 continue;
             }
             $tags = json_decode(wp_remote_retrieve_body($tags_response), true);
             if (!is_array($tags) || empty($tags)) {
-                error_log('No tags for ' . $name);
                 continue;
             }
             // Проверяем, что это WordPress плагин (наличие plugin.php или readme.txt)
             $contents_response = wp_remote_get('https://api.github.com/repos/rwsite/' . $name . '/contents?ref=' . ($repo['default_branch'] ?? 'main'), ['headers' => $headers]);
             if (is_wp_error($contents_response)) {
-                error_log('Contents error for ' . $name . ': ' . $contents_response->get_error_message());
                 continue;
             }
             $contents = json_decode(wp_remote_retrieve_body($contents_response), true);
             if (!is_array($contents)) {
-                error_log('Invalid contents for ' . $name);
                 continue;
             }
             $has_plugin_file = false;
@@ -113,7 +104,6 @@ class WP_Addon_Settings {
                 }
             }
             if (!$has_plugin_file) {
-                error_log('No plugin file for ' . $name);
                 continue;
             }
             $plugins[] = [
@@ -123,7 +113,6 @@ class WP_Addon_Settings {
                 'zip_url' => 'https://github.com/rwsite/' . $name . '/archive/' . ($repo['default_branch'] ?? 'main') . '.zip',
             ];
         }
-        error_log('Filtered plugins: ' . count($plugins));
 
         // Кешируем на сутки
         set_transient($cache_key, $plugins, DAY_IN_SECONDS);
@@ -303,8 +292,7 @@ class WP_Addon_Settings {
         require_once ABSPATH . 'wp-admin/includes/plugin.php';
         require_once ABSPATH . 'wp-admin/includes/file.php';
         if (!WP_Filesystem()) {
-            error_log('WP_Filesystem failed');
-            wp_send_json_error('Ошибка файловой системы.');
+                        wp_send_json_error('Ошибка файловой системы.');
             return;
         }
         global $wp_filesystem;
@@ -320,14 +308,9 @@ class WP_Addon_Settings {
             wp_send_json_error('Плагин не найден.');
             return;
         }
-        // Деактивировать плагин
-        deactivate_plugins($plugin_file);
-        error_log('Deactivated plugin: ' . $plugin_file);
-        // Удалить папку
         $plugin_dir = WP_PLUGIN_DIR . '/' . $repo;
         if ($wp_filesystem->exists($plugin_dir)) {
             $wp_filesystem->delete($plugin_dir, true);
-            error_log('Deleted plugin dir: ' . $plugin_dir);
         }
         wp_send_json_success();
     }
@@ -346,14 +329,12 @@ class WP_Addon_Settings {
         if (in_array($plugin_file, $active_plugins)) {
             // Деактивировать
             deactivate_plugins($plugin_file);
-            error_log('Deactivated plugin: ' . $plugin_file);
-            wp_send_json_success(['action' => 'deactivated']);
+                        wp_send_json_success(['action' => 'deactivated']);
         } else {
             // Активировать
             $activate_result = activate_plugin($plugin_file);
             if ($activate_result === true || is_null($activate_result)) {
-                error_log('Activated plugin: ' . $plugin_file);
-                wp_send_json_success(['action' => 'activated']);
+                                wp_send_json_success(['action' => 'activated']);
             } else {
                 wp_send_json_error('Не удалось активировать плагин: ' . (is_wp_error($activate_result) ? $activate_result->get_error_message() : 'Неизвестная ошибка'));
             }
@@ -375,32 +356,25 @@ class WP_Addon_Settings {
         require_once ABSPATH . 'wp-admin/includes/plugin-install.php';
         require_once ABSPATH . 'wp-admin/includes/file.php';
         if (!WP_Filesystem()) {
-            error_log('WP_Filesystem failed');
-            wp_send_json_error('Ошибка файловой системы.');
+                        wp_send_json_error('Ошибка файловой системы.');
             return;
         }
-        error_log('Installing plugin from: ' . $zip_url);
         $upgrader = new Plugin_Upgrader( new Automatic_Upgrader_Skin() );
         $result = $upgrader->install($zip_url);
         if ($result) {
             // Найти установленную папку (GitHub ZIP создает папку с -main)
             $possible_dirs = glob(WP_PLUGIN_DIR . '/' . $repo . '-*');
             if (empty($possible_dirs)) {
-                error_log('No installed dir found for ' . $repo);
                 wp_send_json_error('Не найдена установленная папка.');
                 return;
             }
             $installed_dir = $possible_dirs[0]; // берем первую
             $expected_dir = WP_PLUGIN_DIR . '/' . $repo;
-            error_log('Found installed dir: ' . $installed_dir);
-            error_log('Expected dir: ' . $expected_dir);
             if (is_dir($expected_dir)) {
-                error_log('Expected dir already exists: ' . $expected_dir);
                 wp_send_json_error('Папка плагина уже существует.');
                 return;
             }
             if (rename($installed_dir, $expected_dir)) {
-                error_log('Renamed to: ' . $expected_dir);
                 // Найти основной файл плагина
                 $plugin_files = glob($expected_dir . '/*.php');
                 $plugin_file = null;
@@ -413,23 +387,17 @@ class WP_Addon_Settings {
                 }
                 if ($plugin_file) {
                     $activate_result = activate_plugin($plugin_file);
-                    error_log('Activate result: ' . print_r($activate_result, true));
                     if ($activate_result === true || is_null($activate_result)) {
                         wp_send_json_success();
                     } else {
                         wp_send_json_error('Плагин установлен, но не удалось активировать: ' . (is_wp_error($activate_result) ? $activate_result->get_error_message() : 'Неизвестная ошибка'));
                     }
                 } else {
-                    error_log('No plugin file found in ' . $expected_dir);
                     wp_send_json_error('Не найден файл плагина для активации.');
                 }
             } else {
-                error_log('Rename failed from ' . $installed_dir . ' to ' . $expected_dir);
                 wp_send_json_error('Не удалось переименовать папку плагина.');
             }
-        } else {
-            error_log('Install failed');
-            wp_send_json_error('Ошибка установки плагина.');
         }
     }
 
