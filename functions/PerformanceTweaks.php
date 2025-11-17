@@ -96,7 +96,7 @@ class PerformanceTweaks implements ModuleInterface {
             $this->addHook('admin_notices', [$this, 'pendingPostsNotice']);
         }
         if ($this->getSetting('wptweaker_setting_27', true)) {
-            $this->addHook('admin_menu', [$this, 'disableTaxonomyDropdown']);
+            $this->addHook('admin_head', [$this, 'disableTaxonomyDropdown']);
         }
         if ($this->getSetting('wptweaker_setting_28', true)) {
             $this->addFilter('wp_count_posts', [$this, 'showPendingCount']);
