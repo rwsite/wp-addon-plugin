@@ -45,6 +45,11 @@ class Plugin
     /**
      * Media cleanup service
      */
+    private \WpAddon\Services\MediaCleanupService $mediaCleanupService;
+
+    /**
+     * Image optimization service
+     */
     private \WpAddon\Services\ImageOptimizationService $imageOptimizationService;
 
     /**

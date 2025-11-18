@@ -28,6 +28,11 @@ class AssetService
     private string $version;
 
     /**
+     * Plugin path
+     */
+    private string $path;
+
+    /**
      * Constructor
      *
      * @param string $file
