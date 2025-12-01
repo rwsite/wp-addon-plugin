@@ -10,8 +10,8 @@
 8: Set limit post revisions to 5
 9: Block http-requests by plugins/themes
 10: Disable heartbeat
-11: Disable Login-Error
-12: Disable new themes on major WP updates
+11: Disable new themes on major WP updates
+12: Remove jQuery Migrate
 13: Disable the XML-RPC
 14: Remove post by email function
 15: Disable URL-fields on comments
@@ -26,8 +26,17 @@
 24: Deregister widgets
 25: Remove license.txt и readme.html files
 26: Add filter to metabox of post taxonomies
-27:
-28:
+27: Disable select taxonomy in top of metabox in post-edit page
+28: If posts have status "pending" show numbers it in menu
+29: Showing message "Update wordpress" only admin
+30: Repalse [...] to "Read more ..." for posts
+31: Allow shortcode in "Text" widget
+32: Get jquery from google cloud
+33: Remove autotop function. Remove <p></p> tags in post content.
+34: Allow WEBP support for media
+35: Allow SVG support for media
+36: Disable browser checking in dashboard
+37: Change login error message
 
  */
 
@@ -478,4 +487,12 @@ function wptweaker_setting_35() {
 
 function wptweaker_setting_36() {
 	add_filter( 'pre_site_transient_browser_' . md5( $_SERVER['HTTP_USER_AGENT'] ), '__return_null' );
+}
+
+function wptweaker_setting_37() {
+    // Изменение сообщения об ошибке логина
+    add_filter( 'login_errors', 'custom_login_error_message' );
+    function custom_login_error_message() {
+        return '<strong>ОШИБКА</strong>: Неверное имя пользователя или пароль.';
+    }
 }

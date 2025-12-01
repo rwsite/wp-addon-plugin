@@ -221,4 +221,10 @@ return [
 		'title'   => __('Disable browser checking in dashboard', 'wp-addon'),
 		'default' => true,
 	],
+	[
+		'id'      => 'wptweaker_setting_37',
+		'type'    => 'switcher',
+		'title'   => __('Change login error message', 'wp-addon'),
+		'default' => true,
+	],
 ];
