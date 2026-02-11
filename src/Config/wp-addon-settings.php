@@ -93,11 +93,17 @@ class WP_Addon_Settings {
                 continue;
             }
             $contents = json_decode(wp_remote_retrieve_body($contents_response), true);
-            if (!is_array($contents)) {
+
+            // GitHub can return an error object like ['message' => '...'] – treat it as invalid.
+            if (!is_array($contents) || isset($contents['message'])) {
                 continue;
             }
             $has_plugin_file = false;
             foreach ($contents as $file) {
+                if (!is_array($file) || empty($file['name'])) {
+                    continue;
+                }
+
                 if ($file['name'] === $name . '.php' || $file['name'] === 'plugin.php' || $file['name'] === 'readme.txt') {
                     $has_plugin_file = true;
                     break;
