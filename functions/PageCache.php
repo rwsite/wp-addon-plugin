@@ -148,11 +148,22 @@ class PageCache implements ModuleInterface {
 			return false;
 		}
 
+		if ( isset( $_SERVER['REQUEST_METHOD'] ) && strtoupper( $_SERVER['REQUEST_METHOD'] ) !== 'GET' ) {
+			return false;
+		}
+
 		if ( $this->config['exclude_logged_in'] && is_user_logged_in() ) {
 			return false;
 		}
 
 		$url = $_SERVER['REQUEST_URI'];
+		$custom_login_slug = get_option( 'whl_page' );
+		if ( ! empty( $custom_login_slug ) ) {
+			$custom_login_path = '/' . ltrim( $custom_login_slug, '/' );
+			if ( strpos( $url, $custom_login_path ) === 0 || isset( $_GET[ $custom_login_slug ] ) ) {
+				return false;
+			}
+		}
 		foreach ( $this->config['exclude_urls'] as $exclude ) {
 			if ( strpos( $url, trim( $exclude ) ) === 0 ) {
 				return false;

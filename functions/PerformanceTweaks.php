@@ -85,6 +85,7 @@ class PerformanceTweaks implements ModuleInterface {
         }
         if ($this->getSetting('wptweaker_setting_23', true)) {
             $this->addHook('wp_footer', [$this, 'showPerformanceInfo']);
+            $this->addFilter('admin_footer_text', [$this, 'showPerformanceInfoAdmin']);
         }
         if ($this->getSetting('wptweaker_setting_24', false)) {
             $this->addHook('widgets_init', [$this, 'removeDefaultWidgets']);
@@ -124,6 +125,12 @@ class PerformanceTweaks implements ModuleInterface {
         }
         if ($this->getSetting('wptweaker_setting_36', true)) {
             $this->addHook('admin_init', [$this, 'disableBrowserCheck']);
+        }
+        if ($this->getSetting('wptweaker_setting_37', true)) {
+            $this->addFilter('login_errors', [$this, 'customLoginErrorMessage']);
+        }
+        if ($this->getSetting('wptweaker_setting_38', true)) {
+            $this->addFilter('auth_cookie_expiration', [$this, 'extendLoginSession'], 10, 3);
         }
     }
 
@@ -229,8 +236,30 @@ class PerformanceTweaks implements ModuleInterface {
         return $contactmethods;
     }
 
+    public function showPerformanceInfoAdmin($text) {
+        $stat = sprintf(__('SQL: %d за %s sec. %.2f MB ', 'wp-addon'), get_num_queries(), timer_stop(),
+            (memory_get_peak_usage() / 1024 / 1024));
+        return $text . ' | ' . $stat;
+    }
+
     public function showPerformanceInfo() {
-        echo '<div style="text-align:center;font-size:11px;color:#999;">Generated in ' . timer_stop(0, 2) . ' seconds. Used ' . round(memory_get_peak_usage()/1024/1024, 2) . ' MB memory.</div>';
+        if (current_user_can('manage_options')) {
+            $stat = sprintf(__('SQL: %d за %s sec. %.2f MB ', 'wp-addon'), get_num_queries(), timer_stop(),
+                (memory_get_peak_usage() / 1024 / 1024));
+            
+            echo '<div id="site-stats" class="site-stats">' . $stat . '</div>';
+            echo '<style>#site-stats{
+                        text-align: center;
+                        color: rgb(255, 255, 255);
+                        background: #222222;
+                        width: 100%;
+                        height: auto;
+                        padding-bottom: 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-around;
+                }</style>';
+        }
     }
 
     public function removeDefaultWidgets() {
@@ -320,5 +349,13 @@ class PerformanceTweaks implements ModuleInterface {
 
     public function disableBrowserCheck() {
         add_filter('wp_check_browser_version', '__return_false');
+    }
+
+    public function customLoginErrorMessage() {
+        return '<strong>ОШИБКА</strong>: Неверное имя пользователя или пароль.';
+    }
+
+    public function extendLoginSession($seconds, $user_id, $remember) {
+        return YEAR_IN_SECONDS;
     }
 }

@@ -37,6 +37,7 @@
 35: Allow SVG support for media
 36: Disable browser checking in dashboard
 37: Change login error message
+38: Extend login session to 1 year
 
  */
 
@@ -254,30 +255,7 @@ function wptweaker_setting_22()
 
 function wptweaker_setting_23()
 {
-    /* Выводит данные о кол-ве запросов к БД, время выполнения скрипта и размер затраченной памяти. */
-    add_filter('admin_footer_text', 'performance'); // в подвале админки
-    add_filter('wp_footer', 'performance'); // в подвале сайта
-    function performance()
-    {
-        $stat = sprintf(__('SQL: %d за %s sec. %.2f MB ', 'wp-addon'), get_num_queries(), timer_stop(),
-            (memory_get_peak_usage() / 1024 / 1024));
-        if (is_admin()) {
-            echo $stat; // видно
-        } elseif(current_user_can('manage_options')) {
-            echo '<div id="site-stats" class="site-stats">' . $stat . '</div>';
-            echo '<style>#site-stats{
-                        text-align: center;
-                        color: rgb(255, 255, 255);
-                        background: #222222;
-                        width: 100%;
-                        height: auto;
-                        padding-bottom: 20px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: space-around;
-                }</style>';
-        }
-    }
+    // Функционал перенесен в класс PerformanceTweaks
 }
 
 function wptweaker_setting_24()
@@ -489,10 +467,10 @@ function wptweaker_setting_36() {
 	add_filter( 'pre_site_transient_browser_' . md5( $_SERVER['HTTP_USER_AGENT'] ), '__return_null' );
 }
 
-function wptweaker_setting_37() {
-    // Изменение сообщения об ошибке логина
-    add_filter( 'login_errors', 'custom_login_error_message' );
-    function custom_login_error_message() {
-        return '<strong>ОШИБКА</strong>: Неверное имя пользователя или пароль.';
+function wptweaker_setting_38() {
+    // Увеличение времени сессии до 1 года
+    add_filter( 'auth_cookie_expiration', 'extend_login_session_year', 10, 3 );
+    function extend_login_session_year( $seconds, $user_id, $remember ) {
+        return YEAR_IN_SECONDS;
     }
 }

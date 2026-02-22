@@ -227,4 +227,10 @@ return [
 		'title'   => __('Change login error message', 'wp-addon'),
 		'default' => true,
 	],
+	[
+		'id'      => 'wptweaker_setting_38',
+		'type'    => 'switcher',
+		'title'   => __('Extend login session to 1 year', 'wp-addon'),
+		'default' => true,
+	],
 ];

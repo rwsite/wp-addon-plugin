@@ -1,0 +1,268 @@
+/* Markdown Editor Styles */
+.markdown-editor-tabs {
+    display: flex;
+    margin-bottom: 0;
+    border-bottom: 1px solid #ccd0d4;
+}
+
+.tab-button {
+    background: #f1f1f1;
+    border: 1px solid #ccd0d4;
+    border-bottom: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 13px;
+    color: #50575e;
+    margin-right: 4px;
+    border-radius: 4px 4px 0 0;
+    transition: all 0.2s ease;
+}
+
+.tab-button:hover {
+    background: #fafafa;
+    color: #1d2327;
+}
+
+.tab-button.active {
+    background: #fff;
+    color: #1d2327;
+    font-weight: 600;
+    border-bottom: 1px solid #fff;
+    margin-bottom: -1px;
+}
+
+.tab-content {
+    border: 1px solid #ccd0d4;
+    border-top: none;
+    padding: 0;
+    background: #fff;
+}
+
+.tab-content.active {
+    display: block !important;
+}
+
+#markdown-textarea {
+    display: none;
+    resize: vertical;
+    border: none;
+    outline: none;
+    padding: 20px;
+    font-family: 'Courier New', Consolas, Monaco, monospace;
+    font-size: 14px;
+    line-height: 1.5;
+    background: #f9f9f9;
+    min-height: 400px;
+}
+
+/* Стили для EasyMDE */
+.editor-toolbar {
+    border-radius: 0;
+    border-color: #ccd0d4;
+    background: #fff;
+    opacity: 1;
+    position: sticky;
+    top: 32px; /* Учитываем админ-бар WP */
+    z-index: 100;
+}
+
+/* Фикс для мобильного админ-бара */
+@media screen and (max-width: 782px) {
+    .editor-toolbar {
+        top: 46px;
+    }
+}
+
+.editor-toolbar.fullscreen {
+    z-index: 100000;
+    top: 0;
+}
+
+.CodeMirror {
+    border-radius: 0;
+    border-color: #ccd0d4;
+    min-height: 400px;
+    font-size: 14px;
+    line-height: 1.6;
+    font-family: 'Courier New', Consolas, Monaco, monospace;
+}
+
+.CodeMirror-fullscreen {
+    z-index: 100000;
+}
+
+.editor-preview-side {
+    border-color: #ccd0d4;
+    z-index: 100000;
+    padding: 20px;
+}
+
+.editor-preview-active-side {
+    display: block;
+}
+
+/* Фикс для Side-by-side и Fullscreen режима в админке WP */
+.editor-toolbar.fullscreen,
+.CodeMirror-fullscreen,
+.editor-preview-side {
+    z-index: 100000 !important; /* Выше всех элементов WP */
+    position: fixed !important;
+}
+
+.editor-toolbar.fullscreen {
+    top: 0 !important; /* В фуллскрине прижимаем к верху */
+    height: 50px !important;
+}
+
+.CodeMirror-fullscreen {
+    top: 50px !important; /* Под тулбаром */
+    height: calc(100vh - 50px) !important;
+}
+
+/* При Side by Side предпросмотр должен быть справа */
+.editor-preview-side {
+    right: 0 !important;
+    bottom: 0 !important;
+    top: 50px !important; /* Под тулбаром */
+    width: 50% !important;
+    height: calc(100vh - 50px) !important;
+    border-left: 1px solid #ddd;
+    background: #fff;
+    z-index: 100001 !important;
+}
+
+/* Фикс для мобильного админ-бара */
+@media screen and (max-width: 782px) {
+    .editor-toolbar.fullscreen {
+        top: 0 !important;
+    }
+    .CodeMirror-fullscreen,
+    .editor-preview-side {
+        top: 50px !important;
+        height: calc(100vh - 50px) !important;
+    }
+}
+
+/* При Side by Side редактор должен быть слева */
+.CodeMirror-sided {
+    width: 50% !important;
+}
+
+/* При Side by Side панель инструментов должна быть на всю ширину */
+.editor-toolbar.fullscreen::before,
+.editor-toolbar.fullscreen::after {
+    display: none;
+}
+
+/* Скрываем левое меню WP, админ-бар и отступы при фуллскрине/side-by-side */
+body.editor-fullscreen #adminmenumain,
+body.editor-fullscreen #wpadminbar {
+    display: none !important;
+}
+body.editor-fullscreen #wpcontent {
+    margin-left: 0 !important;
+}
+
+/* Отключаем скролл страницы при полноэкранном режиме */
+body.editor-fullscreen {
+    overflow: hidden !important;
+}
+
+/* Скрываем лишнюю кнопку Preview из тулбара EasyMDE (глазик) */
+.editor-toolbar button.preview {
+    display: none !important;
+}
+
+.editor-statusbar {
+    padding: 8px 12px;
+    border-top: 1px solid #ccd0d4;
+}
+
+#markdown-textarea:focus {
+    background: #fff;
+    box-shadow: 0 0 0 1px #3582c4;
+}
+
+/* Скрываем старые стили табов, так как они больше не нужны */
+.markdown-editor-tabs,
+.tab-button,
+.tab-content {
+    display: none !important;
+}
+
+.markdown-help {
+    margin-top: 16px;
+    padding: 12px;
+    background: #f0f6fc;
+    border: 1px solid #d0d7de;
+    border-radius: 6px;
+    font-size: 12px;
+    color: #656d76;
+}
+
+#markdown-editor-container {
+    position: relative;
+}
+
+.markdown-help h4 {
+    margin: 0 0 8px 0;
+    color: #1d2327;
+    font-size: 13px;
+}
+
+.markdown-help ul {
+    margin: 0;
+    padding-left: 16px;
+}
+
+.markdown-help li {
+    margin-bottom: 2px;
+}
+
+/* Статус индикатор */
+.markdown-status {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 11px;
+    color: #666;
+    background: #f0f0f1;
+    padding: 4px 8px;
+    border-radius: 3px;
+}
+
+.markdown-status.preview-updating {
+    background: #d63638;
+    color: #fff;
+}
+
+.markdown-status.preview-ready {
+    background: #00a32a;
+    color: #fff;
+}
+
+#markdown-editor-container {
+    position: relative;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .markdown-editor-tabs {
+        flex-direction: column;
+    }
+    
+    .tab-button {
+        border-radius: 0;
+        margin-right: 0;
+        margin-bottom: 4px;
+    }
+    
+    .tab-button.active {
+        margin-bottom: 0;
+    }
+    
+    #markdown-textarea {
+        padding: 12px;
+        font-size: 16px;
+    }
+}

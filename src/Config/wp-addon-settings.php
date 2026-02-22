@@ -98,6 +98,9 @@ class WP_Addon_Settings {
             }
             $has_plugin_file = false;
             foreach ($contents as $file) {
+                if (!is_array($file) || !isset($file['name'])) {
+                    continue;
+                }
                 if ($file['name'] === $name . '.php' || $file['name'] === 'plugin.php' || $file['name'] === 'readme.txt') {
                     $has_plugin_file = true;
                     break;
@@ -771,6 +774,96 @@ class WP_Addon_Settings {
                     'sanitize' => false,
                 ],
             ],// #fields
+        ]);
+
+        // Markdown Editor
+        \CSF::createSection($prefix, [
+            'title'  => __('Markdown Editor', 'wp-addon'),
+            'icon'   => 'fa fa-edit',
+            'description' => __('Markdown Editor позволяет писать статьи в удобном формате Markdown и автоматически конвертировать их в HTML. Поддерживает синтаксис заголовков, списков, ссылок, изображений, кода и других элементов.<br><br><strong>Преимущества:</strong><br>• Простой и читаемый синтаксис<br>• Быстрое форматирование текста<br>• Предпросмотр в реальном времени<br>• Горячие клавиши для ускорения работы<br>• Автоматическое преобразование в HTML<br><br><strong>Поддерживаемые элементы:</strong><br>• Заголовки (# ## ###)<br>• Жирный (**текст**) и курсив (*текст*)<br>• Ссылки [текст](url)<br>• Изображения ![alt](url)<br>• Списки маркированные и нумерованные<br>• Код `inline` и блоки кода<br>• Цитаты и горизонтальные линии', 'wp-addon'),
+            'fields' => [
+                [
+                    'id'    => 'wp_addon_markdown_enabled',
+                    'type'  => 'switcher',
+                    'title' => __('Enable Markdown Editor', 'wp-addon'),
+                    'desc'  => __('Включает Markdown редактор для постов и страниц. При включении в админ-панели появится дополнительный блок для редактирования контента в формате Markdown с предпросмотром.', 'wp-addon'),
+                    'default' => false,
+                ],
+                [
+                    'id'    => 'markdown_post_types',
+                    'type'  => 'checkbox',
+                    'title' => __('Post types for Markdown', 'wp-addon'),
+                    'desc'  => __('Выберите типы постов, для которых будет доступен Markdown редактор.', 'wp-addon'),
+                    'options' => [
+                        'post' => __('Posts', 'wp-addon'),
+                        'page' => __('Pages', 'wp-addon'),
+                    ],
+                    'default' => ['post', 'page'],
+                    'dependency' => ['wp_addon_markdown_enabled', '==', 'true'],
+                ],
+                [
+                    'id'    => 'markdown_replace_tinymce',
+                    'type'  => 'switcher',
+                    'title' => __('Replace TinyMCE editor', 'wp-addon'),
+                    'desc'  => __('Заменить стандартный редактор TinyMCE на Markdown редактор по умолчанию. При отключении оба редактора будут доступны.', 'wp-addon'),
+                    'default' => false,
+                    'dependency' => ['wp_addon_markdown_enabled', '==', 'true'],
+                ],
+                [
+                    'id'    => 'markdown_enable_preview',
+                    'type'  => 'switcher',
+                    'title' => __('Enable live preview', 'wp-addon'),
+                    'desc'  => __('Включает предпросмотр Markdown в реальном времени. Показывает как будет выглядеть контент после публикации.', 'wp-addon'),
+                    'default' => true,
+                    'dependency' => ['wp_addon_markdown_enabled', '==', 'true'],
+                ],
+                [
+                    'id'    => 'markdown_enable_shortcuts',
+                    'type'  => 'switcher',
+                    'title' => __('Enable keyboard shortcuts', 'wp-addon'),
+                    'desc'  => __('Активирует горячие клавиши для быстрого форматирования: Ctrl+B (жирный), Ctrl+I (курсив), Ctrl+K (ссылка), Tab (отступ).', 'wp-addon'),
+                    'default' => true,
+                    'dependency' => ['wp_addon_markdown_enabled', '==', 'true'],
+                ],
+                [
+                    'id'    => 'markdown_migrate_existing',
+                    'type'  => 'switcher',
+                    'title' => __('Convert existing HTML to Markdown', 'wp-addon'),
+                    'desc'  => __('Автоматически конвертирует существующий HTML контент в Markdown при первом редактировании поста. Необратимая операция.', 'wp-addon'),
+                    'default' => false,
+                    'dependency' => ['wp_addon_markdown_enabled', '==', 'true'],
+                ],
+                [
+                    'type'    => 'content',
+                    'content' => '<div style="background: #f0f6fc; border: 1px solid #d0d7de; border-radius: 6px; padding: 16px; margin: 16px 0;">
+                        <h4 style="margin-top: 0; color: #1d2327;">📝 Справка по Markdown синтаксису:</h4>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; font-family: monospace; font-size: 13px;">
+                            <div>
+                                <strong>Заголовки:</strong><br>
+                                # Заголовок 1<br>
+                                ## Заголовок 2<br>
+                                ### Заголовок 3<br><br>
+                                <strong>Форматирование:</strong><br>
+                                **жирный текст**<br>
+                                *курсив*<br>
+                                ~~зачеркнутый~~<br>
+                                `код`
+                            </div>
+                            <div>
+                                <strong>Ссылки и изображения:</strong><br>
+                                [текст ссылки](https://example.com)<br>
+                                ![описание](image.jpg)<br><br>
+                                <strong>Списки:</strong><br>
+                                * Маркированный список<br>
+                                1. Нумерованный список<br><br>
+                                <strong>Цитаты:</strong><br>
+                                > Цитата
+                            </div>
+                        </div>
+                    </div>',
+                    'dependency' => ['wp_addon_markdown_enabled', '==', 'true'],
+                ],
+            ],
         ]);
 
         // BackUp
