@@ -2,7 +2,6 @@
 
 
 // add settings tabs
-use classes\ControllerWP;
 
 add_action( 'wp_addon_settings_section', [Advertising::class, 'set_settings'], 10, 1);
 
@@ -377,7 +376,7 @@ function ads_enabler(){
 }
 
 function rw_init_ads(){
-    $settings = ControllerWP::get_settings();
+    $settings = get_option("wp-addon", []);
 
     $prefix['before']   = 'before_content';
     $prefix['in']       = 'in_content';
@@ -461,7 +460,7 @@ function validate_request_post_type($settings, $key){
 function jquery_ads_mode()
 {
     // if work js mode is run
-    $settings = ControllerWP::get_settings();
+    $settings = get_option("wp-addon", []);
     if (isset( $settings['ads_jquery'] ) && is_array( $settings['ads_jquery'] )) {
         foreach ($settings['ads_jquery'] as $element) {
             if (isset( $element['js_html'], $element['js_selector'] ) && ! empty( $element['js_selector'] )

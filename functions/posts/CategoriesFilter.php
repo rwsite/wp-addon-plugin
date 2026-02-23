@@ -1,6 +1,5 @@
 <?php
 
-use classes\ControllerWP;
 
 /**
  * CategoriesFilter
@@ -43,7 +42,7 @@ final class CategoriesFilter
      * @return string | null
      */
     private function get_settings(){
-        $options = ControllerWP::get_settings();
+        $options = get_option("wp-addon", []);
         $cat_ids = $options['posts']['exclude_cat_val'];// получаем список категорий
         return $cat_ids ?? null;
     }
