@@ -51,7 +51,13 @@ $fields['posts'] = [
         [
             'id'      => 'remove_category_url',
             'type'    => 'switcher',
-            'title'   => __('Enable duplicate post and page', 'wp-addon'),
+            'title'   => __('Remove category base from URL', 'wp-addon'),
+            'default' => true,
+        ],
+        [
+            'id'      => 'hierarchical_tags_rewrite',
+            'type'    => 'switcher',
+            'title'   => __('Enable hierarchical tags rewrite rules', 'wp-addon'),
             'default' => true,
         ],
         [

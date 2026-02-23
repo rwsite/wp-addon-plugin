@@ -233,6 +233,31 @@ class Plugin
     private function addHooks(): void
     {
         add_action('plugins_loaded', [$this, 'onPluginsLoaded']);
+        add_action('init', [$this, 'loadSeoFunctions'], 1);
+    }
+
+    /**
+     * Load SEO functions early
+     */
+    public function loadSeoFunctions(): void
+    {
+        $seo_dir = $this->dir . 'functions/seo/';
+        if (is_dir($seo_dir)) {
+            foreach (glob($seo_dir . '*.php') as $file) {
+                require_once $file;
+            }
+        }
+        
+        // Also load from functions/posts, functions/terms, etc
+        $function_subdirs = ['posts', 'terms', 'comments', 'users', 'shortcodes', 'widgets', 'dashboard-widget', 'cf7', 'vc', 'TinyMCE'];
+        foreach ($function_subdirs as $subdir) {
+            $dir = $this->dir . 'functions/' . $subdir . '/';
+            if (is_dir($dir)) {
+                foreach (glob($dir . '*.php') as $file) {
+                    require_once $file;
+                }
+            }
+        }
     }
 
     /**
